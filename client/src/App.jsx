@@ -1,62 +1,24 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+import { Route, Routes, NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import Navbar from './components/Navbar';
+import Create from './pages/Create';
+import Settings from './pages/Settings';
 
 function App() {
-  const [messages, setMessages] = useState([]);
-
-  useEffect(() => subscribe(), [messages]);
-
-  function submitMessage(event) {
-    event.preventDefault();
-
-    const value = event.target.message.value;
-
-    if (value) {
-      fetch('/api/publish', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: value }),
-      });
-    }
-  }
-
-  async function subscribe() {
-    let response = await fetch('/api/subscribe');
-    if (response.status == 502) {
-      // Connection timeout
-      // happens when the connection was pending for too long
-      // let's reconnect
-      setMessages([...messages, 'Error happened – Timeout']);
-    } else if (response.status == 503) {
-      let message = await response.text();
-      setMessages([...messages, message]);
-      return;
-    } else if (response.status != 200) {
-      // Show Error
-      setMessages([...messages, 'Error happened']);
-      // Reconnect in one second
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-    } else {
-      // Got message
-      let message = await response.text();
-      setMessages([...messages, message]);
-    }
-  }
-
   return (
-    <div className="App">
-      <h1>Our Chat Server</h1>
-      <form onSubmit={submitMessage}>
-        <input type="text" name="message" />
-        <button>Send Message</button>
-      </form>
-      <section>
-        {messages.map((message, index) => (
-          <p key={index}>{message}</p>
-        ))}
-      </section>
+    <div className='App'>
+      <img src='./src/title.png'></img>
+      <br></br>
+      <NavLink to='/'>Home </NavLink>
+      <NavLink to='create'>New Dive </NavLink>
+      <NavLink to='settings'>Favourites </NavLink>
+
+      <Routes>
+        <Route path='/' element={<h2>Blubb is coming up!</h2>} />
+        <Route path='create' element={<Create />} />
+        <Route path='settings' element={<Settings />} />
+      </Routes>
+      <Navbar />
     </div>
   );
 }
