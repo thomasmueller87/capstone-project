@@ -3,11 +3,12 @@ import { Route, Routes, NavLink } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
+import logo from './graphics/title.png';
 
 function App() {
   return (
     <div className='App'>
-      <img src='src/components/graphics/title.png'></img>
+      <img src={logo}></img>
       <br></br>
       <NavLink to='/'>Home </NavLink>
       <NavLink to='create'>New Dive </NavLink>
