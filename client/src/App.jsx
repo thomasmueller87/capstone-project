@@ -1,5 +1,5 @@
 import { Route, Routes, NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import Navbar from './components/Navbar';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
