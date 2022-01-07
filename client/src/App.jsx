@@ -7,7 +7,7 @@ import Settings from './pages/Settings';
 function App() {
   return (
     <div className='App'>
-      <img src='/src/title.png'></img>
+      <img src='./components/graphics/title.png'></img>
       <br></br>
       <NavLink to='/'>Home </NavLink>
       <NavLink to='create'>New Dive </NavLink>
