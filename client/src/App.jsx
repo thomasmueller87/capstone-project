@@ -10,6 +10,7 @@ function App() {
     <div className='App'>
       <img src={logo}></img>
       <br></br>
+      <p>MUH!</p>
       <NavLink to='/'>Home </NavLink>
       <NavLink to='create'>New Dive </NavLink>
       <NavLink to='settings'>Favourites </NavLink>
