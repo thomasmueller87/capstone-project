@@ -10,7 +10,11 @@ function Navbar() {
       <LeftNavItem>
         <NavLink to='/'>
           <div>
-            <img src={homeImg} alt='Home' />
+            <img
+              src={homeImg}
+              alt='Home'
+              activeClassName='selected'
+            />
           </div>
           <div>Home</div>
         </NavLink>
