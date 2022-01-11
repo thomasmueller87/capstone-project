@@ -27,11 +27,11 @@ const BackgroundWrap = styled.div`
   padding-bottom: 3rem;
   min-height: 100vh;
   margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   background: linear-gradient(
     15deg,
     rgba(79, 172, 254, 1) 0%,
     rgba(0, 242, 254, 1) 100%
   );
+  background-repeat: no-repeat;
+  background-attachment: fixed; ;
 `;
