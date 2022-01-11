@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
-import logo from './graphics/title.png';
+import logo from './assets/title.png';
 
 function App() {
   return (
