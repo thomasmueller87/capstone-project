@@ -3,28 +3,28 @@ import cardDate from '../../assets/card/card-date.png';
 import cardTime from '../../assets/card/card-time.png';
 import cardDuration from '../../assets/card/card-duration.png';
 
-function Title() {
+function Title({ logData }) {
   return (
     <TitleContainer>
       <div className='date'>
         <div>
           <img src={cardDate} alt='Date' />
-          {` 06.01.2021`}
+          {` ${logData.date}`}
         </div>
         <div>
           <img src={cardTime} alt='Date' />
-          {` 13:48`}
+          {` ${logData.time}`}
         </div>
       </div>
       <div className='duration'>
         <div>
           <img src={cardDuration} alt='Date' />
-          {` 48 min`}
+          {` ${logData.duration}`}
         </div>
       </div>
       <div className='number'>
         <div>#</div>
-        <div>1</div>
+        <div>{` ${logData.id}`}</div>
       </div>
     </TitleContainer>
   );
