@@ -1,5 +1,7 @@
 import Title from './card/Title';
 import Place from './card/Place';
+import Notes from './card/Notes';
+import Air from './card/Air';
 import CardContainer from './card/CardContainer';
 
 const initialLog = {
@@ -11,7 +13,7 @@ const initialLog = {
   spot: 'Abu Nashim',
   airStart: '200 bar',
   airEnd: '60 bar',
-  airEAN: '32 %',
+  airEan: '32 %',
   waterDepthMax: '28.4m',
   waterDepthAvg: '17.3m',
   waterTemp: '23 °C',
@@ -25,6 +27,8 @@ function DiveLog() {
     <CardContainer>
       <Title logData={initialLog} />
       <Place label='Place' logData={initialLog} />
+      <Air label='Air' logData={initialLog} />
+      <Notes label='Notes' logData={initialLog} />
     </CardContainer>
   );
 }

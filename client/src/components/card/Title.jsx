@@ -36,7 +36,7 @@ const TitleContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  border-bottom: 2px solid var(--primary-nav);
+  border-bottom: 2px solid var(--primary-color);
   .date {
     display: flex;
     flex-flow: column nowrap;
@@ -61,7 +61,7 @@ const TitleContainer = styled.div`
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
-      color: var(--primary-nav);
+      color: var(--primary-color);
       font-size: 3rem;
     }
   }

@@ -52,15 +52,15 @@ const NavItem = styled.div`
   align-items: center;
   height: 3rem;
   width: 100%;
-  border: 1px solid var(--primary-nav);
-  color: var(--primary-nav);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
 
   .active {
     background-color: #9c9c9c;
   }
 
   a {
-    color: var(--primary-nav);
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 0.7rem;
     width: 100%;
