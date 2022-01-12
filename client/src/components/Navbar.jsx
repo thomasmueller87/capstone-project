@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import homeImg from '../graphics/home.png';
-import createImg from '../graphics/create.png';
-import settingsImg from '../graphics/settings.png';
+import homeImg from '../assets/home.png';
+import createImg from '../assets/create.png';
+import settingsImg from '../assets/settings.png';
 
 function Navbar() {
   return (
@@ -10,7 +10,11 @@ function Navbar() {
       <LeftNavItem>
         <NavLink to='/'>
           <div>
-            <img src={homeImg} alt='Home' />
+            <img
+              src={homeImg}
+              alt='Home'
+              activeClassName='selected'
+            />
           </div>
           <div>Home</div>
         </NavLink>
