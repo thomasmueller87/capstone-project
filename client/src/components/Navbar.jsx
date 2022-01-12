@@ -10,11 +10,7 @@ function Navbar() {
       <LeftNavItem>
         <NavLink to='/'>
           <div>
-            <img
-              src={homeImg}
-              alt='Home'
-              activeClassName='selected'
-            />
+            <img src={homeImg} alt='Home' />
           </div>
           <div>Home</div>
         </NavLink>
@@ -59,17 +55,31 @@ const NavItem = styled.div`
   border: 1px solid var(--primary-nav);
   color: var(--primary-nav);
 
+  .active {
+    background-color: #9c9c9c;
+  }
+
   a {
     color: var(--primary-nav);
     text-decoration: none;
     font-size: 0.7rem;
+    width: 100%;
+    height: 100%;
   }
 `;
 
 const LeftNavItem = styled(NavItem)`
   border-radius: 10px 0 0 0;
+
+  a.active {
+    border-radius: 10px 0 0 0;
+  }
 `;
 
 const RightNavItem = styled(NavItem)`
   border-radius: 0 10px 0 0;
+
+  a.active {
+    border-radius: 0 10px 0 0;
+  }
 `;

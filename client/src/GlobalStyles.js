@@ -8,9 +8,13 @@ export default createGlobalStyle`
 :root {
     --background-nav: #ffffff;
     --background-title: #ffffff;
+    --background-card: #ffffff;
     --title: #978f8f;
     --primary-nav: #0939B6;
     --primary-text: #000000;
+
+    --fontsize-card-standard: 1.1rem;
+    --fontweight-card-standard: bold;
     }
 
 body {
