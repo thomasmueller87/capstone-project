@@ -31,7 +31,7 @@ const CardWrapper = styled.section`
   background-color: var(--background-card-buddy);
   border: 1px solid black;
   border-radius: 5px;
-  margin: 1.2rem 0 1rem 0;
+  margin: 0.5rem 0 1rem 0;
   padding: 0.3rem;
   display: grid;
   grid-template-columns: 40px 1fr;

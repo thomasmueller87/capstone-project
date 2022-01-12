@@ -32,13 +32,14 @@ const CardWrapper = styled.section`
   background-color: var(--background-card-air);
   border: 1px solid black;
   border-radius: 5px;
-  margin: 1.2rem 0 1rem 0;
+  margin: 0.5rem 0 1rem 0;
   padding: 0.7rem 0 0 0.3rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
   position: relative;
   text-align: left;
+  min-height: 15vh;
 
   .icon1 {
     grid-area: 1 / 1 / 2 / 2;

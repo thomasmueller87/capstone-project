@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import CardContainer from './card/CardContainer';
 import Title from './card/Title';
 import Place from './card/Place';
@@ -28,13 +29,60 @@ function LogCard() {
   return (
     <CardContainer>
       <Title logData={initialLog} />
-      <Place label='Place' logData={initialLog} />
-      <Air label='Air' logData={initialLog} />
-      <Water label='Water' logData={initialLog} />
-      <Notes label='Notes' logData={initialLog} />
-      <Buddy label='Buddy' logData={initialLog} />
+
+      <CardGrid>
+        <div className='card-container'>
+          <div className='place'>
+            <Place label='Place' logData={initialLog} />
+          </div>
+          <div className='air'>
+            <Air label='Air' logData={initialLog} />
+          </div>
+          <div className='water'>
+            <Water label='Water' logData={initialLog} />
+          </div>
+          <div className='notes'>
+            <Notes label='Notes' logData={initialLog} />
+          </div>
+          <div className='buddy'>
+            <Buddy label='Buddy' logData={initialLog} />
+          </div>
+        </div>
+      </CardGrid>
     </CardContainer>
   );
 }
 
 export default LogCard;
+
+const CardGrid = styled.div`
+  margin: 0;
+  padding: 0;
+
+  .card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 0px 10px;
+    grid-template-areas:
+      'place place'
+      'air water'
+      'notes notes'
+      'buddy buddy';
+  }
+  .place {
+    grid-area: place;
+  }
+  .air {
+    grid-area: air;
+  }
+  .water {
+    grid-area: water;
+  }
+  .notes {
+    grid-area: notes;
+  }
+  .buddy {
+    grid-area: buddy;
+  }
+`;
