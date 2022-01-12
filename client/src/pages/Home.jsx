@@ -1,11 +1,11 @@
 import Header from '../components/Header';
-import DiveLog from '../components/DiveLog';
+import LogCard from '../components/LogCard';
 
 export default function Home() {
   return (
     <>
       <Header title='DiveLogs' />
-      <DiveLog />
+      <LogCard />
     </>
   );
 }

@@ -1,64 +1,61 @@
 import styled from 'styled-components';
-import cardAirEan from '../../assets/card/card-air-ean.png';
-import cardAir from '../../assets/card/card-air.png';
+import cardBuddy from '../../assets/card/card-buddy.png';
+import cardSignature from '../../assets/card/card-signature.png';
+import cardDummySignature from '../../assets/card/card-dummy-signature.png';
 
-function Air({ label, logData }) {
+function Buddy({ label, logData }) {
   return (
     <CardWrapper>
       <div className='icon1'>
-        <img src={cardAir} alt='Air Start' />
-        START
+        <img src={cardBuddy} alt='Dive Buddy' />
       </div>
       <div className='icon2'>
-        <img src={cardAir} alt='Air End' />
-        END
+        <img src={cardSignature} alt='Buddy Signature' />
       </div>
-      <div className='icon3'>
-        <img src={cardAirEan} alt='% Nitrox' />
+      <div className='data1'>{logData.buddy}</div>
+      <div className='data2'>
+        {' '}
+        <img
+          src={cardDummySignature}
+          alt='Buddy Signature'
+        />{' '}
       </div>
-
-      <div className='data1'>{logData.airStart}</div>
-      <div className='data2'>{logData.airEnd}</div>
-      <div className='data3'>{logData.airEan}</div>
-
       <div className='label'>{label}</div>
     </CardWrapper>
   );
 }
 
-export default Air;
+export default Buddy;
 
 const CardWrapper = styled.section`
-  background-color: var(--background-card-air);
+  background-color: var(--background-card-buddy);
   border: 1px solid black;
   border-radius: 5px;
   margin: 1.2rem 0 1rem 0;
-  padding: 0.7rem 0 0 0.3rem;
+  padding: 0.3rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: 1rem.5 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
   position: relative;
   text-align: left;
 
   .icon1 {
     grid-area: 1 / 1 / 2 / 2;
-    font-size: 0.6rem;
   }
   .icon2 {
     grid-area: 2 / 1 / 3 / 2;
-    font-size: 0.6rem;
-  }
-  .icon3 {
-    grid-area: 3 / 1 / 4 / 2;
+    display: flex;
+    align-items: flex-end;
   }
   .data1 {
     grid-area: 1 / 2 / 2 / 3;
   }
   .data2 {
     grid-area: 2 / 2 / 3 / 3;
-  }
-  .data3 {
-    grid-area: 3 / 2 / 4 / 3;
+    padding-top: 0.5rem;
+    text-align: center;
   }
 
   .label {

@@ -1,35 +1,35 @@
 import styled from 'styled-components';
-import cardAirEan from '../../assets/card/card-air-ean.png';
-import cardAir from '../../assets/card/card-air.png';
+import cardWaterDepth from '../../assets/card/card-water-depth.png';
+import cardWaterTemp from '../../assets/card/card-water-temp.png';
 
-function Air({ label, logData }) {
+function Water({ label, logData }) {
   return (
     <CardWrapper>
       <div className='icon1'>
-        <img src={cardAir} alt='Air Start' />
-        START
+        <img src={cardWaterDepth} alt='Maximum Depth' />
+        MAX
       </div>
       <div className='icon2'>
-        <img src={cardAir} alt='Air End' />
-        END
+        <img src={cardWaterDepth} alt='Average Depth' />
+        AVG
       </div>
       <div className='icon3'>
-        <img src={cardAirEan} alt='% Nitrox' />
+        <img src={cardWaterTemp} alt='Water Temperature' />
       </div>
 
-      <div className='data1'>{logData.airStart}</div>
-      <div className='data2'>{logData.airEnd}</div>
-      <div className='data3'>{logData.airEan}</div>
+      <div className='data1'>{logData.waterDepthMax}</div>
+      <div className='data2'>{logData.waterDepthAvg}</div>
+      <div className='data3'>{logData.waterTemp}</div>
 
       <div className='label'>{label}</div>
     </CardWrapper>
   );
 }
 
-export default Air;
+export default Water;
 
 const CardWrapper = styled.section`
-  background-color: var(--background-card-air);
+  background-color: var(--background-card-water);
   border: 1px solid black;
   border-radius: 5px;
   margin: 1.2rem 0 1rem 0;

@@ -13,6 +13,8 @@ export default createGlobalStyle`
     --background-card-notes: #fafbe0;
     --background-card-place: #f6d8bb;
     --background-card-label: #ffffff;
+    --background-card-water: #e0f3fb;
+    --background-card-buddy: #ffffff;
     --title: #978f8f;
     --primary-color: #0939B6;
     --primary-text: #000000;

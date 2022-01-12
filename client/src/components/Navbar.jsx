@@ -56,7 +56,12 @@ const NavItem = styled.div`
   color: var(--primary-color);
 
   .active {
-    background-color: #9c9c9c;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 30%,
+      #0939b6b7 100%
+    );
+    color: black;
   }
 
   a {

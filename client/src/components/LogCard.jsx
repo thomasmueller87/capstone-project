@@ -1,8 +1,10 @@
+import CardContainer from './card/CardContainer';
 import Title from './card/Title';
 import Place from './card/Place';
 import Notes from './card/Notes';
 import Air from './card/Air';
-import CardContainer from './card/CardContainer';
+import Water from './card/Water';
+import Buddy from './card/Buddy';
 
 const initialLog = {
   id: 1,
@@ -22,15 +24,17 @@ const initialLog = {
   buddy: 'Antonia',
 };
 
-function DiveLog() {
+function LogCard() {
   return (
     <CardContainer>
       <Title logData={initialLog} />
       <Place label='Place' logData={initialLog} />
       <Air label='Air' logData={initialLog} />
+      <Water label='Water' logData={initialLog} />
       <Notes label='Notes' logData={initialLog} />
+      <Buddy label='Buddy' logData={initialLog} />
     </CardContainer>
   );
 }
 
-export default DiveLog;
+export default LogCard;
