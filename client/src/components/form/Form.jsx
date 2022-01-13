@@ -42,16 +42,26 @@ function Form() {
     console.log({ log });
   };
 
+  const resetLog = {
+    id: '',
+    date: '',
+    time: '',
+    duration: '',
+    country: '',
+    spot: '',
+    airStart: '',
+    airEnd: '',
+    airEan: '',
+    waterDepthMax: '',
+    waterDepthAvg: '',
+    waterTemp: '',
+    notes: '',
+    buddy: '',
+  };
+
   const handleChange = (event) => {
-    let inputValue = event.target.value; // "Glühwein"
-
-    if (event.target.type === 'checkbox') {
-      inputValue = event.target.checked;
-    }
-
+    let inputValue = event.target.value;
     setLog({
-      // alle bestehenden Properties behalten
-      // neu zu setzende Property -> deren Wert überschreiben
       ...log,
       [event.target.name]: inputValue,
     });
@@ -64,6 +74,8 @@ function Form() {
           onTextInputChange={handleChange}
           name='date'
           value={log.date}
+          placeholder='dd.mm.yyyy'
+          width='5rem'
         >
           <img src={cardDate} alt='Date' />
         </TextInput>
@@ -71,6 +83,8 @@ function Form() {
           onTextInputChange={handleChange}
           name='time'
           value={log.time}
+          placeholder='XX:XX'
+          width='3rem'
         >
           <img src={cardTime} alt='Time' />
         </TextInput>
@@ -78,6 +92,8 @@ function Form() {
           name='duration'
           value={log.duration}
           onNumberInputChange={handleChange}
+          placeholder='XX'
+          width='2rem'
         >
           <img src={cardDuration} alt='Duration' />
         </NumberInput>
@@ -87,6 +103,8 @@ function Form() {
           onTextInputChange={handleChange}
           name='country'
           value={log.country}
+          placeholder='Country'
+          width='8rem'
         >
           <img src={cardCountry} alt='Country' />
         </TextInput>
@@ -94,6 +112,8 @@ function Form() {
           onTextInputChange={handleChange}
           name='spot'
           value={log.spot}
+          placeholder='Spot'
+          width='8rem'
         >
           <img src={cardSpot} alt='Spot' />
         </TextInput>
@@ -103,6 +123,8 @@ function Form() {
           name='airStart'
           value={log.airStart}
           onNumberInputChange={handleChange}
+          placeholder='xxx'
+          width='2.5rem'
         >
           <img src={cardAir} alt='Air Start' />
           start
@@ -111,6 +133,8 @@ function Form() {
           name='airEnd'
           value={log.airEnd}
           onNumberInputChange={handleChange}
+          placeholder='xxx'
+          width='2.5rem'
         >
           <img src={cardAir} alt='Air End' />
           end
@@ -119,6 +143,8 @@ function Form() {
           name='airEan'
           value={log.airEan}
           onNumberInputChange={handleChange}
+          placeholder='xx'
+          width='2.5rem'
         >
           <img src={cardAirEan} alt='% Nitrox' />
         </NumberInput>
@@ -128,6 +154,8 @@ function Form() {
           name='waterDepthMax'
           value={log.waterDepthMax}
           onNumberInputChange={handleChange}
+          placeholder='xx'
+          width='2.5rem'
         >
           <img src={cardWaterDepth} alt='Max Depth' />
           max
@@ -136,6 +164,8 @@ function Form() {
           name='waterDepthAvg'
           value={log.waterDepthAvg}
           onNumberInputChange={handleChange}
+          placeholder='xx'
+          width='2.5rem'
         >
           <img src={cardWaterDepth} alt='Average Depth' />
           avg
@@ -144,6 +174,8 @@ function Form() {
           name='waterTemp'
           value={log.waterTemp}
           onNumberInputChange={handleChange}
+          placeholder='xx'
+          width='2.5rem'
         >
           <img src={cardWaterTemp} alt='Water temperature' />
         </NumberInput>
@@ -153,6 +185,8 @@ function Form() {
           onTextInputChange={handleChange}
           name='buddy'
           value={log.buddy}
+          placeholder='Name'
+          width='14rem'
         >
           <img src={cardBuddy} alt='Buddy' />
         </TextInput>
@@ -162,13 +196,21 @@ function Form() {
           onTextInputChange={handleChange}
           name='notes'
           value={log.notes}
+          placeholder='Enter your nodes here...'
+          width='14rem'
         >
           Notes
         </TextInput>
       </FormGroup>
-
       <button>Add Dive</button>
-      <button>Reset</button>
+      <button
+        type='reset'
+        onClick={() => {
+          setLog(resetLog);
+        }}
+      >
+        Reset
+      </button>
     </FormStyle>
   );
 }

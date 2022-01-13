@@ -4,7 +4,9 @@ function NumberInput({
   name,
   value,
   onNumberInputChange,
+  placeholder,
   children,
+  width,
 }) {
   return (
     <>
@@ -14,7 +16,9 @@ function NumberInput({
         id={name}
         name={name}
         onChange={onNumberInputChange}
+        placeholder={placeholder}
         value={value}
+        width={width}
       />
     </>
   );
@@ -23,5 +27,5 @@ function NumberInput({
 export default NumberInput;
 
 const Input = styled.input`
-  width: 2.5rem;
+  width: ${(props) => props.width || '2.5rem'}; ;
 `;

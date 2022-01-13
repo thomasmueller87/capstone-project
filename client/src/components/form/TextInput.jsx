@@ -4,7 +4,9 @@ function TextInput({
   name,
   value,
   onTextInputChange,
+  placeholder,
   children,
+  width,
 }) {
   return (
     <>
@@ -14,7 +16,9 @@ function TextInput({
         id={name}
         name={name}
         onChange={onTextInputChange}
+        placeholder={placeholder}
         value={value}
+        width={width}
       />
     </>
   );
@@ -23,5 +27,5 @@ function TextInput({
 export default TextInput;
 
 const Input = styled.input`
-  width: 5rem;
+  width: ${(props) => props.width || '6rem'}; ;
 `;
