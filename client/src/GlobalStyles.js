@@ -7,10 +7,24 @@ export default createGlobalStyle`
 
 :root {
     --background-nav: #ffffff;
-    --background-title: #ffffff;
+    --background-header: #ffffff;
+    --background-card: #ffffff;
+    --background-card-air: #e3fbe0;
+    --background-card-notes: #fafbe0;
+    --background-card-place: #f6d8bb;
+    --background-card-label: #ffffff;
+    --background-card-water: #e0f3fb;
+    --background-card-buddy: #ffffff;
     --title: #978f8f;
-    --primary-nav: #0939B6;
+    --primary-color: #0939B6;
     --primary-text: #000000;
+
+
+    --fontsize-card-standard: 1.1rem;
+    --fontweight-card-standard: bold;
+
+    --fontsize-card-notes: 1rem;
+    --fontweight-card-notes: normal;
     }
 
 body {
