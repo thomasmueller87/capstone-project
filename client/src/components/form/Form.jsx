@@ -3,6 +3,18 @@ import styled from 'styled-components';
 import TextInput from './TextInput';
 import NumberInput from './NumberInput';
 
+//Import of graphics
+import cardDate from '../../assets/card/card-date.png';
+import cardTime from '../../assets/card/card-time.png';
+import cardDuration from '../../assets/card/card-duration.png';
+import cardWaterDepth from '../../assets/card/card-water-depth.png';
+import cardWaterTemp from '../../assets/card/card-water-temp.png';
+import cardCountry from '../../assets/card/card-country.png';
+import cardSpot from '../../assets/card/card-spot.png';
+import cardBuddy from '../../assets/card/card-buddy.png';
+import cardAirEan from '../../assets/card/card-air-ean.png';
+import cardAir from '../../assets/card/card-air.png';
+
 function Form() {
   const initialLog = {
     id: 1,
@@ -48,77 +60,82 @@ function Form() {
         name='date'
         value={log.date}
       >
-        Date
+        <img src={cardDate} alt='Date' />
+        [DD.MM.YYYY]
       </TextInput>
       <TextInput
         onTextInputChange={handleChange}
         name='time'
         value={log.time}
       >
-        Time
+        <img src={cardTime} alt='Time' />
       </TextInput>
       <NumberInput
         name='duration'
         value={log.duration}
         onNumberInputChange={handleChange}
       >
-        Duration
+        <img src={cardDuration} alt='Duration' />
       </NumberInput>
       <TextInput
         onTextInputChange={handleChange}
         name='country'
         value={log.country}
       >
-        Country
+        <img src={cardCountry} alt='Country' />
       </TextInput>
       <TextInput
         onTextInputChange={handleChange}
         name='spot'
         value={log.spot}
       >
-        Spot
+        <img src={cardSpot} alt='Spot' />
       </TextInput>
       <NumberInput
         name='airStart'
         value={log.airStart}
         onNumberInputChange={handleChange}
       >
-        Air Start
+        <img src={cardAir} alt='Air Start' />
+        start
       </NumberInput>
       <NumberInput
         name='airEnd'
         value={log.airEnd}
         onNumberInputChange={handleChange}
       >
-        Air End
+        <img src={cardAir} alt='Air End' />
+        end
       </NumberInput>
       <NumberInput
         name='airEan'
         value={log.airEan}
         onNumberInputChange={handleChange}
       >
-        Percentage Nitrox
+        <img src={cardAirEan} alt='% Nitrox' />
       </NumberInput>
       <NumberInput
         name='waterDepthMax'
         value={log.waterDepthMax}
         onNumberInputChange={handleChange}
       >
-        Max diving depth
+        <img src={cardWaterDepth} alt='Max Depth' />
+        max
       </NumberInput>
       <NumberInput
         name='waterDepthAvg'
         value={log.waterDepthAvg}
         onNumberInputChange={handleChange}
       >
-        Average diving depth
+        <img src={cardWaterDepth} alt='Average Depth' />
+        avg
       </NumberInput>
       <NumberInput
         name='waterTemp'
         value={log.waterTemp}
         onNumberInputChange={handleChange}
       >
-        Water temperature
+        <img src={cardWaterTemp} alt='Water temperature' />
       </NumberInput>
       <TextInput
         onTextInputChange={handleChange}
@@ -132,7 +149,7 @@ function Form() {
         name='buddy'
         value={log.buddy}
       >
-        Buddy
+        <img src={cardBuddy} alt='Buddy' />
       </TextInput>
     </FormStyle>
   );

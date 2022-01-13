@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 function TextInput({
   name,
   value,
@@ -7,7 +9,7 @@ function TextInput({
   return (
     <>
       <label htmlFor={name}>{children}</label>
-      <input
+      <Input
         type='text'
         id={name}
         name={name}
@@ -19,3 +21,7 @@ function TextInput({
 }
 
 export default TextInput;
+
+const Input = styled.input`
+  width: 5rem;
+`;

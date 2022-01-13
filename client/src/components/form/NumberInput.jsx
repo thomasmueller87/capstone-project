@@ -1,9 +1,16 @@
-function NumberInput({ name, value, onNumberInputChange, children }) {
+import styled from 'styled-components';
+
+function NumberInput({
+  name,
+  value,
+  onNumberInputChange,
+  children,
+}) {
   return (
     <>
       <label htmlFor={name}>{children}</label>
-      <input
-        type="number"
+      <Input
+        type='number'
         id={name}
         name={name}
         onChange={onNumberInputChange}
@@ -14,3 +21,7 @@ function NumberInput({ name, value, onNumberInputChange, children }) {
 }
 
 export default NumberInput;
+
+const Input = styled.input`
+  width: 2.5rem;
+`;
