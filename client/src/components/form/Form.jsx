@@ -36,7 +36,11 @@ function Form() {
 
   const [log, setLog] = useState(initialLog);
 
-  const handleSubmit = console.log({ log });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(`Object "log" has been modified: ${log}`);
+    console.log({ log });
+  };
 
   const handleChange = (event) => {
     let inputValue = event.target.value; // "Glühwein"
@@ -55,110 +59,131 @@ function Form() {
 
   return (
     <FormStyle onSubmit={handleSubmit}>
-      <TextInput
-        onTextInputChange={handleChange}
-        name='date'
-        value={log.date}
-      >
-        <img src={cardDate} alt='Date' />
-        [DD.MM.YYYY]
-      </TextInput>
-      <TextInput
-        onTextInputChange={handleChange}
-        name='time'
-        value={log.time}
-      >
-        <img src={cardTime} alt='Time' />
-      </TextInput>
-      <NumberInput
-        name='duration'
-        value={log.duration}
-        onNumberInputChange={handleChange}
-      >
-        <img src={cardDuration} alt='Duration' />
-      </NumberInput>
-      <TextInput
-        onTextInputChange={handleChange}
-        name='country'
-        value={log.country}
-      >
-        <img src={cardCountry} alt='Country' />
-      </TextInput>
-      <TextInput
-        onTextInputChange={handleChange}
-        name='spot'
-        value={log.spot}
-      >
-        <img src={cardSpot} alt='Spot' />
-      </TextInput>
-      <NumberInput
-        name='airStart'
-        value={log.airStart}
-        onNumberInputChange={handleChange}
-      >
-        <img src={cardAir} alt='Air Start' />
-        start
-      </NumberInput>
-      <NumberInput
-        name='airEnd'
-        value={log.airEnd}
-        onNumberInputChange={handleChange}
-      >
-        <img src={cardAir} alt='Air End' />
-        end
-      </NumberInput>
-      <NumberInput
-        name='airEan'
-        value={log.airEan}
-        onNumberInputChange={handleChange}
-      >
-        <img src={cardAirEan} alt='% Nitrox' />
-      </NumberInput>
-      <NumberInput
-        name='waterDepthMax'
-        value={log.waterDepthMax}
-        onNumberInputChange={handleChange}
-      >
-        <img src={cardWaterDepth} alt='Max Depth' />
-        max
-      </NumberInput>
-      <NumberInput
-        name='waterDepthAvg'
-        value={log.waterDepthAvg}
-        onNumberInputChange={handleChange}
-      >
-        <img src={cardWaterDepth} alt='Average Depth' />
-        avg
-      </NumberInput>
-      <NumberInput
-        name='waterTemp'
-        value={log.waterTemp}
-        onNumberInputChange={handleChange}
-      >
-        <img src={cardWaterTemp} alt='Water temperature' />
-      </NumberInput>
-      <TextInput
-        onTextInputChange={handleChange}
-        name='notes'
-        value={log.notes}
-      >
-        Notes
-      </TextInput>
-      <TextInput
-        onTextInputChange={handleChange}
-        name='buddy'
-        value={log.buddy}
-      >
-        <img src={cardBuddy} alt='Buddy' />
-      </TextInput>
+      <FormGroup>
+        <TextInput
+          onTextInputChange={handleChange}
+          name='date'
+          value={log.date}
+        >
+          <img src={cardDate} alt='Date' />
+        </TextInput>
+        <TextInput
+          onTextInputChange={handleChange}
+          name='time'
+          value={log.time}
+        >
+          <img src={cardTime} alt='Time' />
+        </TextInput>
+        <NumberInput
+          name='duration'
+          value={log.duration}
+          onNumberInputChange={handleChange}
+        >
+          <img src={cardDuration} alt='Duration' />
+        </NumberInput>
+      </FormGroup>
+      <FormGroup backgroundcolor='var(--background-card-place)'>
+        <TextInput
+          onTextInputChange={handleChange}
+          name='country'
+          value={log.country}
+        >
+          <img src={cardCountry} alt='Country' />
+        </TextInput>
+        <TextInput
+          onTextInputChange={handleChange}
+          name='spot'
+          value={log.spot}
+        >
+          <img src={cardSpot} alt='Spot' />
+        </TextInput>
+      </FormGroup>
+      <FormGroup backgroundcolor='var(--background-card-air)'>
+        <NumberInput
+          name='airStart'
+          value={log.airStart}
+          onNumberInputChange={handleChange}
+        >
+          <img src={cardAir} alt='Air Start' />
+          start
+        </NumberInput>
+        <NumberInput
+          name='airEnd'
+          value={log.airEnd}
+          onNumberInputChange={handleChange}
+        >
+          <img src={cardAir} alt='Air End' />
+          end
+        </NumberInput>
+        <NumberInput
+          name='airEan'
+          value={log.airEan}
+          onNumberInputChange={handleChange}
+        >
+          <img src={cardAirEan} alt='% Nitrox' />
+        </NumberInput>
+      </FormGroup>
+      <FormGroup backgroundcolor='var(--background-card-water)'>
+        <NumberInput
+          name='waterDepthMax'
+          value={log.waterDepthMax}
+          onNumberInputChange={handleChange}
+        >
+          <img src={cardWaterDepth} alt='Max Depth' />
+          max
+        </NumberInput>
+        <NumberInput
+          name='waterDepthAvg'
+          value={log.waterDepthAvg}
+          onNumberInputChange={handleChange}
+        >
+          <img src={cardWaterDepth} alt='Average Depth' />
+          avg
+        </NumberInput>
+        <NumberInput
+          name='waterTemp'
+          value={log.waterTemp}
+          onNumberInputChange={handleChange}
+        >
+          <img src={cardWaterTemp} alt='Water temperature' />
+        </NumberInput>
+      </FormGroup>
+      <FormGroup backgroundcolor='var(--background-card-buddy)'>
+        <TextInput
+          onTextInputChange={handleChange}
+          name='buddy'
+          value={log.buddy}
+        >
+          <img src={cardBuddy} alt='Buddy' />
+        </TextInput>
+      </FormGroup>
+      <FormGroup backgroundcolor='var(--background-card-notes)'>
+        <TextInput
+          onTextInputChange={handleChange}
+          name='notes'
+          value={log.notes}
+        >
+          Notes
+        </TextInput>
+      </FormGroup>
+
+      <button>Add Dive</button>
+      <button>Reset</button>
     </FormStyle>
   );
 }
 
 export default Form;
 
-const FormStyle = styled.form`
-  label {
-    display: block;
-  }
+const FormStyle = styled.form``;
+
+const FormGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  min-height: 5vh;
+  border: 1px solid black;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: ${(props) =>
+    props.backgroundcolor || 'white'}; ;
 `;

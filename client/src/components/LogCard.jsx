@@ -41,11 +41,11 @@ function LogCard() {
           <div className='water'>
             <Water label='Water' logData={initialLog} />
           </div>
-          <div className='notes'>
-            <Notes label='Notes' logData={initialLog} />
-          </div>
           <div className='buddy'>
             <Buddy label='Buddy' logData={initialLog} />
+          </div>
+          <div className='notes'>
+            <Notes label='Notes' logData={initialLog} />
           </div>
         </div>
       </CardGrid>
@@ -67,8 +67,8 @@ const CardGrid = styled.div`
     grid-template-areas:
       'place place'
       'air water'
-      'notes notes'
-      'buddy buddy';
+      'buddy buddy'
+      'notes notes';
   }
   .place {
     grid-area: place;
