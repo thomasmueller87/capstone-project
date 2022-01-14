@@ -7,45 +7,28 @@ import Air from './card/Air';
 import Water from './card/Water';
 import Buddy from './card/Buddy';
 
-const initialLog = {
-  id: 1,
-  date: '16.08.2021',
-  time: '13:48',
-  duration: '48',
-  country: 'Egypt',
-  spot: 'Abu Nashim',
-  airStart: '200',
-  airEnd: '60',
-  airEan: '32',
-  waterDepthMax: '28.4',
-  waterDepthAvg: '17.3',
-  waterTemp: '23',
-  notes:
-    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis dolor dignissimos, aliquam officiis itaque consequuntur eveniet quia soluta eius sint?',
-  buddy: 'Antonia',
-};
-
-function LogCard() {
+function LogCard({ data }) {
+  console.log(data);
   return (
     <CardContainer>
-      <Title logData={initialLog} />
+      <Title logData={data} />
 
       <CardGrid>
         <div className='card-container'>
           <div className='place'>
-            <Place label='Place' logData={initialLog} />
+            <Place label='Place' logData={data} />
           </div>
           <div className='air'>
-            <Air label='Air' logData={initialLog} />
+            <Air label='Air' logData={data} />
           </div>
           <div className='water'>
-            <Water label='Water' logData={initialLog} />
+            <Water label='Water' logData={data} />
           </div>
           <div className='buddy'>
-            <Buddy label='Buddy' logData={initialLog} />
+            <Buddy label='Buddy' logData={data} />
           </div>
           <div className='notes'>
-            <Notes label='Notes' logData={initialLog} />
+            <Notes label='Notes' logData={data} />
           </div>
         </div>
       </CardGrid>

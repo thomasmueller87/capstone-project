@@ -1,16 +1,21 @@
 import { Route, Routes, NavLink } from 'react-router-dom';
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
 import styled from 'styled-components';
+import { logData } from './components/LogData';
 
 function App() {
+  const [logs, setLogs] = useState([...logData]);
+  console.log(logs);
+
   return (
     <div className='App'>
       <BackgroundWrap>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home logs={logs} />} />
           <Route path='create' element={<Create />} />
           <Route path='settings' element={<Settings />} />
         </Routes>
