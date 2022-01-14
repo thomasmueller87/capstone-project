@@ -17,9 +17,9 @@ function Water({ label, logData }) {
         <img src={cardWaterTemp} alt='Water Temperature' />
       </div>
 
-      <div className='data1'>{logData.waterDepthMax}</div>
-      <div className='data2'>{logData.waterDepthAvg}</div>
-      <div className='data3'>{logData.waterTemp}</div>
+      <div className='data1'>{`${logData.waterDepthMax} m`}</div>
+      <div className='data2'>{`${logData.waterDepthAvg} m`}</div>
+      <div className='data3'>{`${logData.waterTemp} °C`}</div>
 
       <div className='label'>{label}</div>
     </CardWrapper>

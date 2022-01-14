@@ -19,7 +19,7 @@ function Title({ logData }) {
       <div className='duration'>
         <div>
           <img src={cardDuration} alt='Date' />
-          {` ${logData.duration}`}
+          {` ${logData.duration} min`}
         </div>
       </div>
       <div className='number'>

@@ -11,15 +11,15 @@ const initialLog = {
   id: 1,
   date: '16.08.2021',
   time: '13:48',
-  duration: '48 min',
+  duration: '48',
   country: 'Egypt',
   spot: 'Abu Nashim',
-  airStart: '200 bar',
-  airEnd: '60 bar',
-  airEan: '32 %',
-  waterDepthMax: '28.4m',
-  waterDepthAvg: '17.3m',
-  waterTemp: '23 °C',
+  airStart: '200',
+  airEnd: '60',
+  airEan: '32',
+  waterDepthMax: '28.4',
+  waterDepthAvg: '17.3',
+  waterTemp: '23',
   notes:
     'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis dolor dignissimos, aliquam officiis itaque consequuntur eveniet quia soluta eius sint?',
   buddy: 'Antonia',
@@ -41,11 +41,11 @@ function LogCard() {
           <div className='water'>
             <Water label='Water' logData={initialLog} />
           </div>
-          <div className='notes'>
-            <Notes label='Notes' logData={initialLog} />
-          </div>
           <div className='buddy'>
             <Buddy label='Buddy' logData={initialLog} />
+          </div>
+          <div className='notes'>
+            <Notes label='Notes' logData={initialLog} />
           </div>
         </div>
       </CardGrid>
@@ -67,8 +67,8 @@ const CardGrid = styled.div`
     grid-template-areas:
       'place place'
       'air water'
-      'notes notes'
-      'buddy buddy';
+      'buddy buddy'
+      'notes notes';
   }
   .place {
     grid-area: place;
