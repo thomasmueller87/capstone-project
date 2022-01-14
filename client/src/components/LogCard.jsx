@@ -8,7 +8,6 @@ import Water from './card/Water';
 import Buddy from './card/Buddy';
 
 function LogCard({ data }) {
-  console.log(data);
   return (
     <CardContainer>
       <Title logData={data} />

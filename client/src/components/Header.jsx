@@ -22,6 +22,7 @@ const HeaderContainer = styled.header`
   width: 100%;
   background-color: var(--background-header);
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+  z-index: 999;
 `;
 
 const HeaderTitle = styled.div`

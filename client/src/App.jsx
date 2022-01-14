@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { logData } from './components/LogData';
 
 function App() {
-  const [logs, setLogs] = useState([...logData]);
+  const [logs, setLogs] = useState(logData);
   console.log(logs);
 
   return (
