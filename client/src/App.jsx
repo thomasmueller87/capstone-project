@@ -11,7 +11,14 @@ function App() {
   const [logs, setLogs] = useState(logData);
 
   function AddLog(log) {
-    setLogs([...logs, log]);
+    const addId = Object.keys(logs).length + 1;
+    setLogs([
+      ...logs,
+      {
+        ...log,
+        id: addId,
+      },
+    ]);
   }
 
   return (
