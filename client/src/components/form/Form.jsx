@@ -15,7 +15,7 @@ import cardBuddy from '../../assets/card/card-buddy.png';
 import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
-function Form() {
+function Form({ onAddLog }) {
   const initialLog = {
     id: 1,
     date: '16.08.2021',
@@ -38,8 +38,7 @@ function Form() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Object "log" has been modified: ${log}`);
-    console.log({ log });
+    onAddLog(log);
   };
 
   const resetLog = {

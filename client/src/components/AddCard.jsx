@@ -2,10 +2,10 @@
 import CardContainer from './form/CardContainer';
 import Form from './form/Form';
 
-function AddCard() {
+function AddCard({ onAddLog }) {
   return (
     <CardContainer>
-      <Form />
+      <Form onAddLog={onAddLog} />
     </CardContainer>
   );
 }

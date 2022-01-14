@@ -9,14 +9,20 @@ import { logData } from './components/LogData';
 
 function App() {
   const [logs, setLogs] = useState(logData);
-  console.log(logs);
+
+  function AddLog(log) {
+    setLogs([...logs, log]);
+  }
 
   return (
     <div className='App'>
       <BackgroundWrap>
         <Routes>
           <Route path='/' element={<Home logs={logs} />} />
-          <Route path='create' element={<Create />} />
+          <Route
+            path='create'
+            element={<Create onAddLog={AddLog} />}
+          />
           <Route path='settings' element={<Settings />} />
         </Routes>
         <Navbar />
