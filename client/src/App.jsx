@@ -10,7 +10,7 @@ import { logData } from './components/LogData';
 function App() {
   const [logs, setLogs] = useState(logData);
 
-  function AddLog(log) {
+  function addLog(log) {
     const addId = Object.keys(logs).length + 1;
     setLogs([
       ...logs,
