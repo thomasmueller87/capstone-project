@@ -43,6 +43,7 @@ const NavContainer = styled.footer`
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 999;
 `;
 
 const NavItem = styled.div`
