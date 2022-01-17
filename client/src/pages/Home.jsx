@@ -7,7 +7,7 @@ export default function Home({ logs }) {
       <Header title='DiveLogs' />
 
       {logs.map((log, index) => (
-        <LogCard key={index} data={log} />
+        <LogCard key={index} log={log} />
       ))}
     </>
   );

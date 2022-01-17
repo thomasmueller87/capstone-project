@@ -20,7 +20,7 @@ function App() {
     saveToLocalStorage('_diveLogs', logs);
   }, [logs]);
 
-  function AddLog(log) {
+  function addLog(log) {
     const addId = Object.keys(logs).length + 1;
     setLogs([
       ...logs,
@@ -38,7 +38,7 @@ function App() {
           <Route path='/' element={<Home logs={logs} />} />
           <Route
             path='create'
-            element={<Create onAddLog={AddLog} />}
+            element={<Create onAddLog={addLog} />}
           />
           <Route path='settings' element={<Settings />} />
         </Routes>
