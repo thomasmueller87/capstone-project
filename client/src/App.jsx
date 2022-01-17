@@ -21,7 +21,7 @@ function App() {
   }, [logs]);
 
   function addLog(log) {
-    const addId = Object.keys(logs).length + 1;
+    const addId = logs.length + 1;
     setLogs([
       ...logs,
       {

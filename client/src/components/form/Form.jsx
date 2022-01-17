@@ -1,9 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import TextInput from './TextInput';
-import NumberInput from './NumberInput';
-import DateInput from './DateInput';
-import TimeInput from './TimeInput';
 import InputField from './InputField';
 //Import of graphics
 import cardDate from '../../assets/card/card-date.png';
@@ -18,6 +14,24 @@ import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
 function Form({ onAddLog }) {
+  const dummy = {
+    id: 3,
+    date: '2020-09-20',
+    time: '06:00',
+    duration: '50',
+    country: 'Germany',
+    spot: 'Hemmoor',
+    airStart: '210',
+    airEnd: '45',
+    airEan: '21',
+    waterDepthMax: '41.5',
+    waterDepthAvg: '25.4',
+    waterTemp: '6',
+    notes:
+      'Yeah, German seas are very cold! I would recommend a dry suit next time!',
+    buddy: 'Heinz',
+  };
+
   const resetLog = {
     id: '',
     date: '',
@@ -38,6 +52,18 @@ function Form({ onAddLog }) {
   const [log, setLog] = useState(resetLog);
   const [saveInfo, setSaveInfo] = useState(false);
 
+  useEffect(() => {
+    if (!saveInfo) return;
+
+    const saveTimer = setTimeout(() => {
+      setSaveInfo(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(saveTimer);
+    };
+  }, [saveInfo]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     onAddLog(log);
@@ -46,9 +72,6 @@ function Form({ onAddLog }) {
 
   const saveInfoToggle = () => {
     setSaveInfo(true);
-    setTimeout(() => {
-      setSaveInfo(false);
-    }, 3000);
   };
 
   const handleChange = (event) => {
@@ -75,23 +98,30 @@ function Form({ onAddLog }) {
           >
             <img src={cardDate} alt='Date' />
           </InputField>
-          <TimeInput
+          <InputField
             onTextInputChange={handleChange}
             name='time'
+            type='time'
             value={log.time}
-            width='5rem'
+            placeholder=''
+            errorMessage='Please enter a valid time'
+            required={true}
+            pattern='([01]?[0-9]|2[0-3]):[0-5][0-9]'
           >
             <img src={cardTime} alt='Time' />
-          </TimeInput>
-          <NumberInput
+          </InputField>
+          <InputField
+            onTextInputChange={handleChange}
             name='duration'
+            type='text'
             value={log.duration}
-            onNumberInputChange={handleChange}
-            placeholder='35'
-            width='2rem'
+            placeholder='45'
+            errorMessage='Please enter the length of your dive [Numbers only]'
+            required={true}
+            pattern='[-+]?[0-9]*[.,]?[0-9]+'
           >
             <img src={cardDuration} alt='Duration' />
-          </NumberInput>
+          </InputField>
         </FormGroup>
         <FormGroup backgroundcolor='var(--background-card-place)'>
           <InputField
@@ -102,116 +132,140 @@ function Form({ onAddLog }) {
             placeholder='Country'
             errorMessage='Please enter a Country'
             required={true}
-            pattern='[A-Za-z]{2,99}'
           >
             <img src={cardCountry} alt='Country' />
           </InputField>
-          <TextInput
+          <InputField
             onTextInputChange={handleChange}
             name='spot'
+            type='text'
             value={log.spot}
-            placeholder='Spot'
-            width='8rem'
+            placeholder='Dive site'
+            errorMessage='Please enter the dive site'
+            required={false}
           >
             <img src={cardSpot} alt='Spot' />
-          </TextInput>
+          </InputField>
         </FormGroup>
         <FormGroup backgroundcolor='var(--background-card-air)'>
-          <NumberInput
+          <InputField
+            onTextInputChange={handleChange}
             name='airStart'
+            type='text'
             value={log.airStart}
-            onNumberInputChange={handleChange}
             placeholder='200'
-            width='2.5rem'
+            errorMessage='Please enter the amount of Air on start [Numbers only]'
+            required={false}
+            pattern='[-+]?[0-9]*[.,]?[0-9]+'
           >
             <img src={cardAir} alt='Air Start' />
             start
-          </NumberInput>
-          <NumberInput
+          </InputField>
+          <InputField
+            onTextInputChange={handleChange}
             name='airEnd'
+            type='text'
             value={log.airEnd}
-            onNumberInputChange={handleChange}
             placeholder='50'
-            width='2.5rem'
+            errorMessage='Please enter the amount of Air on end [Numbers only]'
+            required={false}
+            pattern='[-+]?[0-9]*[.,]?[0-9]+'
           >
             <img src={cardAir} alt='Air End' />
             end
-          </NumberInput>
-          <NumberInput
+          </InputField>
+          <InputField
+            onTextInputChange={handleChange}
             name='airEan'
+            type='text'
             value={log.airEan}
-            onNumberInputChange={handleChange}
-            placeholder='32'
-            width='2.5rem'
+            placeholder='21'
+            errorMessage='Please enter the percentage value of Oxigen (o2) [Numbers only]'
+            required={false}
+            pattern='[-+]?[0-9]*[.,]?[0-9]+'
           >
-            <img src={cardAirEan} alt='% Nitrox' />
-          </NumberInput>
+            <img src={cardAirEan} alt='% o2' />
+          </InputField>
         </FormGroup>
         <FormGroup backgroundcolor='var(--background-card-water)'>
-          <NumberInput
+          <InputField
+            onTextInputChange={handleChange}
             name='waterDepthMax'
+            type='text'
             value={log.waterDepthMax}
-            onNumberInputChange={handleChange}
-            placeholder='32'
-            width='2.5rem'
+            placeholder='35'
+            errorMessage='Please enter the max dive depth [Numbers only]'
+            required={false}
+            pattern='[-+]?[0-9]*[.,]?[0-9]+'
           >
             <img src={cardWaterDepth} alt='Max Depth' />
             max
-          </NumberInput>
-          <NumberInput
+          </InputField>
+          <InputField
+            onTextInputChange={handleChange}
             name='waterDepthAvg'
+            type='text'
             value={log.waterDepthAvg}
-            onNumberInputChange={handleChange}
             placeholder='20'
-            width='2.5rem'
+            errorMessage='Please enter the average dive depth [Numbers only]'
+            required={false}
+            pattern='[-+]?[0-9]*[.,]?[0-9]+'
           >
             <img src={cardWaterDepth} alt='Average Depth' />
             avg
-          </NumberInput>
-          <NumberInput
+          </InputField>
+          <InputField
+            onTextInputChange={handleChange}
             name='waterTemp'
+            type='text'
             value={log.waterTemp}
-            onNumberInputChange={handleChange}
-            placeholder='15'
-            width='2.5rem'
+            placeholder='20'
+            errorMessage='Please enter the water temperature [Numbers only]'
+            required={false}
+            pattern='[-+]?[0-9]*[.,]?[0-9]+'
           >
             <img src={cardWaterTemp} alt='Water temperature' />
-          </NumberInput>
+          </InputField>
         </FormGroup>
         <FormGroup backgroundcolor='var(--background-card-buddy)'>
-          <TextInput
+          <InputField
             onTextInputChange={handleChange}
             name='buddy'
+            type='text'
             value={log.buddy}
             placeholder='Name of your Buddy'
-            width='14rem'
+            errorMessage='Please the name of your Buddy'
+            required={true}
           >
             <img src={cardBuddy} alt='Buddy' />
-          </TextInput>
+          </InputField>
         </FormGroup>
         <FormGroup backgroundcolor='var(--background-card-notes)'>
-          <TextInput
+          <InputField
             onTextInputChange={handleChange}
             name='notes'
+            type='text'
             value={log.notes}
-            placeholder='Enter your nodes here...'
-            width='14rem'
+            placeholder='Your notes'
+            errorMessage='Please enter the notes here'
+            required={false}
           >
             Notes
-          </TextInput>
+          </InputField>
         </FormGroup>
-        {saveInfo && (
-          <SaveInfoBox>Your log has been saved</SaveInfoBox>
-        )}
-        <button>Add Dive</button>
-        <button
+
+        <Button backgroundcolor='#0939B6'>Add Dive</Button>
+        <Button
           type='reset'
           onClick={() => {
             setLog(resetLog);
           }}
         >
           Reset
-        </button>
+        </Button>
+        {saveInfo && (
+          <SaveInfoBox>Your log has been saved</SaveInfoBox>
+        )}
       </form>
     </>
   );
@@ -231,16 +285,23 @@ const FormGroup = styled.div`
     props.backgroundcolor || 'white'}; ;
 `;
 
+const Button = styled.button`
+  width: 35%;
+  padding: 10px;
+  margin: 5px 5px 10px 5px;
+  border: 0;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.4rem;
+  background-color: ${(props) =>
+    props.backgroundcolor || '#707070'}; ;
+`;
+
 const SaveInfoBox = styled.div`
-  border: 2px solid white;
+  border: 2px solid #096e00;
   border-radius: 15px;
   max-width: 80%;
   padding: 0.5rem;
   margin: 0 auto;
-  color: black;
-  background: linear-gradient(
-    0deg,
-    rgba(40, 177, 31, 1) 0%,
-    rgba(28, 70, 16, 0) 100%
-  );
+  color: #096e00; ;
 `;
