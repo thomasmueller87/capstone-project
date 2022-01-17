@@ -49,7 +49,7 @@ function Form({ onAddLog }) {
     buddy: '',
   };
 
-  const [log, setLog] = useState(resetLog);
+  const [log, setLog] = useState(dummy);
   const [saveInfo, setSaveInfo] = useState(false);
 
   useEffect(() => {
@@ -147,86 +147,94 @@ function Form({ onAddLog }) {
             <img src={cardSpot} alt='Spot' />
           </InputField>
         </FormGroup>
-        <FormGroup backgroundcolor='var(--background-card-air)'>
-          <InputField
-            onTextInputChange={handleChange}
-            name='airStart'
-            type='text'
-            value={log.airStart}
-            placeholder='200'
-            errorMessage='Please enter the amount of Air on start [Numbers only]'
-            required={false}
-            pattern='[-+]?[0-9]*[.,]?[0-9]+'
+        <AirWaterGrid>
+          <FormGroup
+            className='air'
+            backgroundcolor='var(--background-card-air)'
           >
-            <img src={cardAir} alt='Air Start' />
-            start
-          </InputField>
-          <InputField
-            onTextInputChange={handleChange}
-            name='airEnd'
-            type='text'
-            value={log.airEnd}
-            placeholder='50'
-            errorMessage='Please enter the amount of Air on end [Numbers only]'
-            required={false}
-            pattern='[-+]?[0-9]*[.,]?[0-9]+'
+            <InputField
+              onTextInputChange={handleChange}
+              name='airStart'
+              type='text'
+              value={log.airStart}
+              placeholder='200'
+              errorMessage='Please enter the amount of Air on start [Numbers only]'
+              required={false}
+              pattern='[-+]?[0-9]*[.,]?[0-9]+'
+            >
+              <img src={cardAir} alt='Air Start' />
+              start
+            </InputField>
+            <InputField
+              onTextInputChange={handleChange}
+              name='airEnd'
+              type='text'
+              value={log.airEnd}
+              placeholder='50'
+              errorMessage='Please enter the amount of Air on end [Numbers only]'
+              required={false}
+              pattern='[-+]?[0-9]*[.,]?[0-9]+'
+            >
+              <img src={cardAir} alt='Air End' />
+              end
+            </InputField>
+            <InputField
+              onTextInputChange={handleChange}
+              name='airEan'
+              type='text'
+              value={log.airEan}
+              placeholder='21'
+              errorMessage='Please enter the percentage value of Oxigen (o2) [Numbers only]'
+              required={false}
+              pattern='[-+]?[0-9]*[.,]?[0-9]+'
+            >
+              <img src={cardAirEan} alt='% o2' />
+            </InputField>
+          </FormGroup>
+          <FormGroup
+            className='water'
+            backgroundcolor='var(--background-card-water)'
           >
-            <img src={cardAir} alt='Air End' />
-            end
-          </InputField>
-          <InputField
-            onTextInputChange={handleChange}
-            name='airEan'
-            type='text'
-            value={log.airEan}
-            placeholder='21'
-            errorMessage='Please enter the percentage value of Oxigen (o2) [Numbers only]'
-            required={false}
-            pattern='[-+]?[0-9]*[.,]?[0-9]+'
-          >
-            <img src={cardAirEan} alt='% o2' />
-          </InputField>
-        </FormGroup>
-        <FormGroup backgroundcolor='var(--background-card-water)'>
-          <InputField
-            onTextInputChange={handleChange}
-            name='waterDepthMax'
-            type='text'
-            value={log.waterDepthMax}
-            placeholder='35'
-            errorMessage='Please enter the max dive depth [Numbers only]'
-            required={false}
-            pattern='[-+]?[0-9]*[.,]?[0-9]+'
-          >
-            <img src={cardWaterDepth} alt='Max Depth' />
-            max
-          </InputField>
-          <InputField
-            onTextInputChange={handleChange}
-            name='waterDepthAvg'
-            type='text'
-            value={log.waterDepthAvg}
-            placeholder='20'
-            errorMessage='Please enter the average dive depth [Numbers only]'
-            required={false}
-            pattern='[-+]?[0-9]*[.,]?[0-9]+'
-          >
-            <img src={cardWaterDepth} alt='Average Depth' />
-            avg
-          </InputField>
-          <InputField
-            onTextInputChange={handleChange}
-            name='waterTemp'
-            type='text'
-            value={log.waterTemp}
-            placeholder='20'
-            errorMessage='Please enter the water temperature [Numbers only]'
-            required={false}
-            pattern='[-+]?[0-9]*[.,]?[0-9]+'
-          >
-            <img src={cardWaterTemp} alt='Water temperature' />
-          </InputField>
-        </FormGroup>
+            <InputField
+              onTextInputChange={handleChange}
+              name='waterDepthMax'
+              type='text'
+              value={log.waterDepthMax}
+              placeholder='35'
+              errorMessage='Please enter the max dive depth [Numbers only]'
+              required={false}
+              pattern='[-+]?[0-9]*[.,]?[0-9]+'
+            >
+              <img src={cardWaterDepth} alt='Max Depth' />
+              max
+            </InputField>
+            <InputField
+              onTextInputChange={handleChange}
+              name='waterDepthAvg'
+              type='text'
+              value={log.waterDepthAvg}
+              placeholder='20'
+              errorMessage='Please enter the average dive depth [Numbers only]'
+              required={false}
+              pattern='[-+]?[0-9]*[.,]?[0-9]+'
+            >
+              <img src={cardWaterDepth} alt='Average Depth' />
+              avg
+            </InputField>
+            <InputField
+              onTextInputChange={handleChange}
+              name='waterTemp'
+              type='text'
+              value={log.waterTemp}
+              placeholder='20'
+              errorMessage='Please enter the water temperature [Numbers only]'
+              required={false}
+              pattern='[-+]?[0-9]*[.,]?[0-9]+'
+            >
+              <img src={cardWaterTemp} alt='Water temperature' />
+            </InputField>
+          </FormGroup>
+        </AirWaterGrid>
         <FormGroup backgroundcolor='var(--background-card-buddy)'>
           <InputField
             onTextInputChange={handleChange}
@@ -274,15 +282,25 @@ function Form({ onAddLog }) {
 export default Form;
 
 const FormGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 5vh;
-  border: 1px solid black;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   background-color: ${(props) =>
     props.backgroundcolor || 'white'}; ;
+`;
+
+const AirWaterGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+
+  .air {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .water {
+    grid-area: 1 / 2 / 2 / 3;
+  }
 `;
 
 const Button = styled.button`
