@@ -16,6 +16,7 @@ import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
 function Form({ onAddLog }) {
+
   const initialLog = {
     id: 1,
     date: '16.08.2021',
@@ -48,6 +49,7 @@ function Form({ onAddLog }) {
     setTimeout(() => {
       setSaveInfo(false);
     }, 3000);
+
   };
 
   const resetLog = {
@@ -225,6 +227,7 @@ function Form({ onAddLog }) {
         </button>
       </form>
     </>
+
   );
 }
 
@@ -254,3 +257,4 @@ const SaveInfoBox = styled.div`
     rgba(28, 70, 16, 0) 100%
   );
 `;
+

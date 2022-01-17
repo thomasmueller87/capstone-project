@@ -7,7 +7,9 @@ import Air from './card/Air';
 import Water from './card/Water';
 import Buddy from './card/Buddy';
 
+
 function LogCard({ data }) {
+
   return (
     <CardContainer>
       <Title logData={data} />
@@ -22,10 +24,12 @@ function LogCard({ data }) {
           </div>
           <div className='water'>
             <Water label='Water' logData={data} />
+
           </div>
           <div className='buddy'>
             <Buddy label='Buddy' logData={data} />
           </div>
+
           <div className='notes'>
             <Notes label='Notes' logData={data} />
           </div>
