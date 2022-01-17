@@ -7,31 +7,28 @@ import Air from './card/Air';
 import Water from './card/Water';
 import Buddy from './card/Buddy';
 
-
-function LogCard({ data }) {
-
+function LogCard({ log }) {
   return (
     <CardContainer>
-      <Title logData={data} />
+      <Title logData={log} />
 
       <CardGrid>
         <div className='card-container'>
           <div className='place'>
-            <Place label='Place' logData={data} />
+            <Place label='Place' logData={log} />
           </div>
           <div className='air'>
-            <Air label='Air' logData={data} />
+            <Air label='Air' logData={log} />
           </div>
           <div className='water'>
-            <Water label='Water' logData={data} />
-
+            <Water label='Water' logData={log} />
           </div>
           <div className='buddy'>
-            <Buddy label='Buddy' logData={data} />
+            <Buddy label='Buddy' logData={log} />
           </div>
 
           <div className='notes'>
-            <Notes label='Notes' logData={data} />
+            <Notes label='Notes' logData={log} />
           </div>
         </div>
       </CardGrid>
