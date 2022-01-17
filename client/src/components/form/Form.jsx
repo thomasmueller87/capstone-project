@@ -2,7 +2,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import TextInput from './TextInput';
 import NumberInput from './NumberInput';
-
+import DateInput from './DateInput';
+import TimeInput from './TimeInput';
+import InputField from './InputField';
 //Import of graphics
 import cardDate from '../../assets/card/card-date.png';
 import cardTime from '../../assets/card/card-time.png';
@@ -16,40 +18,6 @@ import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
 function Form({ onAddLog }) {
-  const initialLog = {
-    id: 1,
-    date: '16.08.2021',
-    time: '13:48',
-    duration: '48',
-    country: 'Egypt',
-    spot: 'Abu Nashim',
-    airStart: '200',
-    airEnd: '60',
-    airEan: '32',
-    waterDepthMax: '28.4',
-    waterDepthAvg: '17.3',
-    waterTemp: '23',
-    notes:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis dolor dignissimos, aliquam officiis itaque consequuntur eveniet quia soluta eius sint?',
-    buddy: 'Antonia',
-  };
-
-  const [log, setLog] = useState(initialLog);
-  const [saveInfo, setSaveInfo] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onAddLog(log);
-    saveInfoToggle();
-  };
-
-  const saveInfoToggle = () => {
-    setSaveInfo(true);
-    setTimeout(() => {
-      setSaveInfo(false);
-    }, 3000);
-  };
-
   const resetLog = {
     id: '',
     date: '',
@@ -67,6 +35,22 @@ function Form({ onAddLog }) {
     buddy: '',
   };
 
+  const [log, setLog] = useState(resetLog);
+  const [saveInfo, setSaveInfo] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onAddLog(log);
+    saveInfoToggle();
+  };
+
+  const saveInfoToggle = () => {
+    setSaveInfo(true);
+    setTimeout(() => {
+      setSaveInfo(false);
+    }, 3000);
+  };
+
   const handleChange = (event) => {
     let inputValue = event.target.value;
     setLog({
@@ -79,44 +63,49 @@ function Form({ onAddLog }) {
     <>
       <form onSubmit={handleSubmit}>
         <FormGroup>
-          <TextInput
+          <InputField
             onTextInputChange={handleChange}
             name='date'
+            type='date'
             value={log.date}
-            placeholder='dd.mm.yyyy'
-            width='5rem'
+            placeholder=''
+            errorMessage='Please enter a valid date!'
+            required={true}
+            pattern='(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}'
           >
             <img src={cardDate} alt='Date' />
-          </TextInput>
-          <TextInput
+          </InputField>
+          <TimeInput
             onTextInputChange={handleChange}
             name='time'
             value={log.time}
-            placeholder='XX:XX'
-            width='3rem'
+            width='5rem'
           >
             <img src={cardTime} alt='Time' />
-          </TextInput>
+          </TimeInput>
           <NumberInput
             name='duration'
             value={log.duration}
             onNumberInputChange={handleChange}
-            placeholder='XX'
+            placeholder='35'
             width='2rem'
           >
             <img src={cardDuration} alt='Duration' />
           </NumberInput>
         </FormGroup>
         <FormGroup backgroundcolor='var(--background-card-place)'>
-          <TextInput
+          <InputField
             onTextInputChange={handleChange}
             name='country'
+            type='text'
             value={log.country}
             placeholder='Country'
-            width='8rem'
+            errorMessage='Please enter a Country'
+            required={true}
+            pattern='[A-Za-z]{2,99}'
           >
             <img src={cardCountry} alt='Country' />
-          </TextInput>
+          </InputField>
           <TextInput
             onTextInputChange={handleChange}
             name='spot'
@@ -132,7 +121,7 @@ function Form({ onAddLog }) {
             name='airStart'
             value={log.airStart}
             onNumberInputChange={handleChange}
-            placeholder='xxx'
+            placeholder='200'
             width='2.5rem'
           >
             <img src={cardAir} alt='Air Start' />
@@ -142,7 +131,7 @@ function Form({ onAddLog }) {
             name='airEnd'
             value={log.airEnd}
             onNumberInputChange={handleChange}
-            placeholder='xxx'
+            placeholder='50'
             width='2.5rem'
           >
             <img src={cardAir} alt='Air End' />
@@ -152,7 +141,7 @@ function Form({ onAddLog }) {
             name='airEan'
             value={log.airEan}
             onNumberInputChange={handleChange}
-            placeholder='xx'
+            placeholder='32'
             width='2.5rem'
           >
             <img src={cardAirEan} alt='% Nitrox' />
@@ -163,7 +152,7 @@ function Form({ onAddLog }) {
             name='waterDepthMax'
             value={log.waterDepthMax}
             onNumberInputChange={handleChange}
-            placeholder='xx'
+            placeholder='32'
             width='2.5rem'
           >
             <img src={cardWaterDepth} alt='Max Depth' />
@@ -173,7 +162,7 @@ function Form({ onAddLog }) {
             name='waterDepthAvg'
             value={log.waterDepthAvg}
             onNumberInputChange={handleChange}
-            placeholder='xx'
+            placeholder='20'
             width='2.5rem'
           >
             <img src={cardWaterDepth} alt='Average Depth' />
@@ -183,7 +172,7 @@ function Form({ onAddLog }) {
             name='waterTemp'
             value={log.waterTemp}
             onNumberInputChange={handleChange}
-            placeholder='xx'
+            placeholder='15'
             width='2.5rem'
           >
             <img src={cardWaterTemp} alt='Water temperature' />
@@ -194,7 +183,7 @@ function Form({ onAddLog }) {
             onTextInputChange={handleChange}
             name='buddy'
             value={log.buddy}
-            placeholder='Name'
+            placeholder='Name of your Buddy'
             width='14rem'
           >
             <img src={cardBuddy} alt='Buddy' />
@@ -232,6 +221,7 @@ export default Form;
 
 const FormGroup = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   min-height: 5vh;
   border: 1px solid black;

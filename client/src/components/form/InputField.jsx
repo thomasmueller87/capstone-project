@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-function TextInput({
+function InputField({
   name,
   value,
   onTextInputChange,
@@ -9,6 +9,7 @@ function TextInput({
   children,
   width,
   errorMessage,
+  type,
   required,
   pattern,
 }) {
@@ -22,7 +23,7 @@ function TextInput({
       <Style>
         <label htmlFor={name}>{children}</label>
         <input
-          type='text'
+          type={type}
           id={name}
           name={name}
           onChange={onTextInputChange}
@@ -40,7 +41,7 @@ function TextInput({
   );
 }
 
-export default TextInput;
+export default InputField;
 
 const Style = styled.div`
   span {
@@ -48,6 +49,10 @@ const Style = styled.div`
     padding: 3px;
     color: red;
     display: none;
+  }
+
+  input:invalid[focused='true'] {
+    border: 2px solid red;
   }
 
   input:invalid[focused='true'] ~ span {
