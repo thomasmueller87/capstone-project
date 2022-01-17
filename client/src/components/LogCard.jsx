@@ -24,13 +24,12 @@ function LogCard({ data }) {
           </div>
           <div className='water'>
             <Water label='Water' logData={data} />
+
           </div>
           <div className='buddy'>
             <Buddy label='Buddy' logData={data} />
           </div>
-          <div className='notes'>
-            <Notes label='Notes' logData={data} />
-          </div>
+
           <div className='notes'>
             <Notes label='Notes' logData={data} />
           </div>

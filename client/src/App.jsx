@@ -1,5 +1,11 @@
-import { Route, Routes, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+
+import { Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import {
+  saveToLocalStorage,
+  loadFromLocalStorage,
+} from './lib/localStorage';
+
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Create from './pages/Create';
@@ -8,9 +14,17 @@ import styled from 'styled-components';
 import { logData } from './components/LogData';
 
 function App() {
-  const [logs, setLogs] = useState(logData);
 
-  function addLog(log) {
+  const localStorageLogs = loadFromLocalStorage('_diveLogs');
+
+  const [logs, setLogs] = useState(localStorageLogs ?? logData);
+
+  useEffect(() => {
+    saveToLocalStorage('_diveLogs', logs);
+  }, [logs]);
+
+  function AddLog(log) {
+
     const addId = Object.keys(logs).length + 1;
     setLogs([
       ...logs,

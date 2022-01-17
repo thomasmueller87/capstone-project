@@ -15,7 +15,6 @@ import cardBuddy from '../../assets/card/card-buddy.png';
 import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
-
 function Form({ onAddLog }) {
 
   const initialLog = {
