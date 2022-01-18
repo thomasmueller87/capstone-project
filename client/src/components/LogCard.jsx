@@ -17,11 +17,11 @@ function LogCard({ log }) {
   };
   return (
     <CardContainer>
-      <Title logData={log} />
+      <Title onHandleExpand={handleExpand} logData={log} />
 
       {expandCard && (
         <CardGrid>
-          <div className='card-container'>
+          <div className='card-grid'>
             <div className='place'>
               <Place label='Place' logData={log} />
             </div>
@@ -55,7 +55,7 @@ const CardGrid = styled.div`
   margin: 0;
   padding: 0;
 
-  .card-container {
+  .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto auto;
