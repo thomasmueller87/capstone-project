@@ -7,14 +7,20 @@ const getLogs = async (req, res) => {
 
 const postLog = async (req, res) => {
   const log = new Log({
-    // Below needs to be edited
-    name: req.body.name,
-    price: req.body.price,
-    isDecorated: req.body.isDecorated,
-    category: req.body.category,
-    packageSize: req.body.packageSize,
-    tags: req.body.tags,
-    contactEmail: req.body.contactEmail,
+    id: req.body.id,
+    date: req.body.date,
+    time: req.body.time,
+    duration: req.body.duration,
+    country: req.body.country,
+    spot: req.body.spot,
+    airStart: req.body.airStart,
+    airEnd: req.body.airEnd,
+    airEan: req.body.airEan,
+    waterDepthMax: req.body.waterDepthMax,
+    waterDepthAvg: req.body.waterDepthAvg,
+    waterTemp: req.body.waterTemp,
+    notes: req.body.notes,
+    buddy: req.body.buddy,
   });
 
   try {
@@ -29,21 +35,30 @@ const updateLog = async (req, res) => {
   const logId = req.params.logId;
 
   const logData = {
-    name: req.body.name,
-    price: req.body.price,
-    isDecorated: req.body.isDecorated,
-    category: req.body.category,
-    packageSize: req.body.packageSize,
-    tags: req.body.tags,
-    contactEmail: req.body.contactEmail,
+    id: req.body.id,
+    date: req.body.date,
+    time: req.body.time,
+    duration: req.body.duration,
+    country: req.body.country,
+    spot: req.body.spot,
+    airStart: req.body.airStart,
+    airEnd: req.body.airEnd,
+    airEan: req.body.airEan,
+    waterDepthMax: req.body.waterDepthMax,
+    waterDepthAvg: req.body.waterDepthAvg,
+    waterTemp: req.body.waterTemp,
+    notes: req.body.notes,
+    buddy: req.body.buddy,
   };
 
-  // TODO: add try catch around this operation
-  const result = await Log.findByIdAndUpdate(logId, logData, {
-    returnDocument: 'after',
-  });
-
-  res.json(result);
+  try {
+    const result = await Log.findByIdAndUpdate(logId, logData, {
+      returnDocument: 'after',
+    });
+    res.json(result);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const deleteLog = async (req, res) => {
