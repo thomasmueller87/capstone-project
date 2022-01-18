@@ -9,26 +9,45 @@ import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
 import styled from 'styled-components';
-import { logData } from './components/LogData';
 
 function App() {
   const localStorageLogs = loadFromLocalStorage('_diveLogs');
 
-  const [logs, setLogs] = useState(localStorageLogs ?? logData);
+  const [logs, setLogs] = useState(localStorageLogs ?? []);
+
+  async function fetchLogs() {
+    const result = await fetch('api/logs');
+    const resultJson = await result.json();
+
+    resultJson.sort((a, b) => b.id - a.id);
+    setLogs(resultJson);
+  }
+
+  useEffect(() => fetchLogs(), []);
 
   useEffect(() => {
     saveToLocalStorage('_diveLogs', logs);
   }, [logs]);
 
+  async function addLogToDatabase(log) {
+    const result = await fetch('api/logs', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(log),
+    });
+    return await result.json();
+  }
+
   function addLog(log) {
     const addId = logs.length + 1;
-    setLogs([
-      ...logs,
-      {
-        ...log,
-        id: addId,
-      },
-    ]);
+    const newLog = {
+      ...log,
+      id: addId,
+    };
+    addLogToDatabase(newLog);
+    fetchLogs();
   }
 
   return (
