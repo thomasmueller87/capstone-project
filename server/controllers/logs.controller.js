@@ -1,12 +1,13 @@
-import Product from '../models/product.model.js';
+import Log from '../models/log.model.js';
 
-const getProducts = async (req, res) => {
-  const products = await Product.find();
-  res.json(products);
+const getLogs = async (req, res) => {
+  const logs = await Log.find();
+  res.json(logs);
 };
 
-const postProduct = async (req, res) => {
-  const product = new Product({
+const postLog = async (req, res) => {
+  const log = new Log({
+    // Below needs to be edited
     name: req.body.name,
     price: req.body.price,
     isDecorated: req.body.isDecorated,
@@ -17,17 +18,17 @@ const postProduct = async (req, res) => {
   });
 
   try {
-    const result = await product.save();
+    const result = await log.save();
     res.json(result);
   } catch (error) {
     res.json(error);
   }
 };
 
-const updateProduct = async (req, res) => {
-  const productId = req.params.productId;
+const updateLog = async (req, res) => {
+  const logId = req.params.logId;
 
-  const productData = {
+  const logData = {
     name: req.body.name,
     price: req.body.price,
     isDecorated: req.body.isDecorated,
@@ -38,22 +39,22 @@ const updateProduct = async (req, res) => {
   };
 
   // TODO: add try catch around this operation
-  const result = await Product.findByIdAndUpdate(productId, productData, {
+  const result = await Log.findByIdAndUpdate(logId, logData, {
     returnDocument: 'after',
   });
 
   res.json(result);
 };
 
-const deleteProduct = async (req, res) => {
-  const productId = req.params.productId;
+const deleteLog = async (req, res) => {
+  const logId = req.params.logId;
 
   try {
-    const result = await Product.findByIdAndDelete(productId);
+    const result = await Log.findByIdAndDelete(logId);
     res.json(result);
   } catch (error) {
     res.json(error);
   }
 };
 
-export { deleteProduct, getProducts, postProduct, updateProduct };
+export { deleteLog, getLogs, postLog, updateLog };

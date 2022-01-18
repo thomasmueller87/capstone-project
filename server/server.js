@@ -4,8 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 
-import CategoriesRoutes from './routes/categories.routes.js';
-import ProductsRoutes from './routes/products.routes.js';
+import LogsRoutes from './routes/logs.routes.js';
 
 dotenv.config();
 
@@ -27,7 +26,7 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-server.use('/api', [CategoriesRoutes, ProductsRoutes]);
+server.use('/api', LogsRoutes);
 
 server.use(
   express.static(path.join(__dirname, './client/dist'))

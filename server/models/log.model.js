@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const productSchema = new mongoose.Schema({
+const logSchema = new mongoose.Schema({
   name: String,
   price: Number,
   isDecorated: Boolean,
@@ -10,6 +10,6 @@ const productSchema = new mongoose.Schema({
   contactEmail: String,
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Log = mongoose.model('Log', logSchema);
 
-export default Product;
+export default Log;
