@@ -61,7 +61,7 @@ const TitleContainer = styled.div`
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
-      color: var(--primary-color);
+      color: red;
       font-size: 3rem;
     }
   }

@@ -14,24 +14,6 @@ import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
 function Form({ onAddLog }) {
-  const dummy = {
-    id: 3,
-    date: '2020-09-20',
-    time: '06:00',
-    duration: '50',
-    country: 'Germany',
-    spot: 'Hemmoor',
-    airStart: '210',
-    airEnd: '45',
-    airEan: '21',
-    waterDepthMax: '41.5',
-    waterDepthAvg: '25.4',
-    waterTemp: '6',
-    notes:
-      'Yeah, German seas are very cold! I would recommend a dry suit next time!',
-    buddy: 'Heinz',
-  };
-
   const resetLog = {
     id: '',
     date: '',
@@ -49,7 +31,7 @@ function Form({ onAddLog }) {
     buddy: '',
   };
 
-  const [log, setLog] = useState(dummy);
+  const [log, setLog] = useState(resetLog);
   const [saveInfo, setSaveInfo] = useState(false);
 
   useEffect(() => {
@@ -115,7 +97,7 @@ function Form({ onAddLog }) {
             name='duration'
             type='text'
             value={log.duration}
-            placeholder='45'
+            placeholder='[e.g. 45]'
             errorMessage='Please enter the length of your dive [Numbers only]'
             required={true}
             pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -129,7 +111,7 @@ function Form({ onAddLog }) {
             name='country'
             type='text'
             value={log.country}
-            placeholder='Country'
+            placeholder='[e.g. Spain]'
             errorMessage='Please enter a Country'
             required={true}
           >
@@ -140,7 +122,7 @@ function Form({ onAddLog }) {
             name='spot'
             type='text'
             value={log.spot}
-            placeholder='Dive site'
+            placeholder='[e.g. Costa Brava]'
             errorMessage='Please enter the dive site'
             required={false}
           >
@@ -157,7 +139,7 @@ function Form({ onAddLog }) {
               name='airStart'
               type='text'
               value={log.airStart}
-              placeholder='200'
+              placeholder='[e.g. 200]'
               errorMessage='Please enter the amount of Air on start [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -170,7 +152,7 @@ function Form({ onAddLog }) {
               name='airEnd'
               type='text'
               value={log.airEnd}
-              placeholder='50'
+              placeholder='[e.g. 50]'
               errorMessage='Please enter the amount of Air on end [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -183,7 +165,7 @@ function Form({ onAddLog }) {
               name='airEan'
               type='text'
               value={log.airEan}
-              placeholder='21'
+              placeholder='[e.g. 21]'
               errorMessage='Please enter the percentage value of Oxigen (o2) [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -200,7 +182,7 @@ function Form({ onAddLog }) {
               name='waterDepthMax'
               type='text'
               value={log.waterDepthMax}
-              placeholder='35'
+              placeholder='[e.g. 35]'
               errorMessage='Please enter the max dive depth [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -213,7 +195,7 @@ function Form({ onAddLog }) {
               name='waterDepthAvg'
               type='text'
               value={log.waterDepthAvg}
-              placeholder='20'
+              placeholder='[e.g. 20]'
               errorMessage='Please enter the average dive depth [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -226,7 +208,7 @@ function Form({ onAddLog }) {
               name='waterTemp'
               type='text'
               value={log.waterTemp}
-              placeholder='20'
+              placeholder='[e.g. 18]'
               errorMessage='Please enter the water temperature [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -241,7 +223,7 @@ function Form({ onAddLog }) {
             name='buddy'
             type='text'
             value={log.buddy}
-            placeholder='Name of your Buddy'
+            placeholder='[e.g. John]'
             errorMessage='Please the name of your Buddy'
             required={true}
           >
@@ -254,7 +236,7 @@ function Form({ onAddLog }) {
             name='notes'
             type='text'
             value={log.notes}
-            placeholder='Your notes'
+            placeholder='[e.g. Big fishes, great view]'
             errorMessage='Please enter the notes here'
             required={false}
           >
