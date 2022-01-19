@@ -10,6 +10,7 @@ import Buddy from './card/Buddy';
 import CardFooter from './card/CardFooter';
 
 function LogCard({ log }) {
+  console.log(log);
   const [expandCard, setExpandCard] = useState(false);
 
   const handleExpand = () => {

@@ -10,16 +10,13 @@ function Signature({ onhandleSignatureData }) {
 
   const sigCanvas = useRef({});
 
-  /* a function that uses the canvas ref to clear the canvas 
-  via a method given by react-signature-canvas */
   const clear = () => sigCanvas.current.clear();
 
-  /* a function that uses the canvas ref to trim the canvas 
-  from white spaces via a method given by react-signature-canvas
-  then saves it in our state */
   const save = () => {
     setImageURL(sigCanvas.current.toDataURL('image/png'));
-    onhandleSignatureData(imageURL);
+    onhandleSignatureData(
+      sigCanvas.current.toDataURL('image/png')
+    );
   };
 
   return (

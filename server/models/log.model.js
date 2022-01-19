@@ -15,6 +15,7 @@ const logSchema = new mongoose.Schema({
   waterTemp: Number,
   notes: String,
   buddy: String,
+  signature: String,
 });
 
 const Log = mongoose.model('Log', logSchema);
