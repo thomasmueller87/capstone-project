@@ -60,6 +60,13 @@ function Form({ onAddLog }) {
     setSaveInfo(true);
   };
 
+  const handleSignatureData = (urlData) => {
+    setLog({
+      ...log,
+      signature: urlData,
+    });
+  };
+
   const handleChange = (event) => {
     let inputValue = event.target.value;
     setLog({
@@ -239,7 +246,7 @@ function Form({ onAddLog }) {
               name='buddy'
               type='text'
               value={log.buddy}
-              placeholder='[e.g. John]'
+              placeholder='[ John]'
               errorMessage='Please the name of your Buddy'
               required={true}
             >
@@ -248,7 +255,9 @@ function Form({ onAddLog }) {
                 Name of your Buddy<span>*</span>
               </p>
             </InputField>
-            <Signature />
+            <Signature
+              onhandleSignatureData={handleSignatureData}
+            />
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-notes)'>
             <InputTextArea

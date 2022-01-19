@@ -5,7 +5,7 @@ import Popup from 'reactjs-popup';
 import SignaturePad from 'react-signature-pad-wrapper';
 import './sigCanvas.css';
 
-function Signature() {
+function Signature({ onhandleSignatureData }) {
   const [imageURL, setImageURL] = useState(''); // create a state that will contain our image url
 
   const sigCanvas = useRef({});
@@ -17,9 +17,10 @@ function Signature() {
   /* a function that uses the canvas ref to trim the canvas 
   from white spaces via a method given by react-signature-canvas
   then saves it in our state */
-  const save = () =>
+  const save = () => {
     setImageURL(sigCanvas.current.toDataURL('image/png'));
-  console.log(imageURL);
+    onhandleSignatureData(imageURL);
+  };
 
   return (
     <div className='App'>
@@ -36,7 +37,7 @@ function Signature() {
                 className: 'signatureCanvas',
               }}
             />
-            {/* Button to trigger save canvas image */}
+
             <button onClick={save}>Save</button>
             <button onClick={clear}>Clear</button>
             <button onClick={close}>Close</button>
@@ -44,8 +45,6 @@ function Signature() {
         )}
       </Popup>
 
-      {/* if our we have a non-null image url we should 
-      show an image and pass our imageURL state to it*/}
       {imageURL ? (
         <img
           src={imageURL}

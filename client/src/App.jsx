@@ -46,6 +46,7 @@ function App() {
       ...log,
       id: addId,
     };
+    console.log(newLog);
     addLogToDatabase(newLog);
     fetchLogs();
   }
