@@ -9,17 +9,25 @@ function Water({ label, logData }) {
         <img src={cardWaterDepth} alt='Maximum Depth' />
         MAX
       </div>
+
       <div className='icon2'>
         <img src={cardWaterDepth} alt='Average Depth' />
         AVG
       </div>
+
       <div className='icon3'>
         <img src={cardWaterTemp} alt='Water Temperature' />
       </div>
 
-      <div className='data1'>{`${logData.waterDepthMax} m`}</div>
-      <div className='data2'>{`${logData.waterDepthAvg} m`}</div>
-      <div className='data3'>{`${logData.waterTemp} °C`}</div>
+      {logData.waterDepthMax !== null && (
+        <div className='data1'>{`${logData.waterDepthMax} m`}</div>
+      )}
+      {logData.waterDepthAvg !== null && (
+        <div className='data2'>{`${logData.waterDepthAvg} m`}</div>
+      )}
+      {logData.waterTemp !== null && (
+        <div className='data3'>{`${logData.waterTemp} °C`}</div>
+      )}
 
       <div className='label'>{label}</div>
     </CardWrapper>

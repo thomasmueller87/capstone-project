@@ -196,7 +196,7 @@ function Form({ onAddLog }) {
               value={log.waterDepthMax}
               placeholder='[35]'
               errorMessage='Please enter the max dive depth [Numbers only]'
-              required={false}
+              required={true}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
               <img src={cardWaterDepth} alt='Max Depth' />
