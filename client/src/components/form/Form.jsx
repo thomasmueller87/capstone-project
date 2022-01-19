@@ -278,7 +278,6 @@ function Form({ onAddLog }) {
           </Button>
         </form>
       </CardContainer>
-      <Signature />
     </Center>
   );
 }
