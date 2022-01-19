@@ -32,6 +32,7 @@ function Form({ onAddLog }) {
   };
 
   const [log, setLog] = useState(resetLog);
+
   const [saveInfo, setSaveInfo] = useState(false);
 
   useEffect(() => {
