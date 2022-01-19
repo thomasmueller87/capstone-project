@@ -14,6 +14,7 @@ import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
 function Form({ onAddLog }) {
+
   const resetLog = {
     id: '',
     date: '',
@@ -31,7 +32,9 @@ function Form({ onAddLog }) {
     buddy: '',
   };
 
+
   const [log, setLog] = useState(resetLog);
+
   const [saveInfo, setSaveInfo] = useState(false);
 
   useEffect(() => {
@@ -97,7 +100,9 @@ function Form({ onAddLog }) {
             name='duration'
             type='text'
             value={log.duration}
+
             placeholder='[e.g. 45]'
+
             errorMessage='Please enter the length of your dive [Numbers only]'
             required={true}
             pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -112,6 +117,7 @@ function Form({ onAddLog }) {
             type='text'
             value={log.country}
             placeholder='[e.g. Spain]'
+
             errorMessage='Please enter a Country'
             required={true}
           >
