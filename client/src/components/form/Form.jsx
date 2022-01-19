@@ -78,7 +78,7 @@ function Form({ onAddLog }) {
             required={true}
             pattern='(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}'
           >
-            <img src={cardDate} alt='Date' />
+            <img src={cardDate} alt='Date' /> Date
           </InputField>
           <InputField
             onTextInputChange={handleChange}
@@ -90,7 +90,7 @@ function Form({ onAddLog }) {
             required={true}
             pattern='([01]?[0-9]|2[0-3]):[0-5][0-9]'
           >
-            <img src={cardTime} alt='Time' />
+            <img src={cardTime} alt='Time' /> Time
           </InputField>
           <InputField
             onTextInputChange={handleChange}
@@ -102,7 +102,7 @@ function Form({ onAddLog }) {
             required={true}
             pattern='[-+]?[0-9]*[.,]?[0-9]+'
           >
-            <img src={cardDuration} alt='Duration' />
+            <img src={cardDuration} alt='Duration' /> Length
           </InputField>
         </FormGroup>
         <FormGroup backgroundcolor='var(--background-card-place)'>
@@ -115,7 +115,7 @@ function Form({ onAddLog }) {
             errorMessage='Please enter a Country'
             required={true}
           >
-            <img src={cardCountry} alt='Country' />
+            <img src={cardCountry} alt='Country' /> Country
           </InputField>
           <InputField
             onTextInputChange={handleChange}
@@ -126,7 +126,7 @@ function Form({ onAddLog }) {
             errorMessage='Please enter the dive site'
             required={false}
           >
-            <img src={cardSpot} alt='Spot' />
+            <img src={cardSpot} alt='Spot' /> Spot
           </InputField>
         </FormGroup>
         <AirWaterGrid>
@@ -144,8 +144,7 @@ function Form({ onAddLog }) {
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
-              <img src={cardAir} alt='Air Start' />
-              start
+              <img src={cardAir} alt='Air Start' /> Air at start
             </InputField>
             <InputField
               onTextInputChange={handleChange}
@@ -157,8 +156,7 @@ function Form({ onAddLog }) {
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
-              <img src={cardAir} alt='Air End' />
-              end
+              <img src={cardAir} alt='Air End' /> Air at end
             </InputField>
             <InputField
               onTextInputChange={handleChange}
@@ -170,7 +168,7 @@ function Form({ onAddLog }) {
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
-              <img src={cardAirEan} alt='% o2' />
+              <img src={cardAirEan} alt='% o2' /> % Oxygen
             </InputField>
           </FormGroup>
           <FormGroup
@@ -187,8 +185,8 @@ function Form({ onAddLog }) {
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
-              <img src={cardWaterDepth} alt='Max Depth' />
-              max
+              <img src={cardWaterDepth} alt='Max Depth' />{' '}
+              Maximum depth max
             </InputField>
             <InputField
               onTextInputChange={handleChange}
@@ -200,8 +198,8 @@ function Form({ onAddLog }) {
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
-              <img src={cardWaterDepth} alt='Average Depth' />
-              avg
+              <img src={cardWaterDepth} alt='Average Depth' />{' '}
+              Average depth in m avg
             </InputField>
             <InputField
               onTextInputChange={handleChange}
@@ -213,7 +211,8 @@ function Form({ onAddLog }) {
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
-              <img src={cardWaterTemp} alt='Water temperature' />
+              <img src={cardWaterTemp} alt='Water temperature' />{' '}
+              Water Temperature
             </InputField>
           </FormGroup>
         </AirWaterGrid>
@@ -227,7 +226,7 @@ function Form({ onAddLog }) {
             errorMessage='Please the name of your Buddy'
             required={true}
           >
-            <img src={cardBuddy} alt='Buddy' />
+            <img src={cardBuddy} alt='Buddy' /> Buddy Name
           </InputField>
         </FormGroup>
         <FormGroup backgroundcolor='var(--background-card-notes)'>

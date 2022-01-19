@@ -20,11 +20,8 @@ function InputField({
   return (
     <>
       <Style>
-        <label className='label' htmlFor={name}>
-          {children}
-        </label>
+        <label htmlFor={name}>{children}</label>
         <input
-          className='input'
           type={type}
           id={name}
           name={name}
@@ -45,22 +42,28 @@ function InputField({
 export default InputField;
 
 const Style = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 2rem;
+  display: flex;
+  justify-content: flex-start;
 
-  .label {
-    grid-area: 1 / 1 / 2 / 2;
-    text-align: left;
-    font-size: 0.7rem;
-    font-weight: normal;
+  label {
+    padding-right: 5px;
   }
-  .input {
-    grid-area: 1 / 2 / 2 / 3;
-    background-color: rgba(129, 218, 245, 0.418);
-    border: 1px solid black;
-    padding-left: 5px;
-    width: 100%;
+
+  input,
+  textarea {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: black;
+    padding: 0 10px;
+    margin: 0;
+    width: 50%;
+    background: none;
+  }
+
+  input:focus,
+  textarea:focus {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
   }
 
   span {
