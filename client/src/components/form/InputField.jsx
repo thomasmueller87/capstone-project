@@ -43,10 +43,19 @@ export default InputField;
 
 const Style = styled.div`
   display: flex;
-  justify-content: flex-start;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  font-size: 0.8rem;
 
   label {
-    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+
+    p {
+      margin: 0;
+      padding: 0 0 0 5px;
+    }
   }
 
   input,
@@ -54,9 +63,9 @@ const Style = styled.div`
     outline: 0;
     border-width: 0 0 2px;
     border-color: black;
-    padding: 0 10px;
-    margin: 0;
-    width: 50%;
+    padding: 5px 5px 0 5px;
+    margin: 0 0 0 2rem;
+    width: 80%;
     background: none;
   }
 
@@ -67,6 +76,7 @@ const Style = styled.div`
   }
 
   span {
+    margin-left: 2rem;
     font-size: 12px;
     padding: 3px;
     color: red;
