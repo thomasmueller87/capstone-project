@@ -29,19 +29,11 @@ function App() {
     saveToLocalStorage('_diveLogs', logs);
   }, [logs]);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
   async function addLogToDatabase(log) {
     const result = await fetch('api/logs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-<<<<<<< HEAD
-=======
-
->>>>>>> main
       },
       body: JSON.stringify(log),
     });
