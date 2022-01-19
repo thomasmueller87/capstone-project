@@ -14,6 +14,8 @@ import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
 function Form({ onAddLog }) {
+
+
   const resetLog = {
     id: '',
     date: '',
@@ -31,7 +33,9 @@ function Form({ onAddLog }) {
     buddy: '',
   };
 
+
   const [log, setLog] = useState(resetLog);
+
   const [saveInfo, setSaveInfo] = useState(false);
 
   useEffect(() => {
@@ -97,7 +101,9 @@ function Form({ onAddLog }) {
             name='duration'
             type='text'
             value={log.duration}
+
             placeholder='[e.g. 45]'
+
             errorMessage='Please enter the length of your dive [Numbers only]'
             required={true}
             pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -111,7 +117,9 @@ function Form({ onAddLog }) {
             name='country'
             type='text'
             value={log.country}
+
             placeholder='[e.g. Spain]'
+
             errorMessage='Please enter a Country'
             required={true}
           >
@@ -122,7 +130,9 @@ function Form({ onAddLog }) {
             name='spot'
             type='text'
             value={log.spot}
+
             placeholder='[e.g. Costa Brava]'
+
             errorMessage='Please enter the dive site'
             required={false}
           >
@@ -133,6 +143,7 @@ function Form({ onAddLog }) {
           <FormGroup
             className='air'
             backgroundcolor='var(--background-card-air)'
+
           >
             <InputField
               onTextInputChange={handleChange}
@@ -183,6 +194,7 @@ function Form({ onAddLog }) {
               type='text'
               value={log.waterDepthMax}
               placeholder='[e.g. 35]'
+
               errorMessage='Please enter the max dive depth [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -195,7 +207,9 @@ function Form({ onAddLog }) {
               name='waterDepthAvg'
               type='text'
               value={log.waterDepthAvg}
+
               placeholder='[e.g. 20]'
+
               errorMessage='Please enter the average dive depth [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -208,7 +222,9 @@ function Form({ onAddLog }) {
               name='waterTemp'
               type='text'
               value={log.waterTemp}
+
               placeholder='[e.g. 18]'
+
               errorMessage='Please enter the water temperature [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -223,7 +239,9 @@ function Form({ onAddLog }) {
             name='buddy'
             type='text'
             value={log.buddy}
+
             placeholder='[e.g. John]'
+
             errorMessage='Please the name of your Buddy'
             required={true}
           >
@@ -236,7 +254,9 @@ function Form({ onAddLog }) {
             name='notes'
             type='text'
             value={log.notes}
+
             placeholder='[e.g. Big fishes, great view]'
+
             errorMessage='Please enter the notes here'
             required={false}
           >
