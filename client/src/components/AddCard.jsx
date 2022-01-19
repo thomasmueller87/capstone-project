@@ -1,13 +1,7 @@
-//import styled from 'styled-components';
-import CardContainer from './form/CardContainer';
 import Form from './form/Form';
 
 function AddCard({ onAddLog }) {
-  return (
-    <CardContainer>
-      <Form onAddLog={onAddLog} />
-    </CardContainer>
-  );
+  return <Form onAddLog={onAddLog} />;
 }
 
 export default AddCard;
