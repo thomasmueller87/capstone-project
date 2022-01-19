@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CardContainer from './CardContainer';
 import InputField from './InputField';
 import InputTextArea from './InputTextArea';
+import Signature from './Signature';
 //Import of graphics
 import cardDate from '../../assets/card/card-date.png';
 import cardTime from '../../assets/card/card-time.png';
@@ -247,6 +248,7 @@ function Form({ onAddLog }) {
                 Name of your Buddy<span>*</span>
               </p>
             </InputField>
+            <Signature />
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-notes)'>
             <InputTextArea
@@ -276,6 +278,7 @@ function Form({ onAddLog }) {
           </Button>
         </form>
       </CardContainer>
+      <Signature />
     </Center>
   );
 }
