@@ -3,9 +3,9 @@ import cardDate from '../../assets/card/card-date.png';
 import cardTime from '../../assets/card/card-time.png';
 import cardDuration from '../../assets/card/card-duration.png';
 
-function Title({ logData }) {
+function Title({ onHandleExpand, logData }) {
   return (
-    <TitleContainer>
+    <TitleContainer onClick={onHandleExpand}>
       <div className='date'>
         <div>
           <img src={cardDate} alt='Date' />
@@ -61,7 +61,7 @@ const TitleContainer = styled.div`
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
-      color: var(--primary-color);
+      color: red;
       font-size: 3rem;
     }
   }
