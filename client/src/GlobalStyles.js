@@ -33,4 +33,8 @@ body {
     text-align: center;
         }
 
+input, textarea {
+    font-family: 'Roboto Mono', monospace;
+    color: var(--primary-color);
+}
 `;

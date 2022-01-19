@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CardContainer from './CardContainer';
 import InputField from './InputField';
+import InputTextArea from './InputTextArea';
 //Import of graphics
 import cardDate from '../../assets/card/card-date.png';
 import cardTime from '../../assets/card/card-time.png';
@@ -82,7 +83,9 @@ function Form({ onAddLog }) {
               pattern='(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}'
             >
               <img src={cardDate} alt='Date' />
-              <p>Date of your dive</p>
+              <p>
+                Date of your dive<span>*</span>
+              </p>
             </InputField>
             <InputField
               onTextInputChange={handleChange}
@@ -95,20 +98,24 @@ function Form({ onAddLog }) {
               pattern='([01]?[0-9]|2[0-3]):[0-5][0-9]'
             >
               <img src={cardTime} alt='Time' />
-              <p>Time you started to dive</p>
+              <p>
+                Time you started to dive<span>*</span>
+              </p>
             </InputField>
             <InputField
               onTextInputChange={handleChange}
               name='duration'
               type='text'
               value={log.duration}
-              placeholder='[e.g. 45]'
-              errorMessage='Please enter the length of your dive [Numbers only]'
+              placeholder='[45]'
+              errorMessage='Please enter the length of your dive in minutes [Numbers only]'
               required={true}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
               <img src={cardDuration} alt='Duration' />
-              <p>Length of your dive</p>
+              <p>
+                Length of your dive<span>*</span>
+              </p>
             </InputField>
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-place)'>
@@ -117,19 +124,21 @@ function Form({ onAddLog }) {
               name='country'
               type='text'
               value={log.country}
-              placeholder='[e.g. Spain]'
+              placeholder='[Spain]'
               errorMessage='Please enter a Country'
               required={true}
             >
               <img src={cardCountry} alt='Country' />
-              <p>Country of your dive</p>
+              <p>
+                Country of your dive<span>*</span>
+              </p>
             </InputField>
             <InputField
               onTextInputChange={handleChange}
               name='spot'
               type='text'
               value={log.spot}
-              placeholder='[e.g. Costa Brava]'
+              placeholder='[Costa Brava]'
               errorMessage='Please enter the dive site'
               required={false}
             >
@@ -144,7 +153,7 @@ function Form({ onAddLog }) {
               name='airStart'
               type='text'
               value={log.airStart}
-              placeholder='[e.g. 200]'
+              placeholder='[200]'
               errorMessage='Please enter the amount of Air on start [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -157,26 +166,26 @@ function Form({ onAddLog }) {
               name='airEnd'
               type='text'
               value={log.airEnd}
-              placeholder='[e.g. 50]'
+              placeholder='[50]'
               errorMessage='Please enter the amount of Air on end [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
               <img src={cardAir} alt='Air End' />
-              <p>Amount of Air at dive start</p>
+              <p>Amount of Air at dive end</p>
             </InputField>
             <InputField
               onTextInputChange={handleChange}
               name='airEan'
               type='text'
               value={log.airEan}
-              placeholder='[e.g. 21]'
-              errorMessage='Please enter the percentage value of Oxigen (o2) [Numbers only]'
+              placeholder='[21]'
+              errorMessage='Please enter the amount of Oxigen [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
               <img src={cardAirEan} alt='% o2' />
-              <p>Amount of Oxygen in your Air-Mix</p>
+              <p>Amount of Oxygen in Air-Mix</p>
             </InputField>
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-water)'>
@@ -185,22 +194,24 @@ function Form({ onAddLog }) {
               name='waterDepthMax'
               type='text'
               value={log.waterDepthMax}
-              placeholder='[e.g. 35]'
+              placeholder='[35]'
               errorMessage='Please enter the max dive depth [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
               <img src={cardWaterDepth} alt='Max Depth' />
-              <p>Max depth during dive</p>
+              <p>
+                Max depth during dive<span>*</span>
+              </p>
             </InputField>
             <InputField
               onTextInputChange={handleChange}
               name='waterDepthAvg'
               type='text'
               value={log.waterDepthAvg}
-              placeholder='[e.g. 20]'
+              placeholder='[20]'
               errorMessage='Please enter the average dive depth [Numbers only]'
-              required={false}
+              required={true}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
               <img src={cardWaterDepth} alt='Average Depth' />{' '}
@@ -211,7 +222,7 @@ function Form({ onAddLog }) {
               name='waterTemp'
               type='text'
               value={log.waterTemp}
-              placeholder='[e.g. 18]'
+              placeholder='[18]'
               errorMessage='Please enter the water temperature [Numbers only]'
               required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
@@ -232,11 +243,13 @@ function Form({ onAddLog }) {
               required={true}
             >
               <img src={cardBuddy} alt='Buddy' />
-              <p>Name of your Buddy</p>
+              <p>
+                Name of your Buddy<span>*</span>
+              </p>
             </InputField>
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-notes)'>
-            <InputField
+            <InputTextArea
               onTextInputChange={handleChange}
               name='notes'
               type='text'
@@ -246,8 +259,11 @@ function Form({ onAddLog }) {
               required={false}
             >
               <p>Your notes about the dive</p>
-            </InputField>
+            </InputTextArea>
           </FormGroup>
+          {saveInfo && (
+            <SaveInfoBox>Your log has been saved</SaveInfoBox>
+          )}
 
           <Button backgroundcolor='#0939B6'>Add</Button>
           <Button
@@ -258,9 +274,6 @@ function Form({ onAddLog }) {
           >
             Reset
           </Button>
-          {saveInfo && (
-            <SaveInfoBox>Your log has been saved</SaveInfoBox>
-          )}
         </form>
       </CardContainer>
     </Center>
@@ -298,7 +311,7 @@ const Button = styled.button`
 const SaveInfoBox = styled.div`
   border: 2px solid #096e00;
   border-radius: 15px;
-  max-width: 80%;
+  max-width: 90%;
   padding: 0.5rem;
   margin: 0 auto;
   color: #096e00; ;
