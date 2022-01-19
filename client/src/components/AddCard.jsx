@@ -6,7 +6,6 @@ function AddCard({ onAddLog }) {
   return (
     <CardContainer>
       <Form onAddLog={onAddLog} />
-
     </CardContainer>
   );
 }

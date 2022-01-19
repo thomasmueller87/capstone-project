@@ -4,7 +4,6 @@ import {
   saveToLocalStorage,
   loadFromLocalStorage,
 } from './lib/localStorage';
-
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Create from './pages/Create';
@@ -22,7 +21,7 @@ function App() {
   }, [logs]);
 
   function addLog(log) {
-    const addId = Object.keys(logs).length + 1;
+    const addId = logs.length + 1;
     setLogs([
       ...logs,
       {

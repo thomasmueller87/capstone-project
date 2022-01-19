@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-function TextInput({
+function InputField({
   name,
   value,
   onTextInputChange,
   placeholder,
   children,
-  width,
   errorMessage,
+  type,
   required,
   pattern,
 }) {
@@ -20,15 +20,17 @@ function TextInput({
   return (
     <>
       <Style>
-        <label htmlFor={name}>{children}</label>
+        <label className='label' htmlFor={name}>
+          {children}
+        </label>
         <input
-          type='text'
+          className='input'
+          type={type}
           id={name}
           name={name}
           onChange={onTextInputChange}
           placeholder={placeholder}
           value={value}
-          width={width}
           required={required}
           pattern={pattern}
           onBlur={handleFocus}
@@ -40,14 +42,36 @@ function TextInput({
   );
 }
 
-export default TextInput;
+export default InputField;
 
 const Style = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 2rem;
+
+  .label {
+    grid-area: 1 / 1 / 2 / 2;
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: normal;
+  }
+  .input {
+    grid-area: 1 / 2 / 2 / 3;
+    background-color: rgba(129, 218, 245, 0.418);
+    border: 1px solid black;
+    padding-left: 5px;
+    width: 100%;
+  }
+
   span {
     font-size: 12px;
     padding: 3px;
     color: red;
     display: none;
+  }
+
+  input:invalid[focused='true'] {
+    border: 2px solid red;
   }
 
   input:invalid[focused='true'] ~ span {
