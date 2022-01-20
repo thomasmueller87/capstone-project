@@ -43,6 +43,7 @@ function LogCard({ log }) {
         </CardGrid>
       )}
       <CardFooter
+        logData={log}
         onHandleExpand={handleExpand}
         expandCard={expandCard}
       />

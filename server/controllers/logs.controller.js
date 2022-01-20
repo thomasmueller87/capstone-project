@@ -5,6 +5,13 @@ const getLogs = async (req, res) => {
   res.json(logs);
 };
 
+const getLog = async (req, res) => {
+  const logId = req.params.logId;
+  console.log(logId);
+  const log = await Log.findById(logId);
+  res.json(log);
+};
+
 const postLog = async (req, res) => {
   const log = new Log({
     id: req.body.id,
@@ -74,4 +81,4 @@ const deleteLog = async (req, res) => {
   }
 };
 
-export { deleteLog, getLogs, postLog, updateLog };
+export { deleteLog, getLogs, getLog, postLog, updateLog };

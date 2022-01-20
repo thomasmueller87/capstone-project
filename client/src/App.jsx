@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
+import Edit from './pages/Edit';
 import styled from 'styled-components';
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
             element={<Create onAddLog={addLog} />}
           />
           <Route path='settings' element={<Settings />} />
+          <Route path='edit' element={<Edit />} />
         </Routes>
         <Navbar />
       </BackgroundWrap>
