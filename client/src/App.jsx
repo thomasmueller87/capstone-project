@@ -17,7 +17,7 @@ function App() {
   const [logs, setLogs] = useState(localStorageLogs ?? []);
 
   async function fetchLogs() {
-    const result = await fetch('api/logs');
+    const result = await fetch('/api/logs');
     const resultJson = await result.json();
 
     resultJson.sort((a, b) => b.id - a.id);
@@ -31,7 +31,7 @@ function App() {
   }, [logs]);
 
   async function addLogToDatabase(log) {
-    const result = await fetch('api/logs', {
+    const result = await fetch('/api/logs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ function App() {
   }
 
   async function updateLogToDatabase(id, log) {
-    const url = '../api/logs/' + id;
+    const url = '/api/logs/' + id;
     const result = await fetch(url, {
       method: 'PUT',
       headers: {
@@ -50,7 +50,8 @@ function App() {
       },
       body: JSON.stringify(log),
     });
-    return await result.json();
+    await result.json();
+    fetchLogs();
   }
 
   async function addLog(log) {
