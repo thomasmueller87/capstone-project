@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import CardContainer from './CardContainer';
 import InputField from './InputField';
 import InputTextArea from './InputTextArea';
+import Signature from './Signature';
+
 //Import of graphics
 import cardDate from '../../assets/card/card-date.png';
 import cardTime from '../../assets/card/card-time.png';
@@ -57,6 +59,13 @@ function Form({ onAddLog }) {
 
   const saveInfoToggle = () => {
     setSaveInfo(true);
+  };
+
+  const handleSignatureData = (urlData) => {
+    setLog({
+      ...log,
+      signature: urlData,
+    });
   };
 
   const handleChange = (event) => {
@@ -238,7 +247,9 @@ function Form({ onAddLog }) {
               name='buddy'
               type='text'
               value={log.buddy}
-              placeholder='[e.g. John]'
+
+              placeholder='[ John]'
+
               errorMessage='Please the name of your Buddy'
               required={true}
             >
@@ -247,6 +258,11 @@ function Form({ onAddLog }) {
                 Name of your Buddy<span>*</span>
               </p>
             </InputField>
+
+            <Signature
+              onhandleSignatureData={handleSignatureData}
+            />
+
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-notes)'>
             <InputTextArea

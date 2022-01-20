@@ -14,11 +14,19 @@ function Buddy({ label, logData }) {
       </div>
       <div className='data1'>{logData.buddy}</div>
       <div className='data2'>
-        {' '}
-        <img
-          src={cardDummySignature}
-          alt='Buddy Signature'
-        />{' '}
+        {logData.signature ? (
+          <img
+            src={logData.signature}
+            alt='my signature'
+            style={{
+              display: 'block',
+              margin: '0 auto',
+              border: '1px solid lightgrey',
+              borderRadius: '5px',
+              width: '100%',
+            }}
+          />
+        ) : null}
       </div>
       <div className='label'>{label}</div>
     </CardWrapper>

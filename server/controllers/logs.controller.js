@@ -21,6 +21,7 @@ const postLog = async (req, res) => {
     waterTemp: req.body.waterTemp,
     notes: req.body.notes,
     buddy: req.body.buddy,
+    signature: req.body.signature,
   });
 
   try {
@@ -49,6 +50,7 @@ const updateLog = async (req, res) => {
     waterTemp: req.body.waterTemp,
     notes: req.body.notes,
     buddy: req.body.buddy,
+    signature: req.body.signature,
   };
 
   try {
