@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 function CardFooter({ logData, onHandleExpand, expandCard }) {
+  const editLink = 'edit/' + logData._id;
+
   return (
     <FooterStyle>
       {expandCard ? <div></div> : ''}
-      {/* Getting ID for edit link */}
-      <p>{` ${logData._id}`}</p>
 
-      <NavLink to='edit'>
-        <p>edit</p>
+      <NavLink to={editLink}>
+        <button>e</button>
       </NavLink>
       <button onClick={onHandleExpand}>
         {expandCard ? '-' : '+'}

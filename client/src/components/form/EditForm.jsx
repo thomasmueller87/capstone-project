@@ -17,7 +17,9 @@ import cardBuddy from '../../assets/card/card-buddy.png';
 import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
-function Form({ onAddLog }) {
+function EditForm({ onUpdateLogToDatabase, editLog }) {
+  console.log(editLog);
+
   const resetLog = {
     id: '',
     date: '',
@@ -35,7 +37,7 @@ function Form({ onAddLog }) {
     buddy: '',
   };
 
-  const [log, setLog] = useState(resetLog);
+  const [log, setLog] = useState(editLog);
 
   const [saveInfo, setSaveInfo] = useState(false);
 
@@ -53,7 +55,7 @@ function Form({ onAddLog }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onAddLog(log);
+    onUpdateLogToDatabase(editLog._id, log);
     saveInfoToggle();
   };
 
@@ -247,9 +249,7 @@ function Form({ onAddLog }) {
               name='buddy'
               type='text'
               value={log.buddy}
-
               placeholder='[ John]'
-
               errorMessage='Please the name of your Buddy'
               required={true}
             >
@@ -262,7 +262,6 @@ function Form({ onAddLog }) {
             <Signature
               onhandleSignatureData={handleSignatureData}
             />
-
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-notes)'>
             <InputTextArea
@@ -270,7 +269,7 @@ function Form({ onAddLog }) {
               name='notes'
               type='text'
               value={log.notes}
-              placeholder='[e.g. Big fishes, great view]'
+              placeholder='[Big fishes, great view]'
               errorMessage='Please enter the notes here'
               required={false}
             >
@@ -296,7 +295,7 @@ function Form({ onAddLog }) {
   );
 }
 
-export default Form;
+export default EditForm;
 
 const Center = styled.section`
   margin: 0 auto;

@@ -41,14 +41,25 @@ function App() {
     return await result.json();
   }
 
-  function addLog(log) {
+  async function updateLogToDatabase(id, log) {
+    const url = '../api/logs/' + id;
+    const result = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(log),
+    });
+    return await result.json();
+  }
+
+  async function addLog(log) {
     const addId = logs.length + 1;
     const newLog = {
       ...log,
       id: addId,
     };
-    console.log(newLog);
-    addLogToDatabase(newLog);
+    await addLogToDatabase(newLog);
     fetchLogs();
   }
 
@@ -62,7 +73,15 @@ function App() {
             element={<Create onAddLog={addLog} />}
           />
           <Route path='settings' element={<Settings />} />
-          <Route path='edit' element={<Edit />} />
+          <Route
+            path='edit/:logId'
+            element={
+              <Edit
+                onUpdateLogToDatabase={updateLogToDatabase}
+                logs={logs}
+              />
+            }
+          />
         </Routes>
         <Navbar />
       </BackgroundWrap>
