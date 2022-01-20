@@ -18,8 +18,6 @@ import cardAirEan from '../../assets/card/card-air-ean.png';
 import cardAir from '../../assets/card/card-air.png';
 
 function EditForm({ onUpdateLogToDatabase, editLog }) {
-  console.log(editLog);
-
   const resetLog = {
     id: '',
     date: '',
@@ -222,7 +220,7 @@ function EditForm({ onUpdateLogToDatabase, editLog }) {
               value={log.waterDepthAvg}
               placeholder='[20]'
               errorMessage='Please enter the average dive depth [Numbers only]'
-              required={true}
+              required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
               <img src={cardWaterDepth} alt='Average Depth' />{' '}
@@ -258,9 +256,9 @@ function EditForm({ onUpdateLogToDatabase, editLog }) {
                 Name of your Buddy<span>*</span>
               </p>
             </InputField>
-
             <Signature
               onhandleSignatureData={handleSignatureData}
+              signatureGraphic={log.signature}
             />
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-notes)'>

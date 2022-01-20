@@ -9,7 +9,6 @@ export default function Edit({ logs, onUpdateLogToDatabase }) {
   return (
     <>
       <Header title='Edit Log' />
-      <p>ID: {logId}</p>
 
       <EditForm
         editLog={editLog}

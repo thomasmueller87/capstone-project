@@ -17,13 +17,13 @@ function Air({ label, logData }) {
         <img src={cardAirEan} alt='% Nitrox' />
       </div>
 
-      {logData.airStart !== null && (
+      {logData.airStart !== '' && (
         <div className='data1'>{`${logData.airStart} bar`}</div>
       )}
-      {logData.airEnd !== null && (
+      {logData.airEnd !== '' && (
         <div className='data2'>{`${logData.airEnd} bar`}</div>
       )}
-      {logData.airEan !== null && (
+      {logData.airEan !== '' && (
         <div className='data3'>{`${logData.airEan} %`}</div>
       )}
 

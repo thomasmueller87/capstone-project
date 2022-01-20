@@ -19,13 +19,13 @@ function Water({ label, logData }) {
         <img src={cardWaterTemp} alt='Water Temperature' />
       </div>
 
-      {logData.waterDepthMax !== null && (
+      {logData.waterDepthMax !== '' && (
         <div className='data1'>{`${logData.waterDepthMax} m`}</div>
       )}
-      {logData.waterDepthAvg !== null && (
+      {logData.waterDepthAvg !== '' && (
         <div className='data2'>{`${logData.waterDepthAvg} m`}</div>
       )}
-      {logData.waterTemp !== null && (
+      {logData.waterTemp !== '' && (
         <div className='data3'>{`${logData.waterTemp} °C`}</div>
       )}
 

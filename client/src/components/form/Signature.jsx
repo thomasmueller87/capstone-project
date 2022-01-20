@@ -1,12 +1,13 @@
 import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import Popup from 'reactjs-popup';
-//import 'reactjs-popup/dist/index.css';
 import SignaturePad from 'react-signature-pad-wrapper';
 import './sigCanvas.css';
 
-function Signature({ onhandleSignatureData }) {
-  const [imageURL, setImageURL] = useState(''); // create a state that will contain our image url
+function Signature({ onhandleSignatureData, signatureGraphic }) {
+  const [imageURL, setImageURL] = useState(
+    signatureGraphic ?? ''
+  );
 
   const sigCanvas = useRef({});
 

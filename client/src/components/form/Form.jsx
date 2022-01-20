@@ -220,7 +220,7 @@ function Form({ onAddLog }) {
               value={log.waterDepthAvg}
               placeholder='[20]'
               errorMessage='Please enter the average dive depth [Numbers only]'
-              required={true}
+              required={false}
               pattern='[-+]?[0-9]*[.,]?[0-9]+'
             >
               <img src={cardWaterDepth} alt='Average Depth' />{' '}
@@ -247,9 +247,7 @@ function Form({ onAddLog }) {
               name='buddy'
               type='text'
               value={log.buddy}
-
               placeholder='[ John]'
-
               errorMessage='Please the name of your Buddy'
               required={true}
             >
@@ -262,7 +260,6 @@ function Form({ onAddLog }) {
             <Signature
               onhandleSignatureData={handleSignatureData}
             />
-
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-notes)'>
             <InputTextArea
