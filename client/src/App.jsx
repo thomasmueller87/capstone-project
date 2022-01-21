@@ -54,6 +54,19 @@ function App() {
     fetchLogs();
   }
 
+  async function deleteFromDatabase(id, log) {
+    const url = '/api/logs/' + id;
+    const result = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(log),
+    });
+    await result.json();
+    fetchLogs();
+  }
+
   async function addLog(log) {
     const addId = logs.length + 1;
     const newLog = {
@@ -68,7 +81,15 @@ function App() {
     <div className='App'>
       <BackgroundWrap>
         <Routes>
-          <Route path='/' element={<Home logs={logs} />} />
+          <Route
+            path='/'
+            element={
+              <Home
+                logs={logs}
+                onDeleteFromDatabase={deleteFromDatabase}
+              />
+            }
+          />
           <Route
             path='create'
             element={<Create onAddLog={addLog} />}

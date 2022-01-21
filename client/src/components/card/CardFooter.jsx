@@ -1,13 +1,52 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+import './CardFooter.css';
 
-function CardFooter({ logData, onHandleExpand, expandCard }) {
+function CardFooter({
+  logData,
+  onHandleExpand,
+  expandCard,
+  onDeleteFromDatabase,
+}) {
   const editLink = 'edit/' + logData._id;
 
   return (
     <FooterStyle>
       {expandCard ? <div></div> : ''}
-
+      <Popup trigger={<button> d </button>} modal nested>
+        {(close) => (
+          <div className='modal'>
+            <button className='close' onClick={close}>
+              &times;
+            </button>
+            <div className='header'> Really Delete ? </div>
+            <div className='content'>
+              {' '}
+              Do you really want to delete that log entry?
+            </div>
+            <div className='actions'>
+              <button
+                className='button'
+                onClick={() => {
+                  onDeleteFromDatabase(logData._id, logData);
+                  close();
+                }}
+              >
+                Delete
+              </button>
+              <button
+                className='button btn-cancel'
+                onClick={() => {
+                  close();
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+      </Popup>
       <NavLink to={editLink}>
         <button>e</button>
       </NavLink>
