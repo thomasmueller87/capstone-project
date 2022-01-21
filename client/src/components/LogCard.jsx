@@ -84,20 +84,3 @@ const CardGrid = styled.div`
     grid-area: buddy;
   }
 `;
-
-const ExpandButton = styled.div`
-  text-align: right;
-  margin: 0;
-  padding: 0;
-
-  button {
-    margin-top: 5px;
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    color: blue;
-    font-size: 1.4rem;
-    background-color: transparent;
-  }
-`;
