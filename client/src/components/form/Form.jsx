@@ -5,18 +5,6 @@ import InputField from './InputField';
 import InputTextArea from './InputTextArea';
 import Signature from './Signature';
 
-//Import of graphics
-import cardDate from '../../assets/card/card-date.png';
-import cardTime from '../../assets/card/card-time.png';
-import cardDuration from '../../assets/card/card-duration.png';
-import cardWaterDepth from '../../assets/card/card-water-depth.png';
-import cardWaterTemp from '../../assets/card/card-water-temp.png';
-import cardCountry from '../../assets/card/card-country.png';
-import cardSpot from '../../assets/card/card-spot.png';
-import cardBuddy from '../../assets/card/card-buddy.png';
-import cardAirEan from '../../assets/card/card-air-ean.png';
-import cardAir from '../../assets/card/card-air.png';
-
 function Form({ onAddLog }) {
   const resetLog = {
     id: '',
@@ -501,6 +489,7 @@ function Form({ onAddLog }) {
 
             <Signature
               onhandleSignatureData={handleSignatureData}
+              buttonName='Add Signature'
             />
           </FormGroup>
           <FormGroup backgroundcolor='var(--background-card-notes)'>
