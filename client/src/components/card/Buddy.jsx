@@ -40,8 +40,6 @@ function Buddy({ label, logData }) {
             style={{
               display: 'block',
               margin: '0 auto',
-              border: '1px solid lightgrey',
-              borderRadius: '5px',
               width: '100%',
             }}
           />
