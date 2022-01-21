@@ -10,7 +10,6 @@ import Buddy from './card/Buddy';
 import CardFooter from './card/CardFooter';
 
 function LogCard({ log }) {
-  console.log(log);
   const [expandCard, setExpandCard] = useState(false);
 
   const handleExpand = () => {
@@ -43,6 +42,7 @@ function LogCard({ log }) {
         </CardGrid>
       )}
       <CardFooter
+        logData={log}
         onHandleExpand={handleExpand}
         expandCard={expandCard}
       />

@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
+import Edit from './pages/Edit';
 import styled from 'styled-components';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   const [logs, setLogs] = useState(localStorageLogs ?? []);
 
   async function fetchLogs() {
-    const result = await fetch('api/logs');
+    const result = await fetch('/api/logs');
     const resultJson = await result.json();
 
     resultJson.sort((a, b) => b.id - a.id);
@@ -30,7 +31,7 @@ function App() {
   }, [logs]);
 
   async function addLogToDatabase(log) {
-    const result = await fetch('api/logs', {
+    const result = await fetch('/api/logs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,14 +41,26 @@ function App() {
     return await result.json();
   }
 
-  function addLog(log) {
+  async function updateLogToDatabase(id, log) {
+    const url = '/api/logs/' + id;
+    const result = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(log),
+    });
+    await result.json();
+    fetchLogs();
+  }
+
+  async function addLog(log) {
     const addId = logs.length + 1;
     const newLog = {
       ...log,
       id: addId,
     };
-    console.log(newLog);
-    addLogToDatabase(newLog);
+    await addLogToDatabase(newLog);
     fetchLogs();
   }
 
@@ -61,6 +74,15 @@ function App() {
             element={<Create onAddLog={addLog} />}
           />
           <Route path='settings' element={<Settings />} />
+          <Route
+            path='edit/:logId'
+            element={
+              <Edit
+                onUpdateLogToDatabase={updateLogToDatabase}
+                logs={logs}
+              />
+            }
+          />
         </Routes>
         <Navbar />
       </BackgroundWrap>
