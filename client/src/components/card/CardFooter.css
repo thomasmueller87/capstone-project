@@ -46,3 +46,7 @@
 .button.btn-cancel {
   background-color: #707070;
 }
+
+.button.btn-edit {
+  background-color: var(--primary-color);
+}
