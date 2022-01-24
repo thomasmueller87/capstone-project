@@ -4,7 +4,11 @@ import Popup from 'reactjs-popup';
 import SignaturePad from 'react-signature-pad-wrapper';
 import './sigCanvas.css';
 
-function Signature({ onhandleSignatureData, signatureGraphic }) {
+function Signature({
+  onhandleSignatureData,
+  signatureGraphic,
+  buttonName,
+}) {
   const [imageURL, setImageURL] = useState(
     signatureGraphic ?? ''
   );
@@ -24,7 +28,7 @@ function Signature({ onhandleSignatureData, signatureGraphic }) {
     <div className='App'>
       <Popup
         modal
-        trigger={<FakeButton>Add Signature</FakeButton>}
+        trigger={<FakeButton>{buttonName}</FakeButton>}
         closeOnDocumentClick={false}
       >
         {(close) => (
@@ -50,8 +54,6 @@ function Signature({ onhandleSignatureData, signatureGraphic }) {
           style={{
             display: 'block',
             margin: '0 auto',
-            border: '1px solid lightgrey',
-            borderRadius: '5px',
             width: '100%',
           }}
         />
