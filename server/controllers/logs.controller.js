@@ -5,6 +5,28 @@ const getLogs = async (req, res) => {
   res.json(logs);
 };
 
+const exportLogs = async (req, res) => {
+  const logs = await Log.find();
+
+  res.setHeader('Content-Type', 'text/csv');
+
+  const columns = ['date', 'time', 'country']; // "date","time","country" LB
+
+  res.write(
+    columns.map((column) => `"${column}"`).join(',') + '\r\n'
+  );
+
+  const csvString = logs
+    .map((log) =>
+      [log.date, log.time, log.country]
+        .map((property) => `"${property}"`)
+        .join(',')
+    )
+    .join('\r\n');
+  res.write(csvString);
+  res.end();
+};
+
 const getLog = async (req, res) => {
   const logId = req.params.logId;
   console.log(logId);
@@ -81,4 +103,11 @@ const deleteLog = async (req, res) => {
   }
 };
 
-export { deleteLog, getLogs, getLog, postLog, updateLog };
+export {
+  deleteLog,
+  getLogs,
+  getLog,
+  postLog,
+  updateLog,
+  exportLogs,
+};

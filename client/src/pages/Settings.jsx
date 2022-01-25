@@ -8,6 +8,7 @@ export default function Settings({ logs }) {
     <>
       <Header title='Settings' />
       <SettingsForm />
+
       <Export logs={logs} />
       <Import />
     </>
