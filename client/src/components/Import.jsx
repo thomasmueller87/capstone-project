@@ -11,8 +11,7 @@ class App extends Component {
     reader.onload = async (e) => {
       const text = e.target.result;
 
-      const importedData = JSON.parse(text);
-      console.log(importedData);
+      console.log(text);
     };
     reader.readAsText(e.target.files[0]);
   };
