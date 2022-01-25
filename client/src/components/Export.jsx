@@ -1,34 +1,16 @@
-import { CSVLink } from 'react-csv';
 import styled from 'styled-components';
 import CardContainer from './card/CardContainer';
 
-function Export({ logs }) {
-  const exportLogs = logs.map(
-    ({ signature, id, _id, __v, ...keepRest }) => keepRest
-  );
-
-  const exportData = () => {
-    const exportString = JSON.stringify(exportLogs);
-    const data = new Blob([exportString], {
-      type: 'text/csv',
-    });
-    const csvURL = window.URL.createObjectURL(data);
-    window.open(csvURL);
-  };
-
+function Export() {
   return (
     <>
       <CardContainer>
         <Grid>
-          <div className='text'>Export!</div>
-          <div className='button'>
-            <button onClick={() => exportData()}>CLICK!</button>
-          </div>
-
-          <div>
-            <CSVLink data={exportLogs}>
-              CSV Download by React-CSV
-            </CSVLink>
+          <div className='text'>Export your Logs</div>
+          <div className='link-export'>
+            <a href='/api/export' target='_blank'>
+              Download as CSV file
+            </a>
           </div>
         </Grid>
       </CardContainer>
@@ -40,37 +22,27 @@ export default Export;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+
   margin: 0 0 10px 5px;
+  text-align: left;
 
   .text {
     grid-area: 1 / 1 / 2 / 2;
-    text-align: left;
   }
-  .button {
-    grid-area: 1 / 2 / 2 / 3;
-    button {
-      width: 40%;
+  .link-export {
+    grid-area: 2 / 1 / 3 / 2;
+    a {
+      display: inline-block;
       padding: 10px;
-      margin: 5px 5px 10px 5px;
+      margin: 10px 5px 10px 0px;
       border: 0;
       border-radius: 15px;
       color: white;
-      font-size: 1.4rem;
-      background-color: red;
+      font-size: 1rem;
+      background-color: green;
+      text-decoration: none;
     }
   }
-`;
-
-const Button = styled.button`
-  width: 40%;
-  padding: 10px;
-  margin: 5px 5px 10px 5px;
-  border: 0;
-  border-radius: 15px;
-  color: white;
-  font-size: 1.4rem;
-  background-color: ${(props) =>
-    props.backgroundcolor || '#707070'}; ;
 `;

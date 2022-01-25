@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import SettingsForm from '../components/form/SettingsForm';
 import Export from '../components/Export';
-import Import from '../components/Import';
+//import Import from '../components/Import';
 
 export default function Settings({ logs }) {
   return (
@@ -9,8 +9,7 @@ export default function Settings({ logs }) {
       <Header title='Settings' />
       <SettingsForm />
 
-      <Export logs={logs} />
-      <Import />
+      <Export />
     </>
   );
 }

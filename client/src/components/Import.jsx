@@ -10,9 +10,9 @@ class App extends Component {
     const reader = new FileReader();
     reader.onload = async (e) => {
       const text = e.target.result;
-      console.log(text);
-      // const importedData = JSON.parse(text);
-      // console.log(importedData)
+
+      const importedData = JSON.parse(text);
+      console.log(importedData);
     };
     reader.readAsText(e.target.files[0]);
   };
