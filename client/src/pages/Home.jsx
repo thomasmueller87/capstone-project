@@ -9,6 +9,7 @@ export default function Home({ logs, onDeleteFromDatabase }) {
       {logs.map((log, index) => (
         <LogCard
           key={index}
+          index={index}
           log={log}
           onDeleteFromDatabase={onDeleteFromDatabase}
         />
