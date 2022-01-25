@@ -4,8 +4,12 @@ import CardContainer from './CardContainer';
 import InputField from './InputField';
 import InputTextArea from './InputTextArea';
 import Signature from './Signature';
+import { loadFromLocalStorage } from '../../lib/localStorage';
 
 function Form({ onAddLog }) {
+  const localStorageSettings =
+    loadFromLocalStorage('_diveSettings') ?? '';
+
   const resetLog = {
     id: '',
     date: '',
@@ -23,7 +27,24 @@ function Form({ onAddLog }) {
     buddy: '',
   };
 
-  const [log, setLog] = useState(resetLog);
+  const settingsLog = {
+    id: '',
+    date: '',
+    time: '',
+    duration: '',
+    country: localStorageSettings.country ?? '',
+    spot: '',
+    airStart: '',
+    airEnd: '',
+    airEan: localStorageSettings.airEan ?? '',
+    waterDepthMax: '',
+    waterDepthAvg: '',
+    waterTemp: '',
+    notes: '',
+    buddy: localStorageSettings.buddy ?? '',
+  };
+
+  const [log, setLog] = useState(settingsLog);
 
   const [saveInfo, setSaveInfo] = useState(false);
 
