@@ -77,6 +77,19 @@ function App() {
     fetchLogs();
   }
 
+  async function importLogsFromFile(text) {
+    const url = '/api/import';
+    const result = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: text,
+    });
+    await result.json();
+    fetchLogs();
+  }
+
   return (
     <div className='App'>
       <BackgroundWrap>
@@ -96,7 +109,12 @@ function App() {
           />
           <Route
             path='settings'
-            element={<Settings logs={logs} />}
+            element={
+              <Settings
+                logs={logs}
+                onImportLogs={importLogsFromFile}
+              />
+            }
           />
           <Route
             path='edit/:logId'

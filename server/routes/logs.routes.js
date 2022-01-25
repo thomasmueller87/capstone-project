@@ -7,6 +7,7 @@ import {
   postLog,
   updateLog,
   exportLogs,
+  importLogs,
 } from '../controllers/logs.controller.js';
 
 const router = express.Router();
@@ -18,5 +19,6 @@ router.put('/logs/:logId', updateLog);
 router.delete('/logs/:logId', deleteLog);
 
 router.get('/export', exportLogs);
+router.post('/import', importLogs);
 
 export default router;

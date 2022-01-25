@@ -3,13 +3,13 @@ import SettingsForm from '../components/form/SettingsForm';
 import Export from '../components/Export';
 import Import from '../components/Import';
 
-export default function Settings({ logs }) {
+export default function Settings({ logs, onImportLogs }) {
   return (
     <>
       <Header title='Settings' />
       <SettingsForm />
       <Export />
-      <Import />
+      <Import onImportLogs={onImportLogs} />
     </>
   );
 }
