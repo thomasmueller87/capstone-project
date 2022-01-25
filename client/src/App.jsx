@@ -94,7 +94,10 @@ function App() {
             path='create'
             element={<Create onAddLog={addLog} />}
           />
-          <Route path='settings' element={<Settings />} />
+          <Route
+            path='settings'
+            element={<Settings logs={logs} />}
+          />
           <Route
             path='edit/:logId'
             element={

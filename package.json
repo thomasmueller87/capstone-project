@@ -24,6 +24,7 @@
     "node": "17.3.0"
   },
   "dependencies": {
+    "prop-types": "^15.8.1",
     "reactjs-popup": "^2.0.5"
   }
 }
