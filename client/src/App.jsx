@@ -67,11 +67,21 @@ function App() {
     fetchLogs();
   }
 
-  function deleteAllFromDatabase() {
-    logs.forEach((log) => {
-      deleteFromDatabase(log._id, log);
+  async function deleteAllFromDatabase() {
+    async function deleteAll(id, log) {
+      const url = '/api/logs/' + id;
+      const result = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(log),
+      });
+      await result.json();
+    }
+    await logs.forEach((log) => {
+      deleteAll(log._id, log);
     });
-    fetchLogs();
   }
 
   async function addLog(log) {
@@ -94,6 +104,7 @@ function App() {
       body: text,
     });
     await result.json();
+    await deleteAllFromDatabase();
     fetchLogs();
   }
 
@@ -101,13 +112,13 @@ function App() {
     <div className='App'>
       <BackgroundWrap>
         {/* Testing area */}
-        <button
+        {/* <button
           onClick={() => {
             deleteAllFromDatabase();
           }}
         >
-          Test!
-        </button>
+          Delete Database!
+        </button> */}
         {/* /Testing area */}
         <Routes>
           <Route
