@@ -2,6 +2,8 @@ import Header from '../components/Header';
 import LogCard from '../components/LogCard';
 
 export default function Home({ logs, onDeleteFromDatabase }) {
+  const length = logs.length - 1;
+  console.log(length);
   return (
     <>
       <Header title='DiveLogs' />
@@ -9,7 +11,7 @@ export default function Home({ logs, onDeleteFromDatabase }) {
       {logs.map((log, index) => (
         <LogCard
           key={index}
-          index={index}
+          index={length - index}
           log={log}
           onDeleteFromDatabase={onDeleteFromDatabase}
         />

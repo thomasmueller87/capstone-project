@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const logSchema = new mongoose.Schema({
   id: String,
-  date: String,
+  date: Date,
   time: String,
   duration: String,
   country: String,

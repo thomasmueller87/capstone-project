@@ -20,7 +20,7 @@ function App() {
     const result = await fetch('/api/logs');
     const resultJson = await result.json();
 
-    resultJson.sort((a, b) => b.id - a.id);
+    resultJson.sort((a, b) => (b.date > a.date ? 1 : -1));
     setLogs(resultJson);
   }
 

@@ -78,7 +78,12 @@ function Title({ onHandleExpand, logData, index }) {
             />
           </svg>
 
-          {` ${logData.date}`}
+          {' ' +
+            Intl.DateTimeFormat('de-DE', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+            }).format(Date.parse(logData.date))}
         </div>
         <div>
           <svg
