@@ -67,6 +67,13 @@ function App() {
     fetchLogs();
   }
 
+  function deleteAllFromDatabase() {
+    logs.forEach((log) => {
+      deleteFromDatabase(log._id, log);
+    });
+    fetchLogs();
+  }
+
   async function addLog(log) {
     const addId = logs.length + 1;
     const newLog = {
@@ -93,6 +100,15 @@ function App() {
   return (
     <div className='App'>
       <BackgroundWrap>
+        {/* Testing area */}
+        <button
+          onClick={() => {
+            deleteAllFromDatabase();
+          }}
+        >
+          Test!
+        </button>
+        {/* /Testing area */}
         <Routes>
           <Route
             path='/'

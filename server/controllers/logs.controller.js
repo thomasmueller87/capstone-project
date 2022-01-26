@@ -6,6 +6,7 @@ const getLogs = async (req, res) => {
 };
 
 const importLogs = async (req, res) => {
+  //experimental area
   const text = req.body;
 
   const rows = text.split('\r\n');
@@ -158,6 +159,16 @@ const deleteLog = async (req, res) => {
   }
 };
 
+const dropLog = async (req, res) => {
+  try {
+    const result = await Log.dropCollection(logs);
+    res.json(result);
+    console.log(result);
+  } catch (error) {
+    res.json(error);
+  }
+};
+
 export {
   deleteLog,
   getLogs,
@@ -166,4 +177,5 @@ export {
   updateLog,
   exportLogs,
   importLogs,
+  dropLog,
 };
