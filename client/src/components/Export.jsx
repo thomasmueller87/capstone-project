@@ -9,7 +9,7 @@ function Export() {
           <div className='text'>Export your Logs</div>
           <div className='link-export'>
             <a href='/api/export' target='_blank'>
-              Download as CSV file
+              Download CSV
             </a>
           </div>
         </Grid>
