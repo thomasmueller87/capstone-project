@@ -105,6 +105,7 @@ const Grid = styled.div`
   }
   .link-import {
     grid-area: 2 / 1 / 3 / 2;
+    text-align: center;
     input[type='file'] {
       display: none;
     }

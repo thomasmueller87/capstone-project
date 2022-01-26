@@ -33,6 +33,7 @@ const Grid = styled.div`
   }
   .link-export {
     grid-area: 2 / 1 / 3 / 2;
+    text-align: center;
     a {
       display: inline-block;
       padding: 10px;
