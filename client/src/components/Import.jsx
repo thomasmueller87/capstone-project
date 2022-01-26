@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CardContainer from './card/CardContainer';
 import Popup from 'reactjs-popup';
@@ -11,8 +12,27 @@ function ImportFileUpload({ onImportLogs }) {
       const text = e.target.result;
 
       onImportLogs(text);
+      uploadInfoToggle();
     };
     reader.readAsText(e.target.files[0]);
+  };
+
+  const [uploadInfo, setUploadInfo] = useState(false);
+
+  useEffect(() => {
+    if (!uploadInfo) return;
+
+    const uploadTimer = setTimeout(() => {
+      setUploadInfo(false);
+    }, 5000);
+
+    return () => {
+      clearTimeout(uploadTimer);
+    };
+  }, [uploadInfo]);
+
+  const uploadInfoToggle = () => {
+    setUploadInfo(true);
   };
 
   return (
@@ -34,6 +54,11 @@ function ImportFileUpload({ onImportLogs }) {
                 <div className='content'>
                   Please note that the current data base will be
                   deleted and replaced by your uploaded data!
+                  {uploadInfo && (
+                    <UploadInfoBox>
+                      Your file has been uploaded!
+                    </UploadInfoBox>
+                  )}
                 </div>
                 <div className='actions'>
                   <label
@@ -95,4 +120,13 @@ const FakeButton = styled.a`
   color: white;
   font-size: 1rem;
   background-color: red;
+`;
+
+const UploadInfoBox = styled.div`
+  border: 2px solid red;
+  border-radius: 15px;
+  max-width: 90%;
+  padding: 0.5rem;
+  margin: 0 auto;
+  color: red;
 `;
