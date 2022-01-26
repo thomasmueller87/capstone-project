@@ -1,12 +1,12 @@
 import Log from '../models/log.model.js';
+import mongoose from 'mongoose';
 
 const getLogs = async (req, res) => {
-  const logs = await Log.find();
+  const logs = await Log.find().sort({ date: 'desc' });
   res.json(logs);
 };
 
 const importLogs = async (req, res) => {
-  //experimental area
   const text = req.body;
 
   const rows = text.split('\r\n');
@@ -28,9 +28,10 @@ const importLogs = async (req, res) => {
     logsWithKeys.push(logWithKey);
   });
 
+  await dropLogCollection();
+
   const result = await Log.insertMany(logsWithKeys);
   res.json({ count: rows.length, result });
-  //const values = rows.map(row => row.split(','))
 };
 
 const exportLogs = async (req, res) => {
@@ -159,11 +160,13 @@ const deleteLog = async (req, res) => {
   }
 };
 
+const dropLogCollection = async () =>
+  await mongoose.connection.dropCollection('logs');
+
 const dropLog = async (req, res) => {
   try {
-    const result = await Log.dropCollection(logs);
+    dropLogCollection();
     res.json(result);
-    console.log(result);
   } catch (error) {
     res.json(error);
   }
