@@ -5,6 +5,7 @@ const getLogs = async (req, res) => {
   res.json(logs);
 };
 
+
 const importLogs = async (req, res) => {
   //experimental area
   const text = req.body;
@@ -32,6 +33,7 @@ const importLogs = async (req, res) => {
   res.json({ count: rows.length, result });
   //const values = rows.map(row => row.split(','))
 };
+
 
 const exportLogs = async (req, res) => {
   const logs = await Log.find();
@@ -169,6 +171,7 @@ const dropLog = async (req, res) => {
   }
 };
 
+
 export {
   deleteLog,
   getLogs,
@@ -176,6 +179,8 @@ export {
   postLog,
   updateLog,
   exportLogs,
+
   importLogs,
   dropLog,
+
 };

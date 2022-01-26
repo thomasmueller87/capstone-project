@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CardContainer from './card/CardContainer';
@@ -6,16 +7,20 @@ import './Import.css';
 
 function ImportFileUpload({ onImportLogs }) {
   const showFile = async (e) => {
+
     e.preventDefault();
     const reader = new FileReader();
     reader.onload = async (e) => {
       const text = e.target.result;
 
+
       onImportLogs(text);
       uploadInfoToggle();
+
     };
     reader.readAsText(e.target.files[0]);
   };
+
 
   const [uploadInfo, setUploadInfo] = useState(false);
 
@@ -131,3 +136,4 @@ const UploadInfoBox = styled.div`
   margin: 0 auto;
   color: red;
 `;
+

@@ -136,12 +136,14 @@ function App() {
           />
           <Route
             path='settings'
+
             element={
               <Settings
                 logs={logs}
                 onImportLogs={importLogsFromFile}
               />
             }
+
           />
           <Route
             path='edit/:logId'
