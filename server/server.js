@@ -25,7 +25,7 @@ const server = express();
 
 server.use(cors());
 server.use(express.json());
-
+server.use(express.text());
 server.use('/api', LogsRoutes);
 
 server.use(

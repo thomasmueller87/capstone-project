@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function Title({ onHandleExpand, logData }) {
+function Title({ onHandleExpand, logData, index }) {
   return (
     <TitleContainer onClick={onHandleExpand}>
       <div className='date'>
@@ -121,7 +121,7 @@ function Title({ onHandleExpand, logData }) {
       </div>
       <div className='number'>
         <div>#</div>
-        <div>{` ${logData.id}`}</div>
+        <div>{` ${index + 1}`}</div>
       </div>
     </TitleContainer>
   );

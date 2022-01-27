@@ -9,7 +9,7 @@ import Water from './card/Water';
 import Buddy from './card/Buddy';
 import CardFooter from './card/CardFooter';
 
-function LogCard({ log, onDeleteFromDatabase }) {
+function LogCard({ log, onDeleteFromDatabase, index }) {
   const [expandCard, setExpandCard] = useState(false);
 
   const handleExpand = () => {
@@ -17,7 +17,11 @@ function LogCard({ log, onDeleteFromDatabase }) {
   };
   return (
     <CardContainer>
-      <Title onHandleExpand={handleExpand} logData={log} />
+      <Title
+        onHandleExpand={handleExpand}
+        logData={log}
+        index={index}
+      />
 
       {expandCard && (
         <CardGrid>

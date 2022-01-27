@@ -5,6 +5,36 @@ const getLogs = async (req, res) => {
   res.json(logs);
 };
 
+
+const importLogs = async (req, res) => {
+  //experimental area
+  const text = req.body;
+
+  const rows = text.split('\r\n');
+  const columnHeaders = rows
+    .shift() // gibt die erste Zeile (Überschriften) zurück und reduziert die rows um die erste Zeile
+    .split(',')
+    .map((header) => header.replaceAll('"', ''));
+  const logs = rows.map((row) =>
+    row.split(',').map((column) => column.replaceAll('"', ''))
+  );
+
+  const logsWithKeys = [];
+  logs.forEach((log) => {
+    const logWithKey = {};
+    log.forEach(
+      (value, index) =>
+        (logWithKey[columnHeaders[index]] = value)
+    );
+    logsWithKeys.push(logWithKey);
+  });
+
+  const result = await Log.insertMany(logsWithKeys);
+  res.json({ count: rows.length, result });
+  //const values = rows.map(row => row.split(','))
+};
+
+
 const exportLogs = async (req, res) => {
   const logs = await Log.find();
 
@@ -131,6 +161,17 @@ const deleteLog = async (req, res) => {
   }
 };
 
+const dropLog = async (req, res) => {
+  try {
+    const result = await Log.dropCollection(logs);
+    res.json(result);
+    console.log(result);
+  } catch (error) {
+    res.json(error);
+  }
+};
+
+
 export {
   deleteLog,
   getLogs,
@@ -138,4 +179,8 @@ export {
   postLog,
   updateLog,
   exportLogs,
+
+  importLogs,
+  dropLog,
+
 };

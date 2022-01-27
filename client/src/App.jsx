@@ -67,6 +67,23 @@ function App() {
     fetchLogs();
   }
 
+  async function deleteAllFromDatabase() {
+    async function deleteAll(id, log) {
+      const url = '/api/logs/' + id;
+      const result = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(log),
+      });
+      await result.json();
+    }
+    await logs.forEach((log) => {
+      deleteAll(log._id, log);
+    });
+  }
+
   async function addLog(log) {
     const addId = logs.length + 1;
     const newLog = {
@@ -77,9 +94,32 @@ function App() {
     fetchLogs();
   }
 
+  async function importLogsFromFile(text) {
+    const url = '/api/import';
+    const result = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: text,
+    });
+    await result.json();
+    await deleteAllFromDatabase();
+    fetchLogs();
+  }
+
   return (
     <div className='App'>
       <BackgroundWrap>
+        {/* Testing area */}
+        {/* <button
+          onClick={() => {
+            deleteAllFromDatabase();
+          }}
+        >
+          Delete Database!
+        </button> */}
+        {/* /Testing area */}
         <Routes>
           <Route
             path='/'
@@ -96,7 +136,14 @@ function App() {
           />
           <Route
             path='settings'
-            element={<Settings logs={logs} />}
+
+            element={
+              <Settings
+                logs={logs}
+                onImportLogs={importLogsFromFile}
+              />
+            }
+
           />
           <Route
             path='edit/:logId'

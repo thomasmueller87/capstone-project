@@ -9,7 +9,9 @@ function Export() {
           <div className='text'>Export your Logs</div>
           <div className='link-export'>
             <a href='/api/export' target='_blank'>
-              Download as CSV file
+
+              Download CSV
+
             </a>
           </div>
         </Grid>
@@ -33,6 +35,9 @@ const Grid = styled.div`
   }
   .link-export {
     grid-area: 2 / 1 / 3 / 2;
+
+    text-align: center;
+
     a {
       display: inline-block;
       padding: 10px;
