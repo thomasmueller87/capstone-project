@@ -3,19 +3,20 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import splashLogo from '../assets/splash-logo.png';
 import splashDiver from '../assets/splash-diver.png';
+import splashStamp from '../assets/splash-stamp.png';
 
 export default function Splash() {
   let redirect = useNavigate();
 
-  // useEffect(() => {
-  //   const redirectTimer = setTimeout(() => {
-  //     redirect('/logs');
-  //   }, 3000);
+  useEffect(() => {
+    const redirectTimer = setTimeout(() => {
+      redirect('/logs');
+    }, 3500);
 
-  //   return () => {
-  //     clearTimeout(redirectTimer);
-  //   };
-  // }, []);
+    return () => {
+      clearTimeout(redirectTimer);
+    };
+  }, []);
   return (
     <>
       <Wrap>
@@ -27,9 +28,15 @@ export default function Splash() {
                 alt='Blubb - the App for DiveLogs!'
               />
             </div>
+
+            <img
+              className='stamp'
+              src={splashStamp}
+              alt='Blubb - the App for DiveLogs!'
+            />
           </div>
         </LogoContainer>
-        <p>Your App for DiveLogs!</p>
+
         <Diver>
           <img src={splashDiver} alt='Diver' />
         </Diver>
@@ -40,16 +47,7 @@ export default function Splash() {
 
 const Wrap = styled.div`
   margin-top: 50px;
-  p {
-    font-family: 'Sniglet', cursive;
-    font-size: 1.2rem;
-    text-align: center;
-    color: white;
-    margin: 20px 0 0 0;
-    padding: 5px;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-  }
+  overflow: hidden;
 `;
 
 const LogoContainer = styled.div`
@@ -59,16 +57,32 @@ const LogoContainer = styled.div`
   background: white;
   margin: 0 auto;
   padding: 10px 0;
+
   .logo {
     margin: 0 auto;
     max-width: 340px;
-  }
+    position: relative;
 
-  p {
-    font-family: 'Sniglet', cursive;
-    font-size: 1.2rem;
-    text-align: right;
-    margin: 0 45px 0 0;
+    .stamp {
+      position: absolute;
+      right: -45px;
+      bottom: -110px;
+      overflow: hidden;
+      opacity: 0;
+      animation: myAnim 400ms ease-in-out 1000ms 1 normal
+        forwards;
+      @keyframes myAnim {
+        0% {
+          transform: scale(4);
+          opacity: 1;
+        }
+
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    }
   }
 `;
 
