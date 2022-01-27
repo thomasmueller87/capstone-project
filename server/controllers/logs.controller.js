@@ -6,7 +6,9 @@ const getLogs = async (req, res) => {
   res.json(logs);
 };
 
+
 const importLogs = async (req, res) => {
+
   const text = req.body;
 
   const rows = text.split('\r\n');
@@ -33,6 +35,7 @@ const importLogs = async (req, res) => {
   const result = await Log.insertMany(logsWithKeys);
   res.json({ count: rows.length, result });
 };
+
 
 const exportLogs = async (req, res) => {
   const logs = await Log.find();
@@ -167,10 +170,12 @@ const dropLog = async (req, res) => {
   try {
     dropLogCollection();
     res.json(result);
+
   } catch (error) {
     res.json(error);
   }
 };
+
 
 export {
   deleteLog,
@@ -181,4 +186,5 @@ export {
   exportLogs,
   importLogs,
   dropLog,
+
 };

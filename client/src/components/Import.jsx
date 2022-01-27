@@ -10,9 +10,9 @@ function ImportFileUpload({ onImportLogs }) {
     const reader = new FileReader();
     reader.onload = async (e) => {
       const text = e.target.result;
-
       onImportLogs(text);
       uploadInfoToggle();
+
     };
     reader.readAsText(e.target.files[0]);
   };
@@ -131,3 +131,4 @@ const UploadInfoBox = styled.div`
   margin: 0 auto;
   color: red;
 `;
+

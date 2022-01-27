@@ -67,9 +67,11 @@ function App() {
   }
 
   async function deleteAllFromDatabase() {
+
     const url = '/api/drop';
     const result = await fetch(url);
     await result.json();
+
   }
 
   async function addLog(log) {
@@ -98,6 +100,15 @@ function App() {
   return (
     <div className='App'>
       <BackgroundWrap>
+        {/* Testing area */}
+        {/* <button
+          onClick={() => {
+            deleteAllFromDatabase();
+          }}
+        >
+          Delete Database!
+        </button> */}
+        {/* /Testing area */}
         <Routes>
           <Route
             path='/'
