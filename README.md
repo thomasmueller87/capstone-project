@@ -5,7 +5,9 @@
 Blubb is an app for Diving-Logs.
 The mission is to eliminate the - state of art - paperwork and to digitize it with a handy app.
 
-# Devlopment
+# Device / Viewport
+Kindly note, that this app has been designed for use with a smartphone.
+However, it will work with desktop browsers but the design is not responsive (yet).
 
 ## Notes
 
