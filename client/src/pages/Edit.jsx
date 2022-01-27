@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import EditForm from '../components/form/EditForm';
 import { useParams } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 export default function Edit({ logs, onUpdateLogToDatabase }) {
   let { logId } = useParams();
@@ -14,6 +15,7 @@ export default function Edit({ logs, onUpdateLogToDatabase }) {
         editLog={editLog}
         onUpdateLogToDatabase={onUpdateLogToDatabase}
       />
+      <Navbar />
     </>
   );
 }

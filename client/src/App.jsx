@@ -9,8 +9,8 @@ import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
 import Edit from './pages/Edit';
+import Splash from './pages/Splash';
 import styled from 'styled-components';
-import { deleteLog } from '../../server/controllers/logs.controller';
 
 function App() {
   const localStorageLogs = loadFromLocalStorage('_diveLogs');
@@ -67,11 +67,9 @@ function App() {
   }
 
   async function deleteAllFromDatabase() {
-
     const url = '/api/drop';
     const result = await fetch(url);
     await result.json();
-
   }
 
   async function addLog(log) {
@@ -100,18 +98,10 @@ function App() {
   return (
     <div className='App'>
       <BackgroundWrap>
-        {/* Testing area */}
-        {/* <button
-          onClick={() => {
-            deleteAllFromDatabase();
-          }}
-        >
-          Delete Database!
-        </button> */}
-        {/* /Testing area */}
         <Routes>
+          <Route path='/' element={<Splash />} />
           <Route
-            path='/'
+            path='logs'
             element={
               <Home
                 logs={logs}
@@ -141,8 +131,8 @@ function App() {
               />
             }
           />
+          <Route path='splash' element={<Splash />} />
         </Routes>
-        <Navbar />
       </BackgroundWrap>
     </div>
   );
