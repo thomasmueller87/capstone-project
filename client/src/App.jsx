@@ -10,6 +10,7 @@ import Create from './pages/Create';
 import Settings from './pages/Settings';
 import Edit from './pages/Edit';
 import styled from 'styled-components';
+import { deleteLog } from '../../server/controllers/logs.controller';
 
 function App() {
   const localStorageLogs = loadFromLocalStorage('_diveLogs');
@@ -19,8 +20,6 @@ function App() {
   async function fetchLogs() {
     const result = await fetch('/api/logs');
     const resultJson = await result.json();
-
-    resultJson.sort((a, b) => b.id - a.id);
     setLogs(resultJson);
   }
 
@@ -68,20 +67,11 @@ function App() {
   }
 
   async function deleteAllFromDatabase() {
-    async function deleteAll(id, log) {
-      const url = '/api/logs/' + id;
-      const result = await fetch(url, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(log),
-      });
-      await result.json();
-    }
-    await logs.forEach((log) => {
-      deleteAll(log._id, log);
-    });
+
+    const url = '/api/drop';
+    const result = await fetch(url);
+    await result.json();
+
   }
 
   async function addLog(log) {
@@ -104,7 +94,6 @@ function App() {
       body: text,
     });
     await result.json();
-    await deleteAllFromDatabase();
     fetchLogs();
   }
 
@@ -136,14 +125,12 @@ function App() {
           />
           <Route
             path='settings'
-
             element={
               <Settings
                 logs={logs}
                 onImportLogs={importLogsFromFile}
               />
             }
-
           />
           <Route
             path='edit/:logId'

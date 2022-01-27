@@ -9,7 +9,6 @@ import {
   exportLogs,
   importLogs,
   dropLog,
-
 } from '../controllers/logs.controller.js';
 
 const router = express.Router();

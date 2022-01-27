@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import SettingsForm from '../components/form/SettingsForm';
 import Export from '../components/Export';
-
 import Import from '../components/Import';
 
 export default function Settings({ onImportLogs }) {
@@ -22,7 +21,6 @@ export default function Settings({ onImportLogs }) {
           </div>
         </div>
       </SettingsGrid>
-
     </>
   );
 }
