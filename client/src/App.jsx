@@ -4,7 +4,6 @@ import {
   saveToLocalStorage,
   loadFromLocalStorage,
 } from './lib/localStorage';
-import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
