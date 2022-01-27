@@ -91,7 +91,7 @@ function App() {
       body: text,
     });
     await result.json();
-    fetchLogs();
+    await fetchLogs();
   }
 
   return (

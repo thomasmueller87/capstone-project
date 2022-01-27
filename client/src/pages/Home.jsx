@@ -1,10 +1,14 @@
+import { useEffect } from 'react';
 import Header from '../components/Header';
 import LogCard from '../components/LogCard';
 import Navbar from '../components/Navbar';
 
 export default function Home({ logs, onDeleteFromDatabase }) {
   const length = logs.length - 1;
-  console.log(length);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Header title='DiveLogs' />

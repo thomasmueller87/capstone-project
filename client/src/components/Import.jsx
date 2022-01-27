@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import CardContainer from './card/CardContainer';
 import Popup from 'reactjs-popup';
 import './Import.css';
 
 function ImportFileUpload({ onImportLogs }) {
+  const redirect = useNavigate();
+
   const showFile = async (e) => {
     e.preventDefault();
     const reader = new FileReader();
@@ -12,7 +15,7 @@ function ImportFileUpload({ onImportLogs }) {
       const text = e.target.result;
       onImportLogs(text);
       uploadInfoToggle();
-
+      redirectToggle();
     };
     reader.readAsText(e.target.files[0]);
   };
@@ -33,6 +36,16 @@ function ImportFileUpload({ onImportLogs }) {
 
   const uploadInfoToggle = () => {
     setUploadInfo(true);
+  };
+
+  const redirectToggle = () => {
+    const redirectTimer = setTimeout(() => {
+      redirect('/logs');
+    }, 2000);
+
+    return () => {
+      clearTimeout(redirectTimer);
+    };
   };
 
   return (
@@ -131,4 +144,3 @@ const UploadInfoBox = styled.div`
   margin: 0 auto;
   color: red;
 `;
-

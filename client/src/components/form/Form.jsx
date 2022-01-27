@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import CardContainer from './CardContainer';
 import InputField from './InputField';
@@ -7,8 +8,13 @@ import Signature from './Signature';
 import { loadFromLocalStorage } from '../../lib/localStorage';
 
 function Form({ onAddLog }) {
+  const redirect = useNavigate();
+
   const localStorageSettings =
     loadFromLocalStorage('_diveSettings') ?? '';
+
+  const dateToday = new Date().toISOString().slice(0, 10);
+  const timeToday = new Date().toISOString().slice(11, 16);
 
   const resetLog = {
     id: '',
@@ -29,8 +35,8 @@ function Form({ onAddLog }) {
 
   const settingsLog = {
     id: '',
-    date: '',
-    time: '',
+    date: dateToday,
+    time: timeToday,
     duration: '',
     country: localStorageSettings.country ?? '',
     spot: '',
@@ -53,7 +59,8 @@ function Form({ onAddLog }) {
 
     const saveTimer = setTimeout(() => {
       setSaveInfo(false);
-    }, 3000);
+      redirect('/logs');
+    }, 2000);
 
     return () => {
       clearTimeout(saveTimer);
