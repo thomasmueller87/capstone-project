@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import SettingsForm from '../components/form/SettingsForm';
 import Export from '../components/Export';
 import Import from '../components/Import';
+import Navbar from '../components/Navbar';
 
 export default function Settings({ onImportLogs }) {
   return (
@@ -21,6 +22,7 @@ export default function Settings({ onImportLogs }) {
           </div>
         </div>
       </SettingsGrid>
+      <Navbar />
     </>
   );
 }

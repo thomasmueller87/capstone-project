@@ -9,7 +9,7 @@ function CardFooter({
   expandCard,
   onDeleteFromDatabase,
 }) {
-  const editLink = 'edit/' + logData._id;
+  const editLink = '/edit/' + logData._id;
 
   return (
     <FooterStyle>

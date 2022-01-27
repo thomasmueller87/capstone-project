@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <NavContainer>
       <LeftNavItem>
-        <NavLink to='/'>
+        <NavLink to='/logs'>
           <div>
             <svg
               width='24'
@@ -41,7 +41,7 @@ function Navbar() {
         </NavLink>
       </LeftNavItem>
       <NavItem>
-        <NavLink to='create'>
+        <NavLink to='/create'>
           <div>
             <svg
               width='24'
@@ -57,7 +57,7 @@ function Navbar() {
         </NavLink>
       </NavItem>
       <RightNavItem>
-        <NavLink to='settings'>
+        <NavLink to='/settings'>
           <div>
             <svg
               width='24'
