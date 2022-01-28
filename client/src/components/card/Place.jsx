@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Map from './Map';
 
 function Place({ label, logData }) {
   return (
@@ -38,6 +39,9 @@ function Place({ label, logData }) {
       <div className='data1'>{logData.country}</div>
       <div className='data2'>{logData.spot}</div>
       <div className='label'>{label}</div>
+      <div className='map'>
+        <Map />
+      </div>
     </CardWrapper>
   );
 }
@@ -52,9 +56,7 @@ const CardWrapper = styled.section`
   padding: 0.3rem;
   display: grid;
   grid-template-columns: 40px 1fr;
-  grid-template-rows: 1rem.5 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-rows: 1fr 1fr auto;
   position: relative;
   text-align: left;
 
@@ -69,6 +71,10 @@ const CardWrapper = styled.section`
   }
   .data2 {
     grid-area: 2 / 2 / 3 / 3;
+  }
+  .map {
+    grid-area: 3 / 1 / 4 / 3;
+    margin: 0 auto;
   }
 
   .label {
