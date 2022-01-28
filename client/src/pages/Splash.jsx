@@ -6,12 +6,15 @@ import splashDiver from '../assets/splash-diver.png';
 import splashStamp from '../assets/splash-stamp.png';
 
 export default function Splash() {
+
   const redirect = useNavigate();
+
 
   useEffect(() => {
     const redirectTimer = setTimeout(() => {
       redirect('/logs');
     }, 4500);
+
 
     return () => {
       clearTimeout(redirectTimer);
