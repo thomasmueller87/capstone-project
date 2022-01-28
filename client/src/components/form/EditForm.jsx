@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import CardContainer from './CardContainer';
 import InputField from './InputField';
@@ -6,6 +7,8 @@ import InputTextArea from './InputTextArea';
 import Signature from './Signature';
 
 function EditForm({ onUpdateLogToDatabase, editLog }) {
+  const redirect = useNavigate();
+
   const resetLog = {
     id: '',
     date: '',
@@ -23,6 +26,10 @@ function EditForm({ onUpdateLogToDatabase, editLog }) {
     buddy: '',
   };
 
+  const editDate = new Date(editLog.date)
+    .toISOString()
+    .slice(0, 10);
+
   const [log, setLog] = useState(editLog);
 
   const [saveInfo, setSaveInfo] = useState(false);
@@ -32,6 +39,7 @@ function EditForm({ onUpdateLogToDatabase, editLog }) {
 
     const saveTimer = setTimeout(() => {
       setSaveInfo(false);
+      redirect('/logs');
     }, 3000);
 
     return () => {
@@ -73,7 +81,7 @@ function EditForm({ onUpdateLogToDatabase, editLog }) {
               onTextInputChange={handleChange}
               name='date'
               type='date'
-              value={log.date}
+              value={editDate}
               placeholder=''
               errorMessage='Please enter a valid date!'
               required={true}
@@ -509,7 +517,7 @@ function EditForm({ onUpdateLogToDatabase, editLog }) {
             <SaveInfoBox>Your log has been saved</SaveInfoBox>
           )}
 
-          <Button backgroundcolor='#0939B6'>Edit</Button>
+          <Button backgroundcolor='#0939B6'>Update</Button>
           <Button
             type='reset'
             onClick={() => {
