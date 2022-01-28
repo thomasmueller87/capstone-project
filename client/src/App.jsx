@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
 import Edit from './pages/Edit';
+import Map from './pages/Map';
 import Splash from './pages/Splash';
 import styled from 'styled-components';
 
@@ -131,6 +132,7 @@ function App() {
             }
           />
           <Route path='splash' element={<Splash />} />
+          <Route path='map' element={<Map />} />
         </Routes>
       </BackgroundWrap>
     </div>
