@@ -53,6 +53,8 @@ const exportLogs = async (req, res) => {
     'waterTemp',
     'notes',
     'buddy',
+    'posLat',
+    'posLng',
   ];
 
   res.write(
@@ -75,6 +77,8 @@ const exportLogs = async (req, res) => {
         log.waterTemp,
         log.notes,
         log.buddy,
+        log.posLat,
+        log.posLng,
       ]
         .map((property) => `"${property}"`)
         .join(',')
@@ -107,6 +111,8 @@ const postLog = async (req, res) => {
     notes: req.body.notes,
     buddy: req.body.buddy,
     signature: req.body.signature,
+    posLat: req.body.posLat,
+    posLng: req.body.posLng,
   });
 
   try {
@@ -136,6 +142,8 @@ const updateLog = async (req, res) => {
     notes: req.body.notes,
     buddy: req.body.buddy,
     signature: req.body.signature,
+    posLat: req.body.posLat,
+    posLng: req.body.posLng,
   };
 
   try {

@@ -93,6 +93,14 @@ function Form({ onAddLog }) {
     });
   };
 
+  const handleChangeMap = (lat, lng) => {
+    setLog({
+      ...log,
+      posLat: lat,
+      posLng: lng,
+    });
+  };
+
   return (
     <Center>
       <CardContainer>
@@ -296,7 +304,7 @@ function Form({ onAddLog }) {
             </InputField>
             <MapStyle>
               <p>Map</p>
-              <Map />
+              <Map onHandleChangeMap={handleChangeMap} />
             </MapStyle>
           </FormGroup>
 

@@ -16,7 +16,7 @@ const options = {
   disableDefaultUI: true,
 };
 
-function Map() {
+function Map({ onHandleChangeMap }) {
   const [markers, setMarkers] = useState([]);
 
   return (
@@ -33,13 +33,16 @@ function Map() {
               lng: event.latLng.lng(),
             },
           ]);
+          onHandleChangeMap(
+            event.latLng.lat(),
+            event.latLng.lng()
+          );
         }}
       >
         {markers.map((marker, index) => (
           <Marker
             key={index}
             position={{ lat: marker.lat, lng: marker.lng }}
-            draggable={true}
           />
         ))}
       </GoogleMap>

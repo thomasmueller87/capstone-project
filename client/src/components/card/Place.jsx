@@ -40,7 +40,7 @@ function Place({ label, logData }) {
       <div className='data2'>{logData.spot}</div>
       <div className='label'>{label}</div>
       <div className='map'>
-        <CardMap />
+        <CardMap logData={logData} />
       </div>
     </CardWrapper>
   );

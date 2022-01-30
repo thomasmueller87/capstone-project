@@ -16,6 +16,8 @@ const logSchema = new mongoose.Schema({
   notes: String,
   buddy: String,
   signature: String,
+  posLat: String,
+  posLng: String,
 });
 
 const Log = mongoose.model('Log', logSchema);
