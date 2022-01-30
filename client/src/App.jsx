@@ -4,12 +4,7 @@ import {
   saveToLocalStorage,
   loadFromLocalStorage,
 } from './lib/localStorage';
-import {
-  GoogleMap,
-  useLoadScript,
-  Marker,
-  InfoWindow,
-} from '@react-google-maps/api';
+import { useLoadScript } from '@react-google-maps/api';
 import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';

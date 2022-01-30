@@ -23,7 +23,7 @@ function CardMap({ logData }) {
     <>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={13}
+        zoom={11}
         center={position}
         options={options}
       >

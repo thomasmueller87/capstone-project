@@ -14,13 +14,15 @@ const options = {
 
 function EditMap({ onHandleChangeMap, editLog }) {
   function findCenter() {
-    const centerLatNumber = Number(editLog.posLat);
-    const centerLngNumber = Number(editLog.posLng);
-    const centerPosition = {
-      lat: centerLatNumber,
-      lng: centerLngNumber,
-    };
-    setCenter(centerPosition);
+    if (editLog.posLat !== '' && editLog.posLng !== '') {
+      const centerLatNumber = Number(editLog.posLat);
+      const centerLngNumber = Number(editLog.posLng);
+      const centerPosition = {
+        lat: centerLatNumber,
+        lng: centerLngNumber,
+      };
+      setCenter(centerPosition);
+    }
   }
 
   useEffect(() => findCenter(), []);
@@ -71,14 +73,3 @@ function EditMap({ onHandleChangeMap, editLog }) {
 }
 
 export default EditMap;
-
-// return (
-//   <>
-//     <GoogleMap
-//       mapContainerStyle={mapContainerStyle}
-//       zoom={13}
-//       center={position}
-//       options={options}
-//     >
-//       <Marker position={position} />
-//     </GoogleMap>

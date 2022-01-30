@@ -39,9 +39,11 @@ function Place({ label, logData }) {
       <div className='data1'>{logData.country}</div>
       <div className='data2'>{logData.spot}</div>
       <div className='label'>{label}</div>
-      <div className='map'>
-        <CardMap logData={logData} />
-      </div>
+      {logData.posLat && logData.posLng && (
+        <div className='map'>
+          <CardMap logData={logData} />
+        </div>
+      )}
     </CardWrapper>
   );
 }
