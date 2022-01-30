@@ -5,6 +5,7 @@ import CardContainer from './CardContainer';
 import InputField from './InputField';
 import InputTextArea from './InputTextArea';
 import Signature from './Signature';
+import EditMap from './EditMap';
 
 function EditForm({ onUpdateLogToDatabase, editLog }) {
   const redirect = useNavigate();
@@ -69,6 +70,14 @@ function EditForm({ onUpdateLogToDatabase, editLog }) {
     setLog({
       ...log,
       [event.target.name]: inputValue,
+    });
+  };
+
+  const handleChangeMap = (lat, lng) => {
+    setLog({
+      ...log,
+      posLat: lat,
+      posLng: lng,
     });
   };
 
@@ -273,6 +282,13 @@ function EditForm({ onUpdateLogToDatabase, editLog }) {
               </svg>
               <p>Dive Spot</p>
             </InputField>
+            <MapStyle>
+              <p>Map</p>
+              <EditMap
+                editLog={editLog}
+                onHandleChangeMap={handleChangeMap}
+              />
+            </MapStyle>
           </FormGroup>
 
           <FormGroup backgroundcolor='var(--background-card-air)'>
@@ -537,6 +553,24 @@ export default EditForm;
 const Center = styled.section`
   margin: 0 auto;
   width: 70%;
+`;
+
+const MapStyle = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  font-size: 0.8rem;
+
+  label {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+
+    p {
+      margin: 0;
+      padding: 0 0 0 5px;
+    }
+  }
 `;
 
 const FormGroup = styled.div`
