@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-//import Map from './Map';
+import CardMap from './CardMap';
 
 function Place({ label, logData }) {
   return (
@@ -39,9 +39,9 @@ function Place({ label, logData }) {
       <div className='data1'>{logData.country}</div>
       <div className='data2'>{logData.spot}</div>
       <div className='label'>{label}</div>
-      {/* <div className='map'>
-        <Map />
-      </div> */}
+      <div className='map'>
+        <CardMap />
+      </div>
     </CardWrapper>
   );
 }

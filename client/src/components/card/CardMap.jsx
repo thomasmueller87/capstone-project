@@ -2,8 +2,13 @@ import { GoogleMap, Marker } from '@react-google-maps/api';
 import { useState } from 'react';
 
 const mapContainerStyle = {
-  width: '80vw',
-  height: '80vh',
+  width: '85vw',
+  height: '40vh',
+};
+
+const markerPosition = {
+  lat: 43.6532225,
+  lng: -79.383186,
 };
 
 const center = {
@@ -16,35 +21,21 @@ const options = {
   disableDefaultUI: true,
 };
 
-function Map() {
+function CardMap() {
   const [markers, setMarkers] = useState([]);
 
   return (
     <>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={6}
+        zoom={7}
         center={center}
         options={options}
-        onClick={(event) => {
-          setMarkers([
-            {
-              lat: event.latLng.lat(),
-              lng: event.latLng.lng(),
-            },
-          ]);
-        }}
       >
-        {markers.map((marker, index) => (
-          <Marker
-            key={index}
-            position={{ lat: marker.lat, lng: marker.lng }}
-            draggable={true}
-          />
-        ))}
+        <Marker position={markerPosition} />
       </GoogleMap>
     </>
   );
 }
 
-export default Map;
+export default CardMap;

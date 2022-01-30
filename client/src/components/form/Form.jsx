@@ -5,6 +5,7 @@ import CardContainer from './CardContainer';
 import InputField from './InputField';
 import InputTextArea from './InputTextArea';
 import Signature from './Signature';
+import Map from './Map';
 import { loadFromLocalStorage } from '../../lib/localStorage';
 
 function Form({ onAddLog }) {
@@ -293,6 +294,10 @@ function Form({ onAddLog }) {
               </svg>
               <p>Dive Spot</p>
             </InputField>
+            <MapStyle>
+              <p>Map</p>
+              <Map />
+            </MapStyle>
           </FormGroup>
 
           <FormGroup backgroundcolor='var(--background-card-air)'>
@@ -557,6 +562,24 @@ export default Form;
 const Center = styled.section`
   margin: 0 auto;
   width: 70%;
+`;
+
+const MapStyle = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  font-size: 0.8rem;
+
+  label {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+
+    p {
+      margin: 0;
+      padding: 0 0 0 5px;
+    }
+  }
 `;
 
 const FormGroup = styled.div`
