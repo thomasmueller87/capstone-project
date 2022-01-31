@@ -25,8 +25,6 @@ function EditMap({ onHandleChangeMap, editLog }) {
     }
   }
 
-  useEffect(() => findCenter(), []);
-
   const latNumber = Number(editLog.posLat);
   const lngNumber = Number(editLog.posLng);
   const position = {
@@ -44,6 +42,7 @@ function EditMap({ onHandleChangeMap, editLog }) {
   return (
     <>
       <GoogleMap
+        onLoad={findCenter}
         mapContainerStyle={mapContainerStyle}
         zoom={12}
         center={center}

@@ -96,7 +96,7 @@ function App() {
   }
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyCrNjDL3YGGWgFhFj1xIHuDjz3kflmnBLw',
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API,
   });
 
   if (loadError) return 'Error loading maps';

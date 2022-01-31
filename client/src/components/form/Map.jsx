@@ -6,10 +6,6 @@ const mapContainerStyle = {
   height: '30vh',
 };
 
-const center = {
-  lat: 51.2257710851142,
-  lng: 6.769391671626233,
-};
 const options = {
   zoomControl: false,
   streetViewControl: false,
@@ -18,13 +14,31 @@ const options = {
 
 function Map({ onHandleChangeMap }) {
   const [markers, setMarkers] = useState([]);
+  const [currentPosition, setCurrentPosition] = useState({
+    lat: 51.2257710851142,
+    lng: 6.769391671626233,
+  });
+
+  const getGeoLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setCurrentPosition({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
+      });
+    } else {
+      (error) => console.log(error);
+    }
+  };
 
   return (
     <>
       <GoogleMap
+        onLoad={getGeoLocation}
         mapContainerStyle={mapContainerStyle}
-        zoom={12}
-        center={center}
+        zoom={10}
+        center={currentPosition}
         options={options}
         onClick={(event) => {
           setMarkers([
