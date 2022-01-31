@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import AddCard from '../components/AddCard';
+import Form from '../components/form/Form';
 import Navbar from '../components/Navbar';
 import { useEffect } from 'react';
 
@@ -10,7 +10,7 @@ export default function Create({ onAddLog }) {
   return (
     <>
       <Header title='Add new Log' />
-      <AddCard onAddLog={onAddLog} />
+      <Form onAddLog={onAddLog} />
       <Navbar />
     </>
   );

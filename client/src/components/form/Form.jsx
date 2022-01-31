@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import CardContainer from './CardContainer';
+import CardContainer from '../CardContainer';
 import InputField from './InputField';
 import InputTextArea from './InputTextArea';
 import Signature from './Signature';
@@ -108,7 +108,7 @@ function Form({ onAddLog }) {
   };
 
   return (
-    <Center>
+    <SmallWidth>
       <CardContainer>
         <form onSubmit={handleSubmit}>
           <FormGroup>
@@ -255,7 +255,7 @@ function Form({ onAddLog }) {
               </p>
             </InputField>
           </FormGroup>
-          <FormGroup backgroundcolor='var(--background-card-place)'>
+          <FormPlace>
             <InputField
               onTextInputChange={handleChange}
               name='country'
@@ -338,13 +338,15 @@ function Form({ onAddLog }) {
                   </>
                 )}
               </div>
-              {expandMap && (
-                <Map onHandleChangeMap={handleChangeMap} />
-              )}
             </MapStyle>
-          </FormGroup>
+            {expandMap && (
+              <MapPosition>
+                <Map onHandleChangeMap={handleChangeMap} />
+              </MapPosition>
+            )}
+          </FormPlace>
 
-          <FormGroup backgroundcolor='var(--background-card-air)'>
+          <FormAir>
             <InputField
               onTextInputChange={handleChange}
               name='airStart'
@@ -459,8 +461,8 @@ function Form({ onAddLog }) {
               </svg>
               <p>Amount of Oxygen in Air-Mix</p>
             </InputField>
-          </FormGroup>
-          <FormGroup backgroundcolor='var(--background-card-water)'>
+          </FormAir>
+          <FormWater>
             <InputField
               onTextInputChange={handleChange}
               name='waterDepthMax'
@@ -535,9 +537,9 @@ function Form({ onAddLog }) {
               </svg>
               <p>Water Temperature</p>
             </InputField>
-          </FormGroup>
+          </FormWater>
 
-          <FormGroup backgroundcolor='var(--background-card-buddy)'>
+          <FormBuddy>
             <InputField
               onTextInputChange={handleChange}
               name='buddy'
@@ -568,8 +570,9 @@ function Form({ onAddLog }) {
               onhandleSignatureData={handleSignatureData}
               buttonName='Add Signature'
             />
-          </FormGroup>
-          <FormGroup backgroundcolor='var(--background-card-notes)'>
+          </FormBuddy>
+
+          <FormNotes>
             <InputTextArea
               onTextInputChange={handleChange}
               name='notes'
@@ -581,7 +584,7 @@ function Form({ onAddLog }) {
             >
               <p>Your notes about the dive</p>
             </InputTextArea>
-          </FormGroup>
+          </FormNotes>
           {saveInfo && (
             <SaveInfoBox>Your log has been saved</SaveInfoBox>
           )}
@@ -597,15 +600,15 @@ function Form({ onAddLog }) {
           </Button>
         </form>
       </CardContainer>
-    </Center>
+    </SmallWidth>
   );
 }
 
 export default Form;
 
-const Center = styled.section`
+const SmallWidth = styled.section`
   margin: 0 auto;
-  width: 70%;
+  width: 75%;
 `;
 
 const MapStyle = styled.div`
@@ -618,7 +621,6 @@ const MapStyle = styled.div`
     display: flex;
     align-items: center;
     padding: 0 5px;
-
     span {
       margin: 0;
       padding: 0 0 0 5px;
@@ -626,13 +628,40 @@ const MapStyle = styled.div`
   }
 `;
 
+const MapPosition = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const FormGroup = styled.div`
+  border-radius: 10px;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
-  border: 1px solid black;
-  border-radius: 5px;
-  background-color: ${(props) =>
-    props.backgroundcolor || 'white'}; ;
+`;
+
+const FormPlace = styled(FormGroup)`
+  background: #f6d8bb;
+  background: var(--background-card-place);
+`;
+
+const FormAir = styled(FormGroup)`
+  background: rgb(202, 250, 196);
+  background: var(--background-card-air);
+`;
+
+const FormWater = styled(FormGroup)`
+  background: rgba(195, 218, 255);
+  background: var(--background-card-water);
+`;
+
+const FormBuddy = styled(FormGroup)`
+  background: rgb(255, 255, 255);
+  background: var(--background-card-buddy);
+`;
+
+const FormNotes = styled(FormGroup)`
+  background: rgb(250, 251, 224);
+  background: var(--background-card-notes);
 `;
 
 const Button = styled.button`

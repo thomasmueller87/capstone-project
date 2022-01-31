@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CardContainer from './card/CardContainer';
+import CardContainer from './CardContainer';
 
 function Export() {
   return (
