@@ -16,17 +16,39 @@ export default createGlobalStyle`
 
     --background-header: #ffffff;
 
-    
     --background-card: #ffffff;
-    --background-card-air: #e3fbe0;
-    --background-card-notes: #fafbe0;
-    --background-card-place: #f6d8bb;
-    --background-card-label: #ffffff;
-    --background-card-water: #e0f3fb;
-    --background-card-buddy: #ffffff;
+    --background-card-label: #6b6b6b;
+    --card-label-text-color: #ffffff;
+    --background-card-air: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(202, 250, 196, 1) 100%
+  );
+    --background-card-notes: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(250, 251, 224, 1) 100%
+  );    
+    --background-card-place: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    #f6d8bb 100%
+  );    
+    --background-card-water: 
+    linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(195, 218, 255, 1) 100%
+  );
+    --background-card-buddy: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(219, 219, 219, 1) 100%
+  );
     --title-text: #978f8f;
     --primary-color: #0939B6;
     --primary-text: #000000; // Main color for Text
+    
 
 
     --fontsize-card-standard: 1.1rem;

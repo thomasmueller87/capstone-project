@@ -153,7 +153,7 @@ const FooterStyle = styled.div`
 
   div {
     margin-bottom: 5px;
-    border-top: 2px solid var(--primary-color);
+    border-top: 2px solid #000;
   }
 
   button {

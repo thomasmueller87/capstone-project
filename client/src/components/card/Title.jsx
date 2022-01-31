@@ -141,7 +141,7 @@ function Title({
 export default Title;
 
 const TitleContainer = styled.div`
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid #000;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;

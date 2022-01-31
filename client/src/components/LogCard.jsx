@@ -29,20 +29,41 @@ function LogCard({ log, onDeleteFromDatabase, index }) {
         <CardGrid>
           <div className='card-grid'>
             <div className='place'>
-              <Place label='Place' logData={log} />
+              <Place
+                label='Place'
+                logData={log}
+                country={log.country}
+                spot={log.spot}
+                posLat={log.posLat}
+                posLng={log.posLng}
+              />
             </div>
             <div className='air'>
-              <Air label='Air' logData={log} />
+              <Air
+                label='Air'
+                airStart={log.airStart}
+                airEnd={log.airEnd}
+                airEan={log.airEan}
+              />
             </div>
             <div className='water'>
-              <Water label='Water' logData={log} />
+              <Water
+                label='Water'
+                waterDepthMax={log.waterDepthMax}
+                waterDepthAvg={log.waterDepthAvg}
+                waterTemp={log.waterTemp}
+              />
             </div>
             <div className='buddy'>
-              <Buddy label='Buddy' logData={log} />
+              <Buddy
+                label='Buddy'
+                buddy={log.buddy}
+                signature={log.signature}
+              />
             </div>
 
             <div className='notes'>
-              <Notes label='Notes' logData={log} />
+              <Notes label='Notes' notes={log.notes} />
             </div>
           </div>
         </CardGrid>
@@ -60,9 +81,6 @@ function LogCard({ log, onDeleteFromDatabase, index }) {
 export default LogCard;
 
 const CardGrid = styled.div`
-  margin: 0;
-  padding: 0;
-
   .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -83,10 +101,10 @@ const CardGrid = styled.div`
   .water {
     grid-area: water;
   }
-  .notes {
-    grid-area: notes;
-  }
   .buddy {
     grid-area: buddy;
+  }
+  .notes {
+    grid-area: notes;
   }
 `;
