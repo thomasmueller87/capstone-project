@@ -6,8 +6,7 @@ export default createGlobalStyle`
 }
 
 :root {
-    --background-nav: #ffffff;
-    --background-nav-active-fallback: red;
+    --background-nav: #5c5c5c;
     --background-nav-active: linear-gradient(
       180deg,
       rgba(255, 0, 0, 0) 10%,
@@ -43,7 +42,7 @@ export default createGlobalStyle`
     --background-card-buddy: linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(219, 219, 219, 1) 100%
+    rgba(244,224,251,1) 100%
   );
     --title-text: #978f8f;
     --primary-color: #0939B6;
