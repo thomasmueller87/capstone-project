@@ -87,7 +87,7 @@ export default Navbar;
 
 const NavContainer = styled.footer`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -96,9 +96,7 @@ const NavContainer = styled.footer`
 
 const NavItem = styled.div`
   align-items: center;
-  background-color: var(--background-nav);
-  border: 1px solid black;
-  color: black;
+  background: var(--background-nav);
   display: flex;
   height: 3rem;
   justify-content: center;
@@ -106,21 +104,17 @@ const NavItem = styled.div`
   width: 100%;
 
   .active {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 30%,
-      #b60909b7 100%
-    );
-    color: black;
+    background: var(--background-nav-active-fallback);
+    background: var(--background-nav-active);
   }
 
   a {
-    color: black;
-    text-decoration: none;
+    color: var(--primary-text);
     font-size: 0.8rem;
     font-weight: bold;
-    width: 100%;
     height: 100%;
+    text-decoration: none;
+    width: 100%;
   }
 `;
 

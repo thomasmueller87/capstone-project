@@ -19,8 +19,10 @@ function LogCard({ log, onDeleteFromDatabase, index }) {
     <CardContainer>
       <Title
         onHandleExpand={handleExpand}
-        logData={log}
-        index={index}
+        date={log.date}
+        time={log.time}
+        duration={log.duration}
+        logNumber={index}
       />
 
       {expandCard && (

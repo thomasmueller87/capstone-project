@@ -7,7 +7,16 @@ export default createGlobalStyle`
 
 :root {
     --background-nav: #ffffff;
+    --background-nav-active-fallback: red;
+    --background-nav-active: linear-gradient(
+      180deg,
+      rgba(255, 0, 0, 0) 10%,
+      rgba(255, 0, 0, 0.8) 100%
+    );
+
     --background-header: #ffffff;
+
+    
     --background-card: #ffffff;
     --background-card-air: #e3fbe0;
     --background-card-notes: #fafbe0;
@@ -15,9 +24,9 @@ export default createGlobalStyle`
     --background-card-label: #ffffff;
     --background-card-water: #e0f3fb;
     --background-card-buddy: #ffffff;
-    --title: #978f8f;
+    --title-text: #978f8f;
     --primary-color: #0939B6;
-    --primary-text: #000000;
+    --primary-text: #000000; // Main color for Text
 
 
     --fontsize-card-standard: 1.1rem;

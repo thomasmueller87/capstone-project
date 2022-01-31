@@ -147,15 +147,15 @@ function App() {
 export default App;
 
 const BackgroundWrap = styled.div`
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  min-height: 100vh;
-  margin: 0;
   background: linear-gradient(
     15deg,
     rgba(79, 172, 254, 1) 0%,
     rgba(0, 242, 254, 1) 100%
   );
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-attachment: fixed; ;
+  margin: 0;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
 `;

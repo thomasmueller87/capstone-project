@@ -15,33 +15,30 @@ function Header({ title }) {
 export default Header;
 
 const HeaderContainer = styled.header`
+  background-color: var(--background-header);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: 80% 20%;
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: var(--background-header);
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
   z-index: 999;
 `;
 
 const HeaderTitle = styled.div`
+  align-items: center;
+  color: var(--title-text);
   display: flex;
   font-family: 'Merriweather', serif;
   font-size: 1.5rem;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 1.2rem;
   height: 3rem;
-  width: 100%;
-  color: var(--title);
+  padding-left: 1.2rem;
 `;
 
 const HeaderLogo = styled.div`
+  align-items: center;
   display: flex;
+  height: 3rem;
   justify-content: flex-end;
   padding-right: 0.8rem;
-  align-items: center;
-  height: 3rem;
-  width: 100%;
 `;
