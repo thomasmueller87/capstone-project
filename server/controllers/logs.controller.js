@@ -2,7 +2,9 @@ import Log from '../models/log.model.js';
 import mongoose from 'mongoose';
 
 const getLogs = async (req, res) => {
-  const logs = await Log.find().sort({ date: 'desc' });
+  const logs = await Log.find()
+    .sort({ date: 'desc' })
+    .sort({ time: 'desc' });
   res.json(logs);
 };
 
