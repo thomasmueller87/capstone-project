@@ -39,8 +39,6 @@ function Place({ label, country, spot, posLat, posLng }) {
       <div className='data1'>{country}</div>
       <div className='data2'>{spot}</div>
       <div className='label'>{label}</div>
-      {posLat && posLng && (
-        <div className='map'>
           <CardMap posLat={posLat} posLng={posLng} />
         </div>
       )}

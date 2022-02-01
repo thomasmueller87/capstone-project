@@ -335,6 +335,7 @@ function EditForm({ onUpdateLogToDatabase, editLog }) {
             )}
           </FormPlace>
 
+
           <FormAir>
             <InputField
               onTextInputChange={handleChange}
@@ -620,6 +621,24 @@ const MapStyle = styled.div`
 const MapPosition = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const MapStyle = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  font-size: 0.8rem;
+
+  div {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+
+    span {
+      margin: 0;
+      padding: 0 0 0 5px;
+    }
+  }
 `;
 
 const FormGroup = styled.div`
