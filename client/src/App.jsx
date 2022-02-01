@@ -4,6 +4,7 @@ import {
   saveToLocalStorage,
   loadFromLocalStorage,
 } from './lib/localStorage';
+import { useLoadScript } from '@react-google-maps/api';
 import Home from './pages/Home';
 import Create from './pages/Create';
 import Settings from './pages/Settings';
@@ -94,6 +95,12 @@ function App() {
     await fetchLogs();
   }
 
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API,
+  });
+
+  if (loadError) return 'Error loading maps';
+  if (!isLoaded) return 'Loading maps';
   return (
     <div className='App'>
       <BackgroundWrap>
