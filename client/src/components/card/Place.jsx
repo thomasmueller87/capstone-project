@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import CardMap from './CardMap';
 
-function Place({ label, logData }) {
+function Place({ label, country, spot, posLat, posLng }) {
   return (
     <CardWrapper>
       <div className='icon1'>
@@ -36,14 +36,12 @@ function Place({ label, logData }) {
           />
         </svg>
       </div>
-      <div className='data1'>{logData.country}</div>
-      <div className='data2'>{logData.spot}</div>
+      <div className='data1'>{country}</div>
+      <div className='data2'>{spot}</div>
       <div className='label'>{label}</div>
-      {logData.posLat && logData.posLng && (
-        <div className='map'>
-          <CardMap logData={logData} />
-        </div>
-      )}
+      <div className='map'>
+        <CardMap posLat={posLat} posLng={posLng} />
+      </div>
     </CardWrapper>
   );
 }
@@ -51,14 +49,14 @@ function Place({ label, logData }) {
 export default Place;
 
 const CardWrapper = styled.section`
-  background-color: var(--background-card-place);
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 1.2rem 0 1rem 0;
-  padding: 0.3rem;
+  background: #f6d8bb;
+  background: var(--background-card-place);
+  border-radius: 10px;
   display: grid;
   grid-template-columns: 40px 1fr;
   grid-template-rows: 1fr 1fr auto;
+  margin: 1.2rem 0 1rem 0;
+  padding: 0.3rem;
   position: relative;
   text-align: left;
 
@@ -80,13 +78,12 @@ const CardWrapper = styled.section`
   }
 
   .label {
-    background-color: var(--background-card-label);
-    border: 2px solid var(--primary-color);
     border-radius: 5px;
-    color: var(--primary-color);
-    padding: 0 0.5rem;
+    background-color: var(--background-card-label);
+    color: var(--card-label-text-color);
+    padding: 0.2rem 1rem;
     position: absolute;
-    top: -0.8rem;
-    right: 0.5rem;
+    right: 1rem;
+    top: -0.7rem;
   }
 `;

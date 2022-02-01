@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-function Notes({ label, logData }) {
+function Notes({ label, notes }) {
   return (
     <CardWrapper>
       <div className='inner-flex'>
-        <div className='inner-description'>{logData.notes}</div>
+        <div className='inner-description'>{notes}</div>
       </div>
       <div className='label'>{label}</div>
     </CardWrapper>
@@ -14,9 +14,9 @@ function Notes({ label, logData }) {
 export default Notes;
 
 const CardWrapper = styled.section`
-  background-color: var(--background-card-notes);
-  border: 1px solid black;
-  border-radius: 5px;
+  background: rgb(250, 251, 224);
+  background: var(--background-card-notes);
+  border-radius: 10px;
   margin: 0.5rem 0 0.5rem 0;
   padding: 0.3rem;
   display: flex;
@@ -28,16 +28,15 @@ const CardWrapper = styled.section`
     font-size: var(--fontsize-card-notes);
     font-weight: var(--fontweight-card-notes);
     text-align: left;
-    padding: 0.5rem 0 0 0;
+    padding: 1rem 0.5rem 0 0.5rem;
   }
   .label {
-    background-color: var(--background-card-label);
-    border: 2px solid var(--primary-color);
     border-radius: 5px;
-    color: var(--primary-color);
-    padding: 0 0.5rem;
+    background-color: var(--background-card-label);
+    color: var(--card-label-text-color);
+    padding: 0.2rem 1rem;
     position: absolute;
-    top: -0.8rem;
-    right: 0.5rem;
+    right: 1rem;
+    top: -0.7rem;
   }
 `;

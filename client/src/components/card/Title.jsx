@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-function Title({ onHandleExpand, logData, index }) {
+function Title({
+  onHandleExpand,
+  date,
+  time,
+  duration,
+  logNumber,
+}) {
   return (
     <TitleContainer onClick={onHandleExpand}>
       <div className='date'>
@@ -83,7 +89,7 @@ function Title({ onHandleExpand, logData, index }) {
               year: 'numeric',
               month: '2-digit',
               day: '2-digit',
-            }).format(Date.parse(logData.date))}
+            }).format(Date.parse(date))}
         </div>
         <div>
           <svg
@@ -103,7 +109,7 @@ function Title({ onHandleExpand, logData, index }) {
             />
           </svg>
 
-          {` ${logData.time}`}
+          {` ${time}`}
         </div>
       </div>
       <div className='duration'>
@@ -121,12 +127,12 @@ function Title({ onHandleExpand, logData, index }) {
             />
           </svg>
 
-          {` ${logData.duration} min`}
+          {` ${duration} min`}
         </div>
       </div>
       <div className='number'>
         <div>#</div>
-        <div>{` ${index + 1}`}</div>
+        <div>{` ${logNumber + 1}`}</div>
       </div>
     </TitleContainer>
   );
@@ -135,36 +141,35 @@ function Title({ onHandleExpand, logData, index }) {
 export default Title;
 
 const TitleContainer = styled.div`
+  border-bottom: 2px solid #000;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  border-bottom: 2px solid var(--primary-color);
   .date {
+    align-items: flex-start;
     display: flex;
     flex-flow: column nowrap;
-    align-items: flex-start;
     flex-grow: 2;
   }
 
   .duration {
-    display: flex;
-
     align-items: flex-end;
+    display: flex;
     flex-grow: 2;
   }
 
   .number {
-    display: flex;
     align-items: flex-end;
-    justify-content: flex-end;
+    display: flex;
     flex-grow: 1;
     font-size: 1.5rem;
+    justify-content: flex-end;
     div:last-child {
-      display: flex;
       align-items: flex-end;
-      justify-content: flex-end;
       color: red;
+      display: flex;
       font-size: 3rem;
+      justify-content: flex-end;
     }
   }
 `;

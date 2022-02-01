@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function Air({ label, logData }) {
+function Air({ label, airStart, airEnd, airEan }) {
   return (
     <CardWrapper>
       <div className='icon1'>
@@ -117,14 +117,14 @@ function Air({ label, logData }) {
         EAN
       </div>
 
-      {logData.airStart !== '' && (
-        <div className='data1'>{`${logData.airStart} bar`}</div>
+      {airStart !== '' && (
+        <div className='data1'>{`${airStart} bar`}</div>
       )}
-      {logData.airEnd !== '' && (
-        <div className='data2'>{`${logData.airEnd} bar`}</div>
+      {airEnd !== '' && (
+        <div className='data2'>{`${airEnd} bar`}</div>
       )}
-      {logData.airEan !== '' && (
-        <div className='data3'>{`${logData.airEan} %`}</div>
+      {airEan !== '' && (
+        <div className='data3'>{`${airEan} %`}</div>
       )}
 
       <div className='label'>{label}</div>
@@ -135,11 +135,11 @@ function Air({ label, logData }) {
 export default Air;
 
 const CardWrapper = styled.section`
-  background-color: var(--background-card-air);
-  border: 1px solid black;
-  border-radius: 5px;
+  background: rgb(202, 250, 196);
+  background: var(--background-card-air);
+  border-radius: 10px;
   margin: 0.5rem 0 1rem 0;
-  padding: 0.7rem 0 0 0.3rem;
+  padding: 1.2rem 0 0 0.3rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -170,13 +170,12 @@ const CardWrapper = styled.section`
   }
 
   .label {
-    background-color: var(--background-card-label);
-    border: 2px solid var(--primary-color);
     border-radius: 5px;
-    color: var(--primary-color);
-    padding: 0 0.5rem;
+    background-color: var(--background-card-label);
+    color: var(--card-label-text-color);
+    padding: 0.2rem 1rem;
     position: absolute;
-    top: -0.8rem;
-    right: 0.5rem;
+    right: 1rem;
+    top: -0.7rem;
   }
 `;

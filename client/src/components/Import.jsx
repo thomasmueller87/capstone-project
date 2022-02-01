@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import CardContainer from './card/CardContainer';
+import CardContainer from './CardContainer';
 import Popup from 'reactjs-popup';
 import './Import.css';
 

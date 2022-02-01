@@ -2,7 +2,9 @@ import Log from '../models/log.model.js';
 import mongoose from 'mongoose';
 
 const getLogs = async (req, res) => {
-  const logs = await Log.find().sort({ date: 'desc' });
+  const logs = await Log.find()
+    .sort({ date: 'desc' })
+    .sort({ time: 'desc' });
   res.json(logs);
 };
 
@@ -12,10 +14,10 @@ const importLogs = async (req, res) => {
   const rows = text.split('\r\n');
   const columnHeaders = rows
     .shift() // gibt die erste Zeile (Überschriften) zurück und reduziert die rows um die erste Zeile
-    .split(',')
+    .split('§')
     .map((header) => header.replaceAll('"', ''));
   const logs = rows.map((row) =>
-    row.split(',').map((column) => column.replaceAll('"', ''))
+    row.split('§').map((column) => column.replaceAll('"', ''))
   );
 
   const logsWithKeys = [];
@@ -58,7 +60,7 @@ const exportLogs = async (req, res) => {
   ];
 
   res.write(
-    columns.map((column) => `"${column}"`).join(',') + '\r\n'
+    columns.map((column) => `"${column}"`).join('§') + '\r\n'
   );
 
   const csvString = logs
@@ -81,7 +83,7 @@ const exportLogs = async (req, res) => {
         log.posLng,
       ]
         .map((property) => `"${property}"`)
-        .join(',')
+        .join('§')
     )
     .join('\r\n');
   res.write(csvString);

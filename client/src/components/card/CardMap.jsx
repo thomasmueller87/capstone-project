@@ -11,9 +11,9 @@ const options = {
   disableDefaultUI: true,
 };
 
-function CardMap({ logData }) {
-  const latNumber = Number(logData.posLat);
-  const lngNumber = Number(logData.posLng);
+function CardMap({ posLat, posLng }) {
+  const latNumber = Number(posLat);
+  const lngNumber = Number(posLng);
   const position = {
     lat: latNumber,
     lng: lngNumber,

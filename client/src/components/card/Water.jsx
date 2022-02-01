@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-function Water({ label, logData }) {
+function Water({
+  label,
+  waterDepthMax,
+  waterDepthAvg,
+  waterTemp,
+}) {
   return (
     <CardWrapper>
       <div className='icon1'>
@@ -50,14 +55,14 @@ function Water({ label, logData }) {
         </svg>
       </div>
 
-      {logData.waterDepthMax !== '' && (
-        <div className='data1'>{`${logData.waterDepthMax} m`}</div>
+      {waterDepthMax !== '' && (
+        <div className='data1'>{`${waterDepthMax} m`}</div>
       )}
-      {logData.waterDepthAvg !== '' && (
-        <div className='data2'>{`${logData.waterDepthAvg} m`}</div>
+      {waterDepthAvg !== '' && (
+        <div className='data2'>{`${waterDepthAvg} m`}</div>
       )}
-      {logData.waterTemp !== '' && (
-        <div className='data3'>{`${logData.waterTemp} °C`}</div>
+      {waterTemp !== '' && (
+        <div className='data3'>{`${waterTemp} °C`}</div>
       )}
 
       <div className='label'>{label}</div>
@@ -68,11 +73,11 @@ function Water({ label, logData }) {
 export default Water;
 
 const CardWrapper = styled.section`
-  background-color: var(--background-card-water);
-  border: 1px solid black;
-  border-radius: 5px;
+  background: rgba(195, 218, 255);
+  background: var(--background-card-water);
+  border-radius: 10px;
   margin: 0.5rem 0 1rem 0;
-  padding: 0.7rem 0 0 0.3rem;
+  padding: 1.2rem 0 0 0.3rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -100,15 +105,13 @@ const CardWrapper = styled.section`
   .data3 {
     grid-area: 3 / 2 / 4 / 3;
   }
-
   .label {
-    background-color: var(--background-card-label);
-    border: 2px solid var(--primary-color);
     border-radius: 5px;
-    color: var(--primary-color);
-    padding: 0 0.5rem;
+    background-color: var(--background-card-label);
+    color: var(--card-label-text-color);
+    padding: 0.2rem 1rem;
     position: absolute;
-    top: -0.8rem;
-    right: 0.5rem;
+    right: 1rem;
+    top: -0.7rem;
   }
 `;
