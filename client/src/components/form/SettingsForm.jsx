@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import CardContainer from './CardContainer';
+import CardContainer from '../CardContainer';
 import InputField from './InputField';
 import {
   saveToLocalStorage,
