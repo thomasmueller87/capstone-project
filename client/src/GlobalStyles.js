@@ -21,26 +21,26 @@ export default createGlobalStyle`
     --background-card-air: linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(202, 250, 196, 1) 100%
+    rgba(176, 245, 179, 1) 100%
   );
     --background-card-buddy: linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(250, 251, 224, 1) 100%
+    rgba(201, 244, 247, 1) 100%
   );    
     --background-card-notes: linear-gradient(
       0deg, rgba(255,255,255,1) 0%, 
-      rgba(228,228,228,1) 100%);
+      rgba(218,233,236,1) 100%);
     --background-card-place: 
     linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(195, 218, 255, 1) 100%
+    rgba(232, 243, 244, 1) 100%
   );
     --background-card-water: linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(244, 224 ,251,1) 100%
+    rgba(235, 201 ,247,1) 100%
   );
     --title-text: #978f8f;
     --primary-color: #0939B6;
