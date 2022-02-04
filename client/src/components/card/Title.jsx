@@ -10,7 +10,7 @@ function Title({
   return (
     <TitleContainer onClick={onHandleExpand}>
       <div className='date'>
-        <div>
+        <div data-testid='LogCard-date'>
           <svg
             width='24'
             height='24'
@@ -91,7 +91,7 @@ function Title({
               day: '2-digit',
             }).format(Date.parse(date))}
         </div>
-        <div>
+        <div data-testid='LogCard-time'>
           <svg
             width='24'
             height='24'
@@ -113,7 +113,7 @@ function Title({
         </div>
       </div>
       <div className='duration'>
-        <div>
+        <div data-testid='LogCard-duration'>
           <svg
             width='24'
             height='24'
@@ -130,7 +130,7 @@ function Title({
           {` ${duration} min`}
         </div>
       </div>
-      <div className='number'>
+      <div className='number' data-testid='LogCard-number'>
         <div>#</div>
         <div>{` ${logNumber + 1}`}</div>
       </div>

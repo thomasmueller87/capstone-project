@@ -33,8 +33,10 @@ function Buddy({ label, buddy, signature }) {
           </svg>
         ) : null}
       </div>
-      <div className='data1'>{buddy}</div>
-      <div className='data2'>
+      <div className='data1' data-testid='LogCard-buddy'>
+        {buddy}
+      </div>
+      <div className='data2' data-testid='LogCard-signature'>
         {signature ? (
           <img
             src={signature}

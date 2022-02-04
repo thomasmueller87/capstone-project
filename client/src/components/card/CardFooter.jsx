@@ -16,7 +16,7 @@ function CardFooter({
       {expandCard ? <div></div> : ''}
       <Popup
         trigger={
-          <button>
+          <button data-testid='LogCard-footer-delete'>
             {' '}
             <svg
               width='20'
@@ -67,7 +67,7 @@ function CardFooter({
 
       <Popup
         trigger={
-          <button>
+          <button data-testid='LogCard-footer-edit'>
             <svg
               width='20'
               height='20'
@@ -117,7 +117,10 @@ function CardFooter({
         )}
       </Popup>
 
-      <button onClick={onHandleExpand}>
+      <button
+        data-testid='LogCard-footer-expand'
+        onClick={onHandleExpand}
+      >
         {expandCard ? (
           <svg
             width='20'

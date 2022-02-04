@@ -118,13 +118,22 @@ function Air({ label, airStart, airEnd, airEan }) {
       </div>
 
       {airStart !== '' && (
-        <div className='data1'>{`${airStart} bar`}</div>
+        <div
+          className='data1'
+          data-testid='LogCard-airStart'
+        >{`${airStart} bar`}</div>
       )}
       {airEnd !== '' && (
-        <div className='data2'>{`${airEnd} bar`}</div>
+        <div
+          className='data2'
+          data-testid='LogCard-airEnd'
+        >{`${airEnd} bar`}</div>
       )}
       {airEan !== '' && (
-        <div className='data3'>{`${airEan} %`}</div>
+        <div
+          className='data3'
+          data-testid='LogCard-airEan'
+        >{`${airEan} %`}</div>
       )}
 
       <div className='label'>{label}</div>

@@ -56,13 +56,22 @@ function Water({
       </div>
 
       {waterDepthMax !== '' && (
-        <div className='data1'>{`${waterDepthMax} m`}</div>
+        <div
+          className='data1'
+          data-testid='LogCard-waterDepthMax'
+        >{`${waterDepthMax} m`}</div>
       )}
       {waterDepthAvg !== '' && (
-        <div className='data2'>{`${waterDepthAvg} m`}</div>
+        <div
+          className='data2'
+          data-testid='LogCard-waterDepthAvg'
+        >{`${waterDepthAvg} m`}</div>
       )}
       {waterTemp !== '' && (
-        <div className='data3'>{`${waterTemp} °C`}</div>
+        <div
+          className='data3'
+          data-testid='LogCard-waterTemp'
+        >{`${waterTemp} °C`}</div>
       )}
 
       <div className='label'>{label}</div>
