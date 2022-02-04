@@ -1,6 +1,15 @@
 /// <reference types="Cypress"/>
 
 describe('LogsPage', () => {
+  // Clean test DB + add test log
+  before(() => {
+    cy.request('/api/testdelete');
+    cy.fixture('logData').then((log) =>
+      cy.request('POST', '/api/logs', log)
+    );
+    cy.visit('/logs');
+    cy.wait(3500);
+  });
   it('Should add a new log (without Map and Signature) and display on logs list', () => {
     // arrange
     cy.viewport(375, 667);

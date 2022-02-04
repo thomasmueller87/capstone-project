@@ -11,6 +11,8 @@ import {
   dropLog,
 } from '../controllers/logs.controller.js';
 
+import { deleteTestDatabase } from '../controllers/testing.controller.js';
+
 const router = express.Router();
 
 router.get('/logs', getLogs);
@@ -24,5 +26,6 @@ router.post('/import', importLogs);
 
 router.get('/drop', dropLog);
 
+router.get('/testdelete', deleteTestDatabase);
 
 export default router;
