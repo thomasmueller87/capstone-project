@@ -588,7 +588,12 @@ function Form({ onAddLog }) {
           <SaveInfoBox>Your log has been saved</SaveInfoBox>
         )}
 
-        <Button backgroundcolor='#0939B6'>Add</Button>
+        <Button
+          data-testid='addlog-submit'
+          backgroundcolor='#0939B6'
+        >
+          Add
+        </Button>
         <Button
           type='reset'
           onClick={() => {

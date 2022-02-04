@@ -10,7 +10,12 @@ import Water from './card/Water';
 import Buddy from './card/Buddy';
 import CardFooter from './card/CardFooter';
 
-function LogCard({ log, onDeleteFromDatabase, index }) {
+function LogCard({
+  log,
+  onDeleteFromDatabase,
+  index,
+  dataTestId,
+}) {
   const [expandCard, setExpandCard] = useState(false);
 
   const handleExpand = () => {
