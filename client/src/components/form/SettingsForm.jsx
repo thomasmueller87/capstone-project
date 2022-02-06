@@ -190,7 +190,12 @@ function SettingsForm({}) {
             <SaveInfoBox>New defaults saved</SaveInfoBox>
           )}
 
-          <Button backgroundcolor='#0939B6'>Save</Button>
+          <Button
+            data-testid='settings-button-submit'
+            backgroundcolor='#0939B6'
+          >
+            Save
+          </Button>
           <Button
             type='reset'
             onClick={() => {

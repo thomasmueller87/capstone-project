@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 function CardContainer({ children }) {
-  return <Container>{children}</Container>;
+  return <Container data-testid='LogCard'>{children}</Container>;
 }
 
 export default CardContainer;

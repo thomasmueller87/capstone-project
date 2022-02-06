@@ -32,6 +32,7 @@ function InputField({
           pattern={pattern}
           onBlur={handleFocus}
           focused={focused.toString()}
+          data-testid={`input-${name}`}
         />
         <span>{errorMessage}</span>
       </Style>

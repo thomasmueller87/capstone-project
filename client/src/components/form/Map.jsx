@@ -33,7 +33,7 @@ function Map({ onHandleChangeMap }) {
   };
 
   return (
-    <>
+    <section data-testid='LogMap'>
       <GoogleMap
         onLoad={getGeoLocation}
         mapContainerStyle={mapContainerStyle}
@@ -60,7 +60,7 @@ function Map({ onHandleChangeMap }) {
           />
         ))}
       </GoogleMap>
-    </>
+    </section>
   );
 }
 

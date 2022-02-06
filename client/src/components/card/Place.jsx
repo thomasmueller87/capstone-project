@@ -4,7 +4,7 @@ import CardMap from './CardMap';
 function Place({ label, country, spot, posLat, posLng }) {
   return (
     <CardWrapper>
-      <div className='icon1'>
+      <div className='icon1' data-testid='LogCard'>
         <svg
           width='24'
           height='24'
@@ -36,12 +36,18 @@ function Place({ label, country, spot, posLat, posLng }) {
           />
         </svg>
       </div>
-      <div className='data1'>{country}</div>
-      <div className='data2'>{spot}</div>
-      <div className='label'>{label}</div>
-      <div className='map'>
-        <CardMap posLat={posLat} posLng={posLng} />
+      <div className='data1' data-testid='LogCard-country'>
+        {country}
       </div>
+      <div className='data2' data-testid='LogCard-spot'>
+        {spot}
+      </div>
+      <div className='label'>{label}</div>
+      {posLat && posLng && (
+        <div className='map' data-testid='LogCard-map'>
+          <CardMap posLat={posLat} posLng={posLng} />
+        </div>
+      )}
     </CardWrapper>
   );
 }

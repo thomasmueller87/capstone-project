@@ -4,7 +4,12 @@ function Notes({ label, notes }) {
   return (
     <CardWrapper>
       <div className='inner-flex'>
-        <div className='inner-description'>{notes}</div>
+        <div
+          className='inner-description'
+          data-testid='LogCard-notes'
+        >
+          {notes}
+        </div>
       </div>
       <div className='label'>{label}</div>
     </CardWrapper>
