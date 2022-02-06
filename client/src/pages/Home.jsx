@@ -8,7 +8,6 @@ export default function Home({ logs, onDeleteFromDatabase }) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(logs);
   }, []);
   return (
     <>
