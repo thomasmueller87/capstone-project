@@ -40,7 +40,7 @@ describe('LogsPage', () => {
       .first()
       .find('[data-testid="LogCard-date"]')
       .should('be.visible')
-      .should('contain', '01.02.2022');
+      .should('contain', '24.03.2022');
     cy.get('[data-testid="LogCard"]')
       .first()
       .find('[data-testid="LogCard-time"]')
